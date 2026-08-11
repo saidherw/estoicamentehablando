@@ -1,1196 +1,738 @@
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
+/* Hallmark · genre: editorial · macrostructure: Manifesto/Specimen · theme: Atelier-Obsidian · nav: N6 Newspaper Masthead · footer: Ft1 Mast-headed */
+
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — SISTEMA DE DISEÑO ANIMADO & RESPONSIVO v4.0
-   Estética: Antigüedad Elegante Moderna + Glassmorphism + Dynamic Micro-Animations
+   1. TOKENS Y SISTEMA DE DISEÑO (OKLCH LOCKED TOKENS)
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. DESIGN TOKENS & VARIABLES CSS (:root)
-   -------------------------------------------------------------------------- */
 :root {
+  /* Paleta Editorial Obsidian & Ancient Gold */
+  --color-paper: oklch(0.14 0.01 240);       /* Superficie principal oscura */
+  --color-paper-2: oklch(0.18 0.01 240);     /* Superficie secundaria */
+  --color-paper-3: oklch(0.22 0.01 240);     /* Superficie hover */
+  --color-ink: oklch(0.93 0.01 85);          /* Texto principal blanco pergamino */
+  --color-ink-2: oklch(0.70 0.02 85);        /* Texto secundario atenuado */
+  --color-rule: oklch(0.28 0.02 85);         /* Líneas divisorias finas */
+  --color-accent: oklch(0.72 0.11 85);       /* Oro Antiguo (< 5% del viewport) */
+  --color-accent-ink: oklch(0.14 0.01 240); /* Texto sobre fondo dorado */
+  --color-focus: oklch(0.72 0.11 85);        /* Indicador de foco */
+
   /* Tipografía */
-  --font-heading: 'Cinzel', serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-quote: 'Cormorant Garamond', serif;
+  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-quote: "Cormorant Garamond", Georgia, serif;
 
-  /* Colores de Marca Base */
-  --color-gold-300: #E5C882;
-  --color-gold-400: #D4B26F;
-  --color-gold-500: #C5A059;
-  --color-gold-600: #84642C;
-  --color-obsidian-950: #080B0E;
-  --color-obsidian-900: #0F1217;
-  --color-obsidian-800: #161B22;
-  --color-obsidian-700: #1F2530;
-  --color-terracotta: #A15C38;
+  /* Escala de Espaciado (4-pt grid) */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+  --space-3xl: 7.5rem;
 
-  /* Modo Oscuro Default (Glassmorphism & Obsidiana) */
-  --bg-primary: var(--color-obsidian-950);
-  --bg-secondary: rgba(22, 27, 34, 0.75);
-  --bg-elevated: rgba(31, 37, 48, 0.85);
-  --bg-glass: rgba(15, 18, 23, 0.65);
-  --glass-border: rgba(197, 160, 89, 0.18);
-  --glass-border-hover: rgba(197, 160, 89, 0.45);
-  
-  --text-primary: #F0F6FC;
-  --text-secondary: #8B949E;
-  --text-muted: #6E7681;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --brand-gold: var(--color-gold-500);
-  --brand-gold-hover: var(--color-gold-300);
-  --brand-terracotta: var(--color-terracotta);
-  --interactive-focus: var(--color-gold-400);
-
-  /* Sombras & Elevación Luminosa */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
-  --shadow-gold-glow: 0 0 30px rgba(197, 160, 89, 0.22);
-  --shadow-gold-heavy: 0 0 50px rgba(197, 160, 89, 0.45);
-
-  /* Geometría Piedra Tallada */
-  --radius-stone: 6px;
-  --radius-badge: 3px;
+  /* Geometría Editorial (Esquinas arquitectónicas rectas) */
+  --radius-card: 0px;
+  --radius-button: 0px;
   --radius-pill: 9999px;
 
-  /* Easing & Transiciones Fluidas */
-  --transition-fast: 180ms ease;
-  --transition-normal: 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* Anchos de Contenedor */
-  --container-max: 1240px;
+  /* Transiciones y Movimiento Sobrio */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-short: 200ms;
 }
 
-/* Modo Claro Adaptado (Contraste WCAG AA 4.5:1 + Glassmorphism Claro) */
+/* Modo Claro (Tinta Oscura sobre Pergamino Cálido) */
 [data-theme="light"] {
-  --bg-primary: #FAF8F5;   /* Pergamino Cálido */
-  --bg-secondary: rgba(240, 237, 230, 0.85);
-  --bg-elevated: rgba(255, 255, 255, 0.9);
-  --bg-glass: rgba(250, 248, 245, 0.8);
-  --glass-border: rgba(132, 100, 44, 0.2);
-  --glass-border-hover: rgba(132, 100, 44, 0.5);
-
-  --text-primary: #1A1A2E; /* Carbón Profundo */
-  --text-secondary: #4A5260;
-  --text-muted: #717B8C;
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --brand-gold: #84642C;   /* Dorado Oscuro Accesible */
-  --brand-gold-hover: #5F461D;
-  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-  --shadow-gold-glow: 0 0 25px rgba(132, 100, 44, 0.18);
+  --color-paper: oklch(0.96 0.01 85);
+  --color-paper-2: oklch(0.92 0.01 85);
+  --color-paper-3: oklch(0.88 0.01 85);
+  --color-ink: oklch(0.15 0.01 240);
+  --color-ink-2: oklch(0.38 0.02 240);
+  --color-rule: oklch(0.82 0.02 85);
+  --color-accent: oklch(0.52 0.12 85);
+  --color-accent-ink: oklch(0.98 0.01 85);
 }
 
-/* --------------------------------------------------------------------------
-   2. RESET & ESTILOS BASE
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   2. REGLAS BASE Y RESET DE SEGURIDAD
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-size: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+html, body {
+  width: 100%;
+  overflow-x: clip; /* Previene scroll horizontal */
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.6;
-  min-height: 100vh;
-  min-height: 100dvh;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
-  overflow-x: hidden;
-  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Skip Link (Accesibilidad WCAG AA) */
+/* Accesibilidad Skip Link */
 .skip-link {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: var(--brand-gold);
-  color: #080B0E;
-  padding: 0.75rem 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  padding: var(--space-xs) var(--space-sm);
+  font-weight: 600;
   z-index: 9999;
-  border-radius: var(--radius-stone);
-  transition: top var(--transition-fast);
+  transition: top var(--dur-short) var(--ease-out);
+  text-decoration: none;
 }
 .skip-link:focus {
   top: 1rem;
 }
 
-/* Indicador de Foco Personalizado */
-:focus-visible {
-  outline: 2px solid var(--interactive-focus);
-  outline-offset: 3px;
+/* Tipografía de Encabezados (Regla Hallmark: Sin itálicas en headers) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
-/* Tipografía */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
+h1 { font-size: clamp(2.25rem, 5vw, 4rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
 p {
-  color: var(--text-secondary);
+  color: var(--color-ink-2);
+  margin-bottom: var(--space-sm);
 }
 
 a {
-  color: var(--brand-gold);
+  color: var(--color-accent);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--dur-short) var(--ease-out);
 }
 a:hover {
-  color: var(--brand-gold-hover);
+  color: var(--color-ink);
 }
 
-/* Utilitarios */
+/* Layout Container */
 .container {
   width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1rem, 4vw, 2rem);
-  padding-right: clamp(1rem, 4vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
 }
 
-.text-center { text-align: center; }
-
-.text-gold-gradient {
-  background: linear-gradient(135deg, #FFF0C3 0%, var(--brand-gold) 50%, #A8823E 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine-gradient 6s ease infinite;
-}
-
-@keyframes shine-gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.gold-divider {
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
-  margin: 1rem auto 0 auto;
-  position: relative;
-}
-.gold-divider::after {
-  content: '🏛️';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.7);
-  background: var(--bg-primary);
-  padding: 0 0.5rem;
-  font-size: 0.8rem;
-}
-
-.grid {
-  display: grid;
-  gap: 2rem;
-}
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-.grid-4 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* --------------------------------------------------------------------------
-   3. ANIMACIONES AL SCROLL (REVEAL ANIMATIONS)
-   -------------------------------------------------------------------------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 150ms; }
-.reveal-delay-2 { transition-delay: 300ms; }
-.reveal-delay-3 { transition-delay: 450ms; }
-
-/* --------------------------------------------------------------------------
-   4. BOTONES & COMPONENTES REUTILIZABLES
-   -------------------------------------------------------------------------- */
-.btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 1.8rem;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-radius: var(--radius-stone);
-  border: 1px solid transparent;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all var(--transition-normal);
-  text-decoration: none;
-  z-index: 1;
-}
-
-.btn-gold {
-  background: linear-gradient(135deg, var(--brand-gold) 0%, #A8823E 100%);
-  color: #080B0E;
-  border-color: var(--brand-gold);
-  box-shadow: var(--shadow-gold-glow);
-}
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.6s ease;
-}
-.btn-gold:hover::before {
-  left: 100%;
-}
-.btn-gold:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: var(--shadow-gold-heavy);
-  color: #080B0E;
-}
-
-.btn-outline {
-  background: var(--bg-glass);
-  backdrop-filter: blur(8px);
-  color: var(--brand-gold);
-  border-color: var(--glass-border);
-}
-.btn-outline:hover {
-  border-color: var(--brand-gold);
-  background: var(--brand-gold);
-  color: #080B0E;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-gold-glow);
-}
-
-.btn-sm {
-  padding: 0.55rem 1.25rem;
-  font-size: 0.75rem;
-}
-.btn-full {
+/* Hairline Rules */
+.hairline {
+  border: 0;
+  border-top: 1px solid var(--color-rule);
+  margin: 0;
   width: 100%;
 }
+.double-hairline {
+  border: 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  height: 4px;
+  margin: var(--space-md) 0;
+}
 
-/* --------------------------------------------------------------------------
-   5. HEADER & NAVEGACIÓN STICKY CON BLUR
-   -------------------------------------------------------------------------- */
+/* Numeral Label Prefix (Patrón Hallmark Specimen) */
+.section-num {
+  font-family: var(--font-display);
+  font-size: var(--space-xs);
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3xs);
+  display: block;
+}
+
+/* ==========================================================================
+   3. NAVIGATION (ARCHETYPE N6 — NEWSPAPER MASTHEAD)
+   ========================================================================== */
 .site-header {
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-rule);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background-color: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: padding var(--transition-normal), background-color var(--transition-normal);
-}
-.site-header.scrolled {
-  background-color: rgba(8, 11, 14, 0.92);
-  border-bottom-color: var(--glass-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
-.header-container {
+.masthead-top-bar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 80px;
-  transition: height var(--transition-normal);
-}
-.site-header.scrolled .header-container {
-  height: 68px;
-}
-
-.brand-logo {
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-.logo-symbol {
-  font-size: 1.8rem;
-  filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.4));
-  transition: transform var(--transition-bounce);
-}
-.brand-logo:hover .logo-symbol {
-  transform: rotate(-10deg) scale(1.1);
+  padding: var(--space-2xs) 0;
+  border-bottom: 1px solid var(--color-rule);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
+.masthead-brand {
+  text-align: center;
+  padding: var(--space-sm) 0;
 }
-.logo-title {
-  font-family: var(--font-heading);
+.masthead-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+  text-decoration: none;
+  display: inline-block;
+}
+.masthead-subtitle {
+  font-family: var(--font-quote);
+  font-style: italic;
   font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--text-primary);
-  line-height: 1;
-}
-.logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
-  color: var(--brand-gold);
-  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: -0.25rem;
 }
 
-.main-nav {
+.masthead-nav-bar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: var(--space-xs) 0;
+  border-top: 1px solid var(--color-rule);
 }
-.nav-list {
+
+.nav-links-list {
   display: flex;
   list-style: none;
-  gap: 1.75rem;
+  gap: var(--space-md);
 }
-.nav-link {
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
+
+.nav-item-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.5rem 0;
+  color: var(--color-ink-2);
+  text-decoration: none;
+  padding: var(--space-3xs) 0;
   position: relative;
 }
-.nav-link::after {
-  content: '';
+
+.nav-item-link:hover, .nav-item-link.active {
+  color: var(--color-accent);
+}
+
+.nav-item-link.active::after {
+  content: "";
   position: absolute;
   bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--brand-gold);
-  transition: all var(--transition-normal);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-.nav-link:hover, .nav-link.active {
-  color: var(--brand-gold);
-}
-.nav-link:hover::after, .nav-link.active::after {
+  left: 0;
   width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
 }
 
-.header-actions {
+.nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-xs);
 }
 
-.theme-toggle-btn {
-  background: var(--bg-elevated);
-  border: 1px solid var(--glass-border);
-  color: var(--text-primary);
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-stone);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btn-theme {
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  padding: var(--space-3xs) var(--space-xs);
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: all var(--transition-bounce);
+  font-size: 0.875rem;
+  transition: background var(--dur-short) var(--ease-out);
 }
-.theme-toggle-btn:hover {
-  border-color: var(--brand-gold);
-  transform: rotate(15deg) scale(1.08);
-  box-shadow: var(--shadow-gold-glow);
+.btn-theme:hover {
+  background: var(--color-paper-2);
 }
-.icon-sun { display: none; }
-[data-theme="light"] .icon-sun { display: inline; }
-[data-theme="light"] .icon-moon { display: none; }
 
-.mobile-menu-btn {
+.mobile-nav-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 32px;
-  height: 22px;
-  background: none;
-  border: none;
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  padding: var(--space-3xs) var(--space-xs);
   cursor: pointer;
-  z-index: 1100;
-}
-.hamburger-bar {
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-primary);
-  transition: all var(--transition-normal);
-  border-radius: 2px;
-}
-.mobile-menu-btn.active .hamburger-bar:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-.mobile-menu-btn.active .hamburger-bar:nth-child(2) {
-  opacity: 0;
-}
-.mobile-menu-btn.active .hamburger-bar:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-/* --------------------------------------------------------------------------
-   6. HERO SECTION CON PARTÍCULAS INTERACTIVAS & GLOW DENSIDAD
-   -------------------------------------------------------------------------- */
-.hero-section {
-  position: relative;
-  padding: 6rem 0 7rem 0;
-  overflow: hidden;
-}
-
-.particles-container {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-bg-glow {
-  position: absolute;
-  top: -15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.16) 0%, rgba(8, 11, 14, 0) 70%);
-  pointer-events: none;
-  animation: pulse-glow 8s ease-in-out infinite alternate;
-}
-
-@keyframes pulse-glow {
-  0% { transform: translateX(-50%) scale(0.9); opacity: 0.7; }
-  100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
-}
-
-.hero-container {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 1.1rem;
-  background: var(--bg-secondary);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-badge);
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  color: var(--brand-gold);
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  animation: float-slow 4s ease-in-out infinite alternate;
-}
-
-@keyframes float-slow {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-.hero-title {
-  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.12;
-  margin-bottom: 1.5rem;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 58ch;
-  line-height: 1.7;
-}
-
-.hero-quote {
-  position: relative;
-  padding: 1.5rem 2rem;
-  background: var(--bg-secondary);
-  backdrop-filter: blur(12px);
-  border-left: 3px solid var(--brand-gold);
-  border-radius: 0 var(--radius-stone) var(--radius-stone) 0;
-  margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--transition-normal), border-color var(--transition-normal);
-}
-.hero-quote:hover {
-  transform: translateX(6px);
-  border-left-color: var(--brand-gold-hover);
-}
-.hero-quote p {
-  font-family: var(--font-quote);
-  font-style: italic;
-  font-size: 1.3rem;
-  color: var(--text-primary);
-}
-.hero-quote cite {
-  display: block;
-  font-family: var(--font-heading);
-  font-style: normal;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  color: var(--brand-gold);
-  margin-top: 0.6rem;
-}
-
-/* Formulario Hero Opt-in Glassmorphism */
-.hero-optin-box {
-  background: var(--bg-secondary);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  padding: 2.2rem;
-  border-radius: var(--radius-stone);
-  box-shadow: var(--shadow-card);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
-}
-.hero-optin-box:focus-within, .hero-optin-box:hover {
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-gold-glow);
-}
-.optin-title {
-  font-size: 1.35rem;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-.optin-sub {
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-group-inline {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-.form-input {
-  flex: 1;
-  padding: 0.9rem 1.1rem;
-  background-color: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  border-radius: var(--radius-stone);
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-.form-input:focus {
-  border-color: var(--brand-gold);
-  box-shadow: 0 0 12px rgba(197, 160, 89, 0.25);
-  outline: none;
-}
-
-.form-gdpr-check {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.form-gdpr-check a {
-  text-decoration: underline;
-}
-
-/* Arte Visual Estatua Claroscuro con EFECTO 3D TILT */
-.hero-visual {
-  position: relative;
-  perspective: 1000px;
-}
-.visual-frame {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-out;
-}
-.statue-glow {
-  position: absolute;
-  inset: -15px;
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.25), transparent 70%);
-  filter: blur(25px);
-  border-radius: 50%;
-}
-.statue-card {
-  position: relative;
-  background: var(--bg-secondary);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-stone);
-  padding: 3.5rem 2rem;
-  text-align: center;
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  transition: border-color var(--transition-normal);
-}
-.statue-card:hover {
-  border-color: var(--brand-gold);
-}
-.statue-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 4px;
-  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
-}
-.statue-tag {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  color: var(--brand-gold);
-  border: 1px solid var(--brand-gold);
-  padding: 0.25rem 0.8rem;
-  border-radius: var(--radius-badge);
-}
-.statue-icon {
-  font-size: 5.5rem;
-  margin: 1.5rem 0 1rem 0;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
-  animation: float-icon 5s ease-in-out infinite alternate;
-}
-
-@keyframes float-icon {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-10px) rotate(3deg); }
-}
-
-.statue-title {
-  font-size: 1.9rem;
-  margin-bottom: 0.5rem;
-}
-.statue-desc {
-  font-size: 0.92rem;
-  margin-bottom: 2rem;
-}
-.statue-footer {
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1.2rem;
-  font-size: 0.78rem;
-  color: var(--brand-gold);
-  font-family: var(--font-heading);
-}
-
-/* --------------------------------------------------------------------------
-   7. WIDGET INTERACTIVO: ORÁCULO DE REFLEXIONES / FRASES STOIC
-   -------------------------------------------------------------------------- */
-.section-oracle {
-  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  position: relative;
-}
-.oracle-box {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-stone);
-  padding: 3rem 2.5rem;
-  max-width: 850px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-}
-.oracle-box::before {
-  content: '“';
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  font-family: var(--font-quote);
-  font-size: 12rem;
-  color: rgba(197, 160, 89, 0.08);
-  pointer-events: none;
-}
-.oracle-quote-text {
-  font-family: var(--font-quote);
-  font-style: italic;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.oracle-author {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  color: var(--brand-gold);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-
-/* --------------------------------------------------------------------------
-   8. WIDGET INTERACTIVO: LAS 4 VIRTUDES ESTOICAS
-   -------------------------------------------------------------------------- */
-.virtues-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-.virtue-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-stone);
-  padding: 2rem 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-.virtue-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 3px;
-  background: var(--brand-gold);
-  transform: scaleX(0);
-  transition: transform var(--transition-normal);
-}
-.virtue-card:hover, .virtue-card.active {
-  transform: translateY(-6px);
-  border-color: var(--brand-gold);
-  box-shadow: var(--shadow-gold-glow);
-  background: var(--bg-elevated);
-}
-.virtue-card:hover::after, .virtue-card.active::after {
-  transform: scaleX(1);
-}
-.virtue-icon {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  transition: transform var(--transition-bounce);
-}
-.virtue-card:hover .virtue-icon {
-  transform: scale(1.15) rotate(5deg);
-}
-.virtue-title {
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-.virtue-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
 }
 
-/* --------------------------------------------------------------------------
-   9. SECCIÓN: MAESTROS ESTOICOS (CARDS GLASSMORPHICh)
-   -------------------------------------------------------------------------- */
-.section {
-  padding: 5.5rem 0;
-}
-.section-header {
-  margin-bottom: 3.5rem;
-}
-.section-subtitle {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  color: var(--brand-gold);
-}
-.section-title {
-  font-size: 2.3rem;
-  margin-top: 0.5rem;
+/* ==========================================================================
+   4. HERO SECTION (MANIFESTO / SPECIMEN ASYMMETRIC)
+   ========================================================================== */
+.hero-section {
+  padding: var(--space-xl) 0 var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-rule);
 }
 
-.card {
-  background: var(--bg-secondary);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-stone);
-  padding: 2.2rem;
-  transition: all var(--transition-normal);
-  position: relative;
-}
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--brand-gold);
-  box-shadow: var(--shadow-card), var(--shadow-gold-glow);
-}
-.card-philosopher {
-  position: relative;
-}
-.card-badge {
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-.gold-badge {
-  color: var(--brand-gold);
-}
-.card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  transition: transform var(--transition-bounce);
-}
-.card:hover .card-icon {
-  transform: scale(1.1);
-}
-.card-title {
-  font-size: 1.6rem;
-  margin-bottom: 0.25rem;
-}
-.card-role {
-  font-size: 0.88rem;
-  color: var(--brand-gold);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-.card-excerpt {
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-.mini-quote {
-  font-family: var(--font-quote);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  border-left: 2px solid var(--brand-gold);
-  padding-left: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-.card-link {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-}
-
-/* --------------------------------------------------------------------------
-   10. SECCIÓN DE VIDEO & TIMESTAMPS CON GLOW
-   -------------------------------------------------------------------------- */
-.section-video {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.video-container-wrapper {
+.hero-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+  gap: var(--space-xl);
   align-items: start;
 }
 
-.video-embed-box {
-  aspect-ratio: 16 / 9;
+.manifesto-header {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  color: var(--color-ink);
+}
+
+.manifesto-lead {
+  font-size: clamp(1.125rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--color-ink);
+  margin-bottom: var(--space-lg);
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-sm);
+}
+
+/* Formulario Optin Estilo Broadsheet */
+.optin-broadsheet {
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.optin-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3xs);
+}
+
+.optin-form-row {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.form-input-text {
+  flex: 1;
+  background: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  padding: var(--space-xs) var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border-radius: 0;
+}
+.form-input-text:focus {
+  outline: 2px solid var(--color-focus);
+}
+
+.btn-broadsheet {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: none;
+  padding: var(--space-xs) var(--space-md);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--dur-short) var(--ease-out);
+}
+.btn-broadsheet:hover {
+  opacity: 0.9;
+}
+
+/* Columna Derecha Hero: Cita Grabada en Piedra */
+.hero-inscription-card {
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.hero-inscription-card::before {
+  content: "🏛️";
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.inscription-quote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin-bottom: var(--space-sm);
+}
+
+.inscription-author {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+}
+
+.stat-strip {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-rule);
+}
+.stat-box {
+  text-align: left;
+}
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+.stat-lbl {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-2);
+}
+
+/* ==========================================================================
+   5. SECCIÓN ORÁCULO ESTOICO (PULL-QUOTE WITH MARGINALIA)
+   ========================================================================== */
+.section-oracle {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-rule);
+  background-color: var(--color-paper-2);
+}
+
+.oracle-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.oracle-quote-display {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.35;
+  color: var(--color-ink);
+  margin-bottom: var(--space-md);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
+}
+
+.oracle-author-display {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.btn-oracle {
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: var(--space-xs) var(--space-md);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.btn-oracle:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+/* ==========================================================================
+   6. SECCIÓN LAS 4 VIRTUDES (NUMERIC GRID NO-CARD SLOP)
+   ========================================================================== */
+.section-virtues {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.virtues-grid-hallmark {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.virtue-col {
+  padding: var(--space-lg) var(--space-md);
+  border-right: 1px solid var(--color-rule);
+  transition: background var(--dur-short) var(--ease-out);
+}
+.virtue-col:last-child {
+  border-right: none;
+}
+.virtue-col:hover {
+  background: var(--color-paper-2);
+}
+
+.virtue-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2xs);
+}
+
+.virtue-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2xs);
+  color: var(--color-ink);
+}
+
+.virtue-body {
+  font-size: 0.9rem;
+  color: var(--color-ink-2);
+}
+
+/* ==========================================================================
+   7. SECCIÓN MAESTROS ESTOICOS (ASYMMETRIC COLUMNS)
+   ========================================================================== */
+.section-masters {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.masters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.master-card-broadsheet {
+  border: 1px solid var(--color-rule);
+  padding: var(--space-md);
+  background: var(--color-paper);
+}
+
+.master-role-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2xs);
+  display: block;
+}
+
+.master-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+.master-quote-box {
+  border-left: 2px solid var(--color-rule);
+  padding-left: var(--space-xs);
+  font-family: var(--font-quote);
+  font-style: italic;
+  margin-top: var(--space-xs);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   8. SECCIÓN VIDEO & CAPÍTULOS
+   ========================================================================== */
+.section-video {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--color-rule);
+  background-color: var(--color-paper-2);
+}
+
+.video-editorial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.video-frame-box {
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+  padding: var(--space-xs);
+}
+
+.video-aspect-ratio {
+  position: relative;
   width: 100%;
-  background-color: var(--bg-elevated);
-  border-radius: var(--radius-stone);
-  overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-card);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
 }
-.video-embed-box:hover {
-  border-color: var(--brand-gold);
-  box-shadow: var(--shadow-card), var(--shadow-gold-glow);
-}
-.video-embed-box iframe {
+.video-aspect-ratio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
 }
 
-.video-timestamps-box {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-stone);
-  padding: 2rem;
+.chapters-box {
+  border: 1px solid var(--color-rule);
+  padding: var(--space-md);
+  background: var(--color-paper);
 }
-.timestamps-title {
-  font-size: 1.15rem;
-  margin-bottom: 1.25rem;
-}
-.timestamps-list {
+
+.chapters-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-top: var(--space-xs);
 }
-.timestamp-item {
+
+.chapter-row {
   display: flex;
-  gap: 0.85rem;
-  align-items: baseline;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) 0;
+  border-bottom: 1px solid var(--color-rule);
   font-size: 0.9rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius-stone);
-  border-bottom: 1px dashed var(--border-subtle);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
 }
-.timestamp-item:hover {
-  background-color: rgba(197, 160, 89, 0.1);
-  transform: translateX(4px);
+.chapter-row:last-child {
+  border-bottom: none;
 }
-.timestamp-time {
-  font-family: var(--font-heading);
-  color: var(--brand-gold);
+.chapter-row:hover {
+  color: var(--color-accent);
+}
+
+.chapter-time {
+  font-family: var(--font-display);
   font-weight: 700;
-}
-.timestamp-label {
-  color: var(--text-secondary);
-}
-
-/* --------------------------------------------------------------------------
-   11. PRUEBA SOCIAL & LA LEGIÓN
-   -------------------------------------------------------------------------- */
-.legion-box {
-  background: var(--bg-secondary);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  padding: 4.5rem 2rem;
-  border-radius: var(--radius-stone);
-  max-width: 850px;
-  margin: 0 auto;
-  box-shadow: var(--shadow-card);
-  position: relative;
-  overflow: hidden;
-}
-.legion-box::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.12), transparent 70%);
-  pointer-events: none;
-}
-.legion-icon {
-  font-size: 3.8rem;
-  display: block;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4));
-  animation: pulse-icon 4s ease-in-out infinite alternate;
+  color: var(--color-accent);
+  min-width: 50px;
 }
 
-@keyframes pulse-icon {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.08); }
-}
-
-.legion-title {
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
-}
-.legion-desc {
-  font-size: 1.15rem;
-  margin-bottom: 2.5rem;
-}
-.legion-stats {
-  display: flex;
-  justify-content: space-around;
-  gap: 1.5rem;
-}
-.stat-number {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--brand-gold);
-}
-.stat-label {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-/* --------------------------------------------------------------------------
-   12. BOTÓN FLOTANTE MÓVIL (MOBILE FLOATING CTA)
-   -------------------------------------------------------------------------- */
-.mobile-floating-cta {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 900;
-  display: none;
-}
-.mobile-floating-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.25rem;
-  background: linear-gradient(135deg, var(--brand-gold) 0%, #A8823E 100%);
-  color: #080B0E;
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
-  text-transform: uppercase;
-}
-
-/* --------------------------------------------------------------------------
-   13. FOOTER COMPLETO & LEGALES
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   9. FOOTER (ARCHETYPE FT1 — MAST-HEADED)
+   ========================================================================== */
 .site-footer {
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 4.5rem;
+  padding: var(--space-2xl) 0 var(--space-md) 0;
+  background-color: var(--color-paper);
+  border-top: 2px solid var(--color-rule);
 }
 
-.footer-container {
+.footer-top-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 3.5rem;
-  padding-bottom: 3.5rem;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
-.footer-tagline {
-  font-size: 0.92rem;
-  margin: 1.2rem 0 1.75rem 0;
-  max-width: 35ch;
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2xs);
 }
 
-.social-links {
-  display: flex;
-  gap: 1.2rem;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-}
-
-.footer-heading {
-  font-size: 1.05rem;
-  margin-bottom: 1.35rem;
-  color: var(--brand-gold);
-}
-
-.footer-links {
+.footer-links-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-.footer-links a {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-}
-.footer-links a:hover {
-  color: var(--brand-gold);
 }
 
-.footer-disclaimers {
-  border-top: 1px solid var(--border-subtle);
-  padding: 2.2rem 0;
-  background-color: var(--bg-secondary);
-}
-.disclaimer-text {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-}
-.footer-bottom {
-  margin-top: 1.75rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
+.footer-links-list li {
+  margin-bottom: var(--space-2xs);
 }
 
-/* --------------------------------------------------------------------------
-   14. RESPONSIVE DESIGN (BREAKPOINTS COMPLETO)
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-container {
+.footer-links-list a {
+  color: var(--color-ink-2);
+  font-size: 0.9rem;
+}
+.footer-links-list a:hover {
+  color: var(--color-accent);
+}
+
+.footer-legal-notice {
+  font-size: 0.75rem;
+  color: var(--color-ink-2);
+  border-top: 1px solid var(--color-rule);
+  padding-top: var(--space-sm);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE BREAKPOINTS (HALLMARK HARD FLOOR DISCIPLINE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-grid, .video-editorial-grid, .footer-top-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: var(--space-lg);
   }
-  .video-container-wrapper {
+
+  .virtues-grid-hallmark {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .virtue-col:nth-child(2) {
+    border-right: none;
+  }
+  .virtue-col:nth-child(1), .virtue-col:nth-child(2) {
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .masters-grid {
     grid-template-columns: 1fr;
-  }
-  .virtues-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .main-nav {
-    position: fixed;
-    top: 80px;
+  .masthead-nav-bar {
+    position: relative;
+  }
+  .nav-links-list {
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    height: calc(100vh - 80px);
-    background-color: var(--bg-primary);
-    backdrop-filter: blur(20px);
+    background: var(--color-paper-2);
+    border: 1px solid var(--color-rule);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-normal);
+    padding: var(--space-md);
+    gap: var(--space-xs);
     z-index: 1000;
   }
-  .main-nav.mobile-active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  .nav-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  .nav-link {
-    font-size: 1.1rem;
-  }
-  .btn-header-cta {
-    display: none;
-  }
-  .mobile-menu-btn {
+  .nav-links-list.active {
     display: flex;
   }
-  .mobile-floating-cta {
+  .mobile-nav-toggle {
     display: block;
   }
-  .form-group-inline {
-    flex-direction: column;
-  }
-  .virtues-grid {
+
+  .virtues-grid-hallmark {
     grid-template-columns: 1fr;
   }
-  .footer-container {
-    grid-template-columns: 1fr;
+  .virtue-col {
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-rule);
   }
-  .legion-stats {
+
+  .optin-form-row {
     flex-direction: column;
-    gap: 1.5rem;
   }
 }
