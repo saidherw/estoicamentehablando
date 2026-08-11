@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estoicamente Hablando | El Rayo Romano & La Legión</title>
-  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la autodisciplina y superar la ansiedad. Edición oficial de Estoicamente Hablando con El Rayo Romano.">
+  <title>Estoicamente Hablando | La Legión Nocturna</title>
+  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Edición oficial con El Rayo Romano.">
 
-  <!-- Prevención de destello de tema (Anti-FOUC) -->
+  <!-- Script Anti-FOUC de Tema -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('hallmark-theme');
@@ -21,250 +21,153 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos CSS (Hallmark Editorial Broad-sheet v4.5) -->
+  <!-- Hoja de Estilo (Hallmark Atmospheric Bento Grid v5.0) -->
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-  <!-- Accesibilidad: Enlace directo al contenido principal -->
+  <!-- Accesibilidad Skip Link -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ==========================================
-       1. NAVIGATION (N6 NEWSPAPER MASTHEAD ARCHETYPE)
+       1. NAVIGATION (N5 FLOATING PILL ARCHETYPE)
        ========================================== -->
-  <header class="site-header" id="site-header">
+  <header class="site-header-pill">
     <div class="container">
-      <!-- Barra Superior Editorial -->
-      <div class="masthead-top-bar">
-        <span>EDICIÓN N° 432 · CANAL OFICIAL</span>
-        <span>LA LEGIÓN // EL RAYO ROMANO</span>
-        <span>ESTOICISMO PRÁCTICO</span>
-      </div>
+      <div class="nav-pill-wrapper">
+        <a href="./index.html" class="pill-brand">
+          <span class="pill-logo-icon">🏛️</span>
+          <span class="pill-logo-text">ESTOICAMENTE HABLANDO</span>
+        </a>
 
-      <!-- Logotipo e Identidad Central -->
-      <div class="masthead-brand">
-        <a href="./index.html" class="masthead-title">ESTOICAMENTE HABLANDO</a>
-        <div class="masthead-subtitle">"Camina firme, camina en calma."</div>
-      </div>
-
-      <!-- Barra de Navegación Broadsheet -->
-      <div class="masthead-nav-bar">
-        <button type="button" class="mobile-nav-toggle" id="mobile-toggle" aria-label="Abrir navegación">
+        <button type="button" class="mobile-pill-toggle" id="mobile-toggle" aria-label="Abrir navegación">
           ☰
         </button>
 
-        <nav class="main-nav" aria-label="Navegación principal">
-          <ul class="nav-links-list" id="nav-list">
-            <li><a href="./index.html" class="nav-item-link active">Inicio</a></li>
-            <li><a href="#oraculo" class="nav-item-link">Oráculo Estoico</a></li>
-            <li><a href="#virtudes" class="nav-item-link">4 Virtudes</a></li>
-            <li><a href="#maestros" class="nav-item-link">Los Maestros</a></li>
-            <li><a href="#videos" class="nav-item-link">Reflexión en Video</a></li>
-            <li><a href="#legion" class="nav-item-link">La Legión</a></li>
+        <nav aria-label="Navegación principal">
+          <ul class="pill-nav-links" id="nav-list">
+            <li><a href="./index.html" class="pill-nav-link active">Inicio</a></li>
+            <li><a href="#oraculo" class="pill-nav-link">Oráculo</a></li>
+            <li><a href="#virtudes" class="pill-nav-link">4 Virtudes</a></li>
+            <li><a href="#maestros" class="pill-nav-link">Maestros</a></li>
+            <li><a href="#video" class="pill-nav-link">Video</a></li>
           </ul>
         </nav>
 
-        <div class="nav-actions">
-          <button type="button" class="btn-theme" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
+        <div class="pill-actions">
+          <button type="button" class="btn-pill-theme" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
             🌓 TEMA
           </button>
+          <a href="#reto" class="btn-pill-action">
+            ⚡ Reto 7 Días
+          </a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- ==========================================
-         2. HERO SECTION (MANIFESTO / SPECIMEN ASYMMETRIC)
-         ========================================== -->
-    <section class="hero-section" id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          
-          <!-- Columna Izquierda: Manifiesto Principal -->
-          <div class="hero-content">
-            <span class="section-num">01 // MANIFIESTO ESTOICO</span>
-            <h1 class="manifesto-header">
-              DOMINA TU MENTE.<br>FORJA TU CALMA.
-            </h1>
-            <p class="manifesto-lead">
-              No puedes controlar las tormentas del mundo exterior, pero sí la fortaleza de tu mente interior. La filosofía estoica no es teoría: es el arte de la autodisciplina diaria.
+    <div class="container">
+      
+      <!-- Titular Superior de la Grilla Bento -->
+      <div class="bento-hero-header">
+        <span class="bento-eyebrow">EL RAYO ROMANO PRESENTA // LA LEGIÓN NOCTURNA</span>
+        <h1>Domina tu mente.<br>Forja tu calma interior.</h1>
+        <p style="font-size: 1.15rem; margin-top: var(--space-xs);">
+          Filosofía estoica práctica para afrontar la ansiedad, controlar tus pensamientos y desarrollar una serenidad inquebrantable a la 1:00 AM.
+        </p>
+      </div>
+
+      <!-- ==========================================
+           2. MACROSTRUCTURE: 01 · BENTO GRID LAYOUT
+           ========================================== -->
+      <div class="bento-grid-container">
+
+        <!-- TILE 1: MANIFIESTO HERO & RETO 7 DÍAS (SPAN 2X2) -->
+        <article class="bento-tile tile-hero span-2x2" id="reto">
+          <div>
+            <span class="bento-eyebrow">01 // MANIFIESTO Y ACCIÓN</span>
+            <h2 class="tile-hero-title">No tienes control sobre los eventos externos, pero sí sobre tu respuesta.</h2>
+            <p class="tile-hero-desc">
+              La calma no es la ausencia de problemas, sino la presencia de autodisciplina. Únete a miles de legionarios en todo el mundo.
+            </p>
+          </div>
+
+          <div class="bento-optin-box">
+            <h3 style="font-size: 1.1rem; margin-bottom: var(--space-3xs);">⚡ Reto Estoico de 7 Días (100% Gratis)</h3>
+            <p style="font-size: 0.85rem; color: var(--color-ink-2);">
+              Recibe cada mañana una lección directa en tu correo para transformar tu mentalidad.
             </p>
 
-            <!-- Formulario Broadsheet: Reto 7 Días -->
-            <div class="optin-broadsheet" id="reto">
-              <h2 class="optin-title">⚡ Reto Estoico de 7 Días (100% Gratis)</h2>
-              <p style="font-size: 0.9rem; color: var(--color-ink-2); margin-bottom: var(--space-xs);">
-                Recibe cada mañana una lección directa en tu correo para dominar tus pensamientos y eliminar la ansiedad.
-              </p>
+            <form id="hero-lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="reto-7-dias-bento">
+              <p style="display:none;"><label>No llenar: <input name="bot-field"></label></p>
 
-              <form id="hero-lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="reto-7-dias-broadsheet">
-                <p style="display:none;"><label>No llenar: <input name="bot-field"></label></p>
+              <div class="bento-optin-form">
+                <input type="text" name="name" required placeholder="Tu nombre" class="bento-input" aria-label="Nombre">
+                <input type="email" name="email" required placeholder="Tu correo electrónico" class="bento-input" aria-label="Correo">
+                <button type="submit" class="btn-pill-action" style="padding: var(--space-xs) var(--space-md); font-size: 0.85rem;">
+                  Comenzar →
+                </button>
+              </div>
 
-                <div class="optin-form-row">
-                  <input type="text" name="name" required placeholder="Tu nombre (ej. Marco)" class="form-input-text" aria-label="Nombre">
-                  <input type="email" name="email" required placeholder="Tu correo electrónico" class="form-input-text" aria-label="Correo electrónico">
-                  <button type="submit" class="btn-broadsheet">
-                    Comenzar Reto →
-                  </button>
-                </div>
-
-                <div style="margin-top: var(--space-xs); font-size: 0.75rem; color: var(--color-ink-2);">
-                  <label style="cursor: pointer;">
-                    <input type="checkbox" required name="gdpr_consent" id="gdpr-check">
-                    Acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.
-                  </label>
-                </div>
-              </form>
-            </div>
+              <div style="margin-top: var(--space-xs); font-size: 0.75rem;">
+                <label style="cursor: pointer;">
+                  <input type="checkbox" required name="gdpr_consent">
+                  Acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.
+                </label>
+              </div>
+            </form>
           </div>
+        </article>
 
-          <!-- Columna Derecha: Grabado Tipográfico Estoico -->
-          <div class="hero-inscription-card">
-            <div class="inscription-quote">
-              "No son las cosas que nos pasan las que nos perturban, sino nuestra opinión sobre ellas."
-            </div>
-            <span class="inscription-author">— EPICTETO, ENQUIRIDIÓN</span>
-
-            <hr class="hairline" style="margin: var(--space-md) 0;">
-
-            <div class="stat-strip">
-              <div class="stat-box">
-                <div class="stat-val">100%</div>
-                <div class="stat-lbl">Filosofía Práctica</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-val">432 Hz</div>
-                <div class="stat-lbl">Frecuencia de Paz</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-val">0%</div>
-                <div class="stat-lbl">Ruido Externo</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         3. SECCIÓN ORÁCULO ESTOICO (PULL-QUOTE ENGINE)
-         ========================================== -->
-    <section class="section-oracle" id="oraculo">
-      <div class="container">
-        <div class="oracle-wrapper">
-          <span class="section-num">02 // REFLEXIÓN DIARIA</span>
-          <h2 style="margin-bottom: var(--space-md); text-transform: uppercase;">El Oráculo de Reflexiones</h2>
-
-          <div class="oracle-quote-display" id="oracle-text">
+        <!-- TILE 2: ORÁCULO INTERACTIVO DE CITAS (SPAN 1X2) -->
+        <article class="bento-tile tile-oracle span-1x2" id="oraculo">
+          <span class="bento-eyebrow">02 // ORÁCULO ESTOICO</span>
+          
+          <div class="oracle-bento-quote" id="oracle-text">
             "Sufrimos más a menudo en la imaginación que en la realidad."
           </div>
-          <div class="oracle-author-display" id="oracle-author">
+          <div class="oracle-bento-author" id="oracle-author">
             — SÉNECA, CARTAS A LUCILIO
           </div>
 
-          <button type="button" class="btn-oracle" id="oracle-btn">
-            ✨ Generar Nueva Reflexión
+          <button type="button" class="btn-pill-action" id="oracle-btn" style="margin-top: var(--space-md); background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">
+            ✨ Generar Reflexión
           </button>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- ==========================================
-         4. SECCIÓN 4 VIRTUDES (NUMERIC GRID - NO CARDS)
-         ========================================== -->
-    <section class="section-virtues" id="virtudes">
-      <div class="container">
-        <span class="section-num">03 // EL CÓDIGO DE LA LEGIÓN</span>
-        <h2 style="margin-bottom: var(--space-md);">Las 4 Virtudes Cardinales</h2>
-
-        <div class="virtues-grid-hallmark">
-          <!-- Virtud I -->
-          <div class="virtue-col">
-            <div class="virtue-num">I</div>
-            <div class="virtue-name">SABIDURÍA</div>
-            <p class="virtue-body">Saber distinguir entre lo que depende de ti y lo que está fuera de tu control.</p>
+        <!-- TILE 3: LAS 4 VIRTUDES CARDINALES (SPAN 2X1) -->
+        <article class="bento-tile span-2x1" id="virtudes">
+          <div>
+            <span class="bento-eyebrow">03 // EL CÓDIGO DE LA LEGIÓN</span>
+            <h2>Las 4 Virtudes Estoicas</h2>
           </div>
 
-          <!-- Virtud II -->
-          <div class="virtue-col">
-            <div class="virtue-num">II</div>
-            <div class="virtue-name">CORAJE</div>
-            <p class="virtue-body">Enfrentar el miedo con serenidad y defender la verdad en todo momento.</p>
-          </div>
-
-          <!-- Virtud III -->
-          <div class="virtue-col">
-            <div class="virtue-num">III</div>
-            <div class="virtue-name">TEMPLANZA</div>
-            <p class="virtue-body">El dominio propio y el control de los impulsos frente a las distracciones.</p>
-          </div>
-
-          <!-- Virtud IV -->
-          <div class="virtue-col">
-            <div class="virtue-num">IV</div>
-            <div class="virtue-name">JUSTICIA</div>
-            <p class="virtue-body">Actuar con equidad, empatía y bien común en cada interacción.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         5. SECCIÓN LOS TRES MAESTROS
-         ========================================== -->
-    <section class="section-masters" id="maestros">
-      <div class="container">
-        <span class="section-num">04 // SABIDURÍA ANCESTRAL</span>
-        <h2 style="margin-bottom: var(--space-md);">Los Tres Maestros</h2>
-
-        <div class="masters-grid">
-          <!-- Marco Aurelio -->
-          <div class="master-card-broadsheet">
-            <span class="master-role-badge">EMPERADOR & FILÓSOFO</span>
-            <h3 class="master-name">Marco Aurelio</h3>
-            <p style="font-size: 0.9rem;">Gobernó el imperio más grande de su época practicando la humildad y la disciplina mental en sus Meditaciones nocturnas.</p>
-            <div class="master-quote-box">
-              "Tienes poder sobre tu mente, no sobre los acontecimientos. Aprende esto y encontrarás fortaleza."
+          <div class="virtues-bento-list">
+            <div class="virtue-bento-item">
+              <div class="virtue-bento-icon">🧠</div>
+              <div class="virtue-bento-title">Sabiduría</div>
+            </div>
+            <div class="virtue-bento-item">
+              <div class="virtue-bento-icon">🛡️</div>
+              <div class="virtue-bento-title">Coraje</div>
+            </div>
+            <div class="virtue-bento-item">
+              <div class="virtue-bento-icon">⚖️</div>
+              <div class="virtue-bento-title">Templanza</div>
+            </div>
+            <div class="virtue-bento-item">
+              <div class="virtue-bento-icon">🏛️</div>
+              <div class="virtue-bento-title">Justicia</div>
             </div>
           </div>
+        </article>
 
-          <!-- Séneca -->
-          <div class="master-card-broadsheet">
-            <span class="master-role-badge">DRAMATURGO & ESTADISTA</span>
-            <h3 class="master-name">Séneca</h3>
-            <p style="font-size: 0.9rem;">Escribió sobre la brevedad de la vida, el valor del tiempo presente y cómo mantener la calma en tiempos de crisis.</p>
-            <div class="master-quote-box">
-              "No tenemos poco tiempo, sino que perdemos mucho."
-            </div>
-          </div>
-
-          <!-- Epicteto -->
-          <div class="master-card-broadsheet">
-            <span class="master-role-badge">ESCLAVO & MAESTRO</span>
-            <h3 class="master-name">Epicteto</h3>
-            <p style="font-size: 0.9rem;">Nació esclavo y enseñó que la verdadera libertad es interna y no depende de las cadenas corporales.</p>
-            <div class="master-quote-box">
-              "Sólo el hombre educado es libre."
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         6. SECCIÓN VIDEO DESTACADO
-         ========================================== -->
-    <section class="section-video" id="videos">
-      <div class="container">
-        <span class="section-num">05 // REFLEXIÓN EN VIDEO</span>
-        <h2 style="margin-bottom: var(--space-md);">Canal Oficial de El Rayo Romano</h2>
-
-        <div class="video-editorial-grid">
-          <div class="video-frame-box">
-            <div class="video-aspect-ratio">
+        <!-- TILE 4: REFLEXIÓN EN VIDEO Y CAPÍTULOS (SPAN 2X1) -->
+        <article class="bento-tile span-2x1" id="video">
+          <div class="video-bento-flex">
+            <div class="video-bento-frame">
               <iframe 
                 src="https://www.youtube-nocookie.com/embed/videoseries?list=UU&enablejsapi=1" 
                 title="Reproductor de Video Estoicamente Hablando"
@@ -273,102 +176,73 @@
                 loading="lazy">
               </iframe>
             </div>
-          </div>
 
-          <!-- Lista de Capítulos -->
-          <div class="chapters-box">
-            <h3 style="font-size: 1.1rem; margin-bottom: var(--space-xs); border-bottom: 1px solid var(--color-rule); padding-bottom: var(--space-2xs);">
-              ⏱️ CAPÍTULOS DE LA REFLEXIÓN
-            </h3>
-            <ul class="chapters-list">
-              <li class="chapter-row">
-                <span class="chapter-time">00:00</span>
-                <span>El sobrepensamiento a la 1:00 AM</span>
-              </li>
-              <li class="chapter-row">
-                <span class="chapter-time">02:15</span>
-                <span>La Regla de las Dos Listas de Epicteto</span>
-              </li>
-              <li class="chapter-row">
-                <span class="chapter-time">05:40</span>
-                <span>Cómo soltar lo que no depende de ti</span>
-              </li>
-              <li class="chapter-row">
-                <span class="chapter-time">09:10</span>
-                <span>El Mantra Final de La Legión</span>
-              </li>
-            </ul>
-            <div style="margin-top: var(--space-md);">
-              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-broadsheet" style="display: block; text-align: center;">
+            <div>
+              <span class="bento-eyebrow">04 // CANAL OFICIAL</span>
+              <h3 style="margin-bottom: var(--space-2xs);">Última Reflexión</h3>
+              <p style="font-size: 0.85rem; margin-bottom: var(--space-sm);">
+                Escucha a El Rayo Romano explorar el sobrepensamiento y la serenidad.
+              </p>
+              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-pill-action" style="display: inline-block;">
                 🔔 Suscribirme en YouTube
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- ==========================================
-         7. SECCIÓN LA LEGIÓN
-         ========================================== -->
-    <section style="padding: var(--space-2xl) 0; border-bottom: 1px solid var(--color-rule);" id="legion">
-      <div class="container text-center">
-        <span class="section-num">06 // COMUNIDAD Y DISCIPLINA</span>
-        <h2 style="font-size: 2.25rem; margin-bottom: var(--space-xs);">La Legión</h2>
-        <p style="max-width: 650px; margin: 0 auto var(--space-md) auto;">
-          Somos mentes comprometidas en todo el mundo hispanohablante con caminar en calma, dominar la autodisciplina y no dejarnos arrastrar por el ruido exterior.
-        </p>
-        <a href="#reto" class="btn-broadsheet" style="display: inline-block;">
-          Unirme al Reto de 7 Días →
-        </a>
+        <!-- TILE 5: MAESTROS ESTOICOS (SPAN 3X1 BOTTOM ROW) -->
+        <div class="tile-masters-row" id="maestros">
+          <article class="master-bento-card">
+            <span class="bento-eyebrow">EMPERADOR</span>
+            <h3>Marco Aurelio</h3>
+            <p style="font-size: 0.85rem; margin-top: var(--space-2xs);">
+              "Rechaza tu sentido de perjuicio y el perjuicio mismo desaparece."
+            </p>
+          </article>
+
+          <article class="master-bento-card">
+            <span class="bento-eyebrow">DRAMATURGO</span>
+            <h3>Séneca</h3>
+            <p style="font-size: 0.85rem; margin-top: var(--space-2xs);">
+              "No tenemos poco tiempo, sino que perdemos mucho."
+            </p>
+          </article>
+
+          <article class="master-bento-card">
+            <span class="bento-eyebrow">MAESTRO LIBRE</span>
+            <h3>Epicteto</h3>
+            <p style="font-size: 0.85rem; margin-top: var(--space-2xs);">
+              "Sólo el hombre verdaderamente educado es libre."
+            </p>
+          </article>
+        </div>
+
       </div>
-    </section>
+    </div>
   </main>
 
   <!-- ==========================================
-       8. FOOTER (FT1 MAST-HEADED ARCHETYPE)
+       5. FOOTER (ARCHETYPE FT5 STATEMENT)
        ========================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer-statement">
     <div class="container">
-      <div class="footer-top-grid">
-        <div>
-          <div class="footer-brand-title">ESTOICAMENTE HABLANDO</div>
-          <p style="font-size: 0.9rem; color: var(--color-ink-2);">
-            Espacio de reflexión y filosofía práctica guiado por El Rayo Romano para La Legión.
-          </p>
-          <div style="margin-top: var(--space-xs); font-size: 0.85rem;">
-            <a href="https://www.youtube.com/@HablandoEstoicamente" target="_blank" rel="noopener" style="margin-right: var(--space-xs);">▶️ YouTube</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener" style="margin-right: var(--space-xs);">📸 Instagram</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener">🎵 TikTok</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 style="font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-xs);">Navegación</h4>
-          <ul class="footer-links-list">
-            <li><a href="./index.html">Inicio</a></li>
-            <li><a href="#oraculo">Oráculo Estoico</a></li>
-            <li><a href="#virtudes">Las 4 Virtudes</a></li>
-            <li><a href="#maestros">Los Maestros</a></li>
-            <li><a href="#videos">Reflexión en Video</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-xs);">Legal & Privacidad</h4>
-          <ul class="footer-links-list">
-            <li><a href="./aviso-legal.html">Aviso Legal</a></li>
-            <li><a href="./privacidad.html">Política de Privacidad</a></li>
-            <li><a href="./cookies.html">Política de Cookies</a></li>
-            <li><a href="./terminos.html">Términos de Venta</a></li>
-          </ul>
-        </div>
+      <div class="footer-statement-text">
+        "Camina firme, camina en calma."
       </div>
+      <p style="font-size: 0.95rem; margin-bottom: var(--space-md);">
+        Estoicamente Hablando — El espacio de reflexión de El Rayo Romano para La Legión.
+      </p>
 
-      <div class="footer-legal-notice">
-        <p><strong>🏛️ Estoicamente Hablando:</strong> Espacio de filosofía práctica, autodisciplina y crecimiento personal guiado por El Rayo Romano para La Legión.</p>
-        <p><strong>📖 Aviso de Afiliación:</strong> Como Afiliado de Amazon, podemos recibir ingresos por compras adscritas que cumplen los requisitos aplicables, sin ningún coste adicional para ti.</p>
-        <p style="margin-top: var(--space-2xs); text-align: center;">© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
+      <ul class="footer-nav-simple">
+        <li><a href="./aviso-legal.html">Aviso Legal</a></li>
+        <li><a href="./privacidad.html">Política de Privacidad</a></li>
+        <li><a href="./cookies.html">Política de Cookies</a></li>
+        <li><a href="./terminos.html">Términos de Venta</a></li>
+      </ul>
+
+      <div class="footer-legal-copy">
+        <p>📖 <strong>Aviso de Afiliación:</strong> Como Afiliado de Amazon, podemos recibir ingresos por compras adscritas que cumplen los requisitos aplicables, sin ningún coste adicional para ti.</p>
+        <p style="margin-top: var(--space-2xs);">© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
