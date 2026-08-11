@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos de Venta y Servicio | Estoicamente Hablando</title>
+  <meta name="description" content="Términos y condiciones de compra de productos digitales y membresía en Estoicamente Hablando.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme-preference');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./index.html" class="brand-logo">
+        <span class="logo-symbol">🏛️</span>
+        <span class="logo-text">
+          <span class="logo-title">ESTOICAMENTE</span>
+          <span class="logo-sub">HABLANDO</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <a href="./index.html" class="btn btn-gold btn-sm">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div class="legal-content" style="max-width: 800px; margin: 0 auto; background: var(--bg-secondary); padding: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-stone);">
+      <h1 class="section-title text-center" style="margin-bottom: 2rem;">Términos de Venta y Servicio</h1>
+
+      <p style="margin-bottom: 1.5rem;">Las presentes condiciones regulan la compra de productos digitales (plantillas en Notion, eBooks en PDF, cursos) y la suscripción a la membresía de La Legión en estoicamentehablando.com.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">1. Precios e Impuestos</h3>
+      <p style="margin-bottom: 1.5rem;">Todos los precios se indican en dólares estadounidenses (USD) o euros (EUR) e incluyen los impuestos aplicables según la normativa del país del comprador (gestionados por nuestro Merchant of Record Lemon Squeezy / Paddle).</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">2. Entrega Inmediata de Productos Digitales</h3>
+      <p style="margin-bottom: 1.5rem;">Al realizar el pago, recibirás de forma inmediata el acceso al producto digital en pantalla y en tu correo electrónico. De conformidad con el artículo 103 m) del Texto Refundido de la Ley General para la Defensa de los Consumidores y Usuarios, al iniciar la descarga o duplicación del contenido digital **el usuario acepta la pérdida del derecho de desistimiento de 14 días**.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">3. Cancelación de Membresías Recurrentes</h3>
+      <p style="margin-bottom: 1.5rem;">Puedes cancelar tu suscripción mensual o anual a La Legión en cualquier momento desde tu panel de usuario o enviando un correo a <code>soporte@estoicamentehablando.com</code>. Mantendrás el acceso hasta el final de tu período pagado.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 4rem;">
+    <div class="container text-center" style="padding-bottom: 2rem;">
+      <p>© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

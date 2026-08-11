@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear panel de administración para buscadores
+Disallow: /admin/
+Disallow: /public/admin/
+
+# Mapa del sitio (Sitemap)
+Sitemap: https://estoicamentehablando.com/sitemap.xml

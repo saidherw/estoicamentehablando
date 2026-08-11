@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal | Estoicamente Hablando</title>
+  <meta name="description" content="Aviso Legal de Estoicamente Hablando conforme a la LSSI-CE y normativa aplicable.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme-preference');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./index.html" class="brand-logo">
+        <span class="logo-symbol">🏛️</span>
+        <span class="logo-text">
+          <span class="logo-title">ESTOICAMENTE</span>
+          <span class="logo-sub">HABLANDO</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <a href="./index.html" class="btn btn-gold btn-sm">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div class="legal-content" style="max-width: 800px; margin: 0 auto; background: var(--bg-secondary); padding: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-stone);">
+      <h1 class="section-title text-center" style="margin-bottom: 2rem;">Aviso Legal</h1>
+      <p style="margin-bottom: 1.5rem;">En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se exponen los siguientes datos identificativos del titular del sitio web:</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">1. Datos Identificativos</h3>
+      <ul style="list-style: none; margin-bottom: 1.5rem;">
+        <li><strong>Denominación / Marca:</strong> Estoicamente Hablando (@HablandoEstoicamente)</li>
+        <li><strong>Responsable:</strong> El Rayo Romano</li>
+        <li><strong>Correo electrónico de contacto:</strong> legal@estoicamentehablando.com</li>
+        <li><strong>Sitio Web:</strong> https://estoicamentehablando.com</li>
+      </ul>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">2. Propiedad Intelectual e Industrial</h3>
+      <p style="margin-bottom: 1.5rem;">Todos los contenidos de este sitio web, incluyendo textos, guiones, narraciones de audio, diseños, logotipos e imágenes, son propiedad intelectual exclusiva de Estoicamente Hablando o de terceros que han autorizado su uso. Queda prohibida la reproducción, distribución o transformación sin autorización previa por escrito.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">3. Responsabilidad sobre los Contenidos</h3>
+      <p style="margin-bottom: 1.5rem;">El contenido del sitio web es de carácter divulgativo y filosófico. El titular no se hace responsable de las decisiones tomadas a partir de la información suministrada ni de los daños ocasionados por terceros ajenos a su control.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">4. Legislación Aplicable y Jurisdicción</h3>
+      <p>Para la resolución de cualquier controversia o cuestión relativa al presente sitio web, será de aplicación la legislación española o la del país de residencia del consumidor según corresponda.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 4rem;">
+    <div class="container text-center" style="padding-bottom: 2rem;">
+      <p>© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

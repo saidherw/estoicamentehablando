@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad | Estoicamente Hablando</title>
+  <meta name="description" content="Política de Privacidad de Estoicamente Hablando adaptada al RGPD y LOPD.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme-preference');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./index.html" class="brand-logo">
+        <span class="logo-symbol">🏛️</span>
+        <span class="logo-text">
+          <span class="logo-title">ESTOICAMENTE</span>
+          <span class="logo-sub">HABLANDO</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <a href="./index.html" class="btn btn-gold btn-sm">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div class="legal-content" style="max-width: 800px; margin: 0 auto; background: var(--bg-secondary); padding: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-stone);">
+      <h1 class="section-title text-center" style="margin-bottom: 2rem;">Política de Privacidad</h1>
+
+      <p style="margin-bottom: 1.5rem;">En Estoicamente Hablando respetamos tu privacidad y nos comprometemos a proteger los datos personales que compartes con nosotros, en cumplimiento del Reglamento General de Protección de Datos (RGPD UE 2016/679) y la LOPDGDD 3/2018.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">1. Responsable del Tratamiento de Datos</h3>
+      <p style="margin-bottom: 1.5rem;"><strong>Responsable:</strong> Estoicamente Hablando (@HablandoEstoicamente)<br><strong>Contacto:</strong> privacidad@estoicamentehablando.com</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">2. Finalidad del Tratamiento</h3>
+      <p style="margin-bottom: 1rem;">Tratamos la información suministrada para los siguientes fines:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>Envío del Reto Estoico de 7 Días y recursos en PDF solicitados.</li>
+        <li>Envío del boletín semanal "El Estoico Semanal" con reflexiones e información de productos.</li>
+        <li>Gestión de la membresía de La Legión y procesamiento de compras digitales.</li>
+      </ul>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">3. Legitimación del Tratamiento</h3>
+      <p style="margin-bottom: 1.5rem;">La base legal para el tratamiento de tus datos es tu <strong>consentimiento explícito</strong> al marcar la casilla de verificación en los formularios de captura y suscribirte voluntariamente.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">4. Encargados del Tratamiento (Terceros)</h3>
+      <p style="margin-bottom: 1.5rem;">Para gestionar los servicios utilizamos proveedores bajo el marco de privacidad seguro: Netlify (Hosting), Brevo/ConvertKit (Email Marketing), Google Analytics (Analítica anonimizada) y Lemon Squeezy (Procesamiento de pagos).</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">5. Tus Derechos (ARCO / RGPD)</h3>
+      <p style="margin-bottom: 1.5rem;">Tienes derecho a acceder, rectificar, suprimir u oponerte al tratamiento de tus datos enviando un correo a <code>privacidad@estoicamentehablando.com</code> o haciendo clic en el enlace "Darse de baja" en cualquiera de nuestras comunicaciones.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 4rem;">
+    <div class="container text-center" style="padding-bottom: 2rem;">
+      <p>© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

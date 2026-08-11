@@ -1,0 +1,813 @@
+/* ==========================================================================
+   🏛️ ESTOICAMENTE HABLANDO — SISTEMA DE DISEÑO CSS v3.0
+   Tema: Antigüedad Elegante Moderna (Obsidiana #0F0F0F & Oro Antiguo #C5A059)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & VARIABLES CSS (:root)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Tipografía */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-quote: 'Cormorant Garamond', serif;
+
+  /* Colores de Marca Base */
+  --color-gold-500: #C5A059;
+  --color-gold-400: #D4B26F;
+  --color-gold-600: #84642C;
+  --color-obsidian-900: #0F0F0F;
+  --color-obsidian-800: #161B22;
+  --color-obsidian-700: #1F242C;
+  --color-terracotta: #A15C38;
+
+  /* Modo Oscuro Default (Obsidiana) */
+  --bg-primary: var(--color-obsidian-900);
+  --bg-secondary: var(--color-obsidian-800);
+  --bg-elevated: var(--color-obsidian-700);
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #6E7681;
+  --border-subtle: #21262D;
+  --brand-gold: var(--color-gold-500);
+  --brand-gold-hover: var(--color-gold-400);
+  --brand-terracotta: var(--color-terracotta);
+  --interactive-focus: var(--color-gold-500);
+
+  /* Sombras & Elevación */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.6);
+  --shadow-gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
+  --shadow-gold-heavy: 0 0 40px rgba(197, 160, 89, 0.4);
+
+  /* Geometría Piedra Tallada */
+  --radius-stone: 4px;
+  --radius-badge: 2px;
+  --radius-circle: 50%;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Anchos de Contenedor */
+  --container-max: 1200px;
+}
+
+/* Modo Claro Adaptado (Contraste WCAG AA 4.5:1) */
+[data-theme="light"] {
+  --bg-primary: #FAF8F5;   /* Pergamino Cálido */
+  --bg-secondary: #F0EDE6;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #1A1A2E; /* Carbón Profundo */
+  --text-secondary: #555566;
+  --text-muted: #777788;
+  --border-subtle: #E2DDD5;
+  --brand-gold: #84642C;   /* Dorado Oscuro Accesible sobre Blanco */
+  --brand-gold-hover: #684E22;
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --shadow-gold-glow: 0 0 20px rgba(132, 100, 44, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & ESTILOS BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+  min-height: 100dvh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+/* Skip Link (Accesibilidad WCAG AA) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--brand-gold);
+  color: #0F0F0F;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: var(--radius-stone);
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Indicador de Foco Personalizado */
+:focus-visible {
+  outline: 2px solid var(--interactive-focus);
+  outline-offset: 3px;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--brand-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--brand-gold-hover);
+}
+
+/* Utilitarios */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+.text-center { text-align: center; }
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+  margin: 1rem auto 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* --------------------------------------------------------------------------
+   3. BOTONES & COMPONENTES REUTILIZABLES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-stone);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.btn-gold {
+  background-color: var(--brand-gold);
+  color: #0F0F0F;
+  border-color: var(--brand-gold);
+  box-shadow: var(--shadow-gold-glow);
+}
+.btn-gold:hover {
+  background-color: var(--brand-gold-hover);
+  color: #0F0F0F;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-heavy);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--brand-gold);
+  border-color: var(--brand-gold);
+}
+.btn-outline:hover {
+  background-color: var(--brand-gold);
+  color: #0F0F0F;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+}
+.btn-full {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER & NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color var(--transition-normal);
+}
+[data-theme="light"] .site-header {
+  background-color: rgba(250, 248, 245, 0.88);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo-symbol {
+  font-size: 1.8rem;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.logo-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--brand-gold);
+  font-weight: 600;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.75rem;
+}
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--brand-gold);
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-gold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+.theme-toggle-btn:hover {
+  border-color: var(--brand-gold);
+}
+.icon-sun { display: none; }
+[data-theme="light"] .icon-sun { display: inline; }
+[data-theme="light"] .icon-moon { display: none; }
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding: 5rem 0 6rem 0;
+  overflow: hidden;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, rgba(15, 15, 15, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-badge);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--brand-gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  max-width: 58ch;
+}
+
+.hero-quote {
+  position: relative;
+  padding: 1.25rem 1.75rem;
+  background-color: var(--bg-secondary);
+  border-left: 3px solid var(--brand-gold);
+  border-radius: 0 var(--radius-stone) var(--radius-stone) 0;
+  margin-bottom: 2.5rem;
+}
+.hero-quote p {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+.hero-quote cite {
+  display: block;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--brand-gold);
+  margin-top: 0.5rem;
+}
+
+/* Formulario Hero Opt-in */
+.hero-optin-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  border-radius: var(--radius-stone);
+  box-shadow: var(--shadow-card);
+}
+.optin-title {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.optin-sub {
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group-inline {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.form-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-stone);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+.form-input:focus {
+  border-color: var(--brand-gold);
+  outline: none;
+}
+
+.form-gdpr-check {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.form-gdpr-check a {
+  text-decoration: underline;
+}
+
+/* Arte Visual Estatua Claroscuro */
+.hero-visual {
+  position: relative;
+}
+.visual-frame {
+  position: relative;
+}
+.statue-glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.2), transparent 70%);
+  filter: blur(20px);
+}
+.statue-card {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-stone);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+.statue-tag {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--brand-gold);
+  border: 1px solid var(--brand-gold);
+  padding: 0.2rem 0.6rem;
+}
+.statue-icon {
+  font-size: 5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+.statue-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.statue-desc {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+.statue-footer {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--brand-gold);
+  font-family: var(--font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIONES GENERALES & CARDS
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 5rem 0;
+}
+.section-header {
+  margin-bottom: 3.5rem;
+}
+.section-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--brand-gold);
+}
+.section-title {
+  font-size: 2.2rem;
+  margin-top: 0.5rem;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-stone);
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-gold);
+  box-shadow: var(--shadow-card);
+}
+.card-philosopher {
+  position: relative;
+}
+.card-badge {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.gold-badge {
+  color: var(--brand-gold);
+}
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+.card-role {
+  font-size: 0.85rem;
+  color: var(--brand-gold);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.card-excerpt {
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+.mini-quote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-primary);
+  border-left: 2px solid var(--brand-gold);
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.card-link {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIÓN DE VIDEO & TIMESTAMPS
+   -------------------------------------------------------------------------- */
+.section-video {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.video-container-wrapper {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.video-embed-box {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-stone);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+.video-embed-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-timestamps-box {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-stone);
+  padding: 1.75rem;
+}
+.timestamps-title {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+.timestamps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.timestamp-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+.timestamp-time {
+  font-family: var(--font-heading);
+  color: var(--brand-gold);
+  font-weight: 700;
+}
+.timestamp-label {
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   8. PRUEBA SOCIAL & LA LEGIÓN
+   -------------------------------------------------------------------------- */
+.legion-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 4rem 2rem;
+  border-radius: var(--radius-stone);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.legion-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.legion-title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.legion-desc {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+.legion-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+.stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-gold);
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER COMPLETO & LEGALES
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 4rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  margin: 1rem 0 1.5rem 0;
+  max-width: 35ch;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--brand-gold);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.footer-links a:hover {
+  color: var(--brand-gold);
+}
+
+.footer-disclaimers {
+  border-top: 1px solid var(--border-subtle);
+  padding: 2rem 0;
+  background-color: var(--bg-secondary);
+}
+.disclaimer-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.footer-bottom {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE DESIGN (BREAKPOINTS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+  .video-container-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Se activará con JS para el menú móvil */
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .form-group-inline {
+    flex-direction: column;
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  .legion-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

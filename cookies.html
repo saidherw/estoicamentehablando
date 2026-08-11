@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies | Estoicamente Hablando</title>
+  <meta name="description" content="Política de Cookies de Estoicamente Hablando adaptada a la AEPD y normativa europea.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme-preference');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./index.html" class="brand-logo">
+        <span class="logo-symbol">🏛️</span>
+        <span class="logo-text">
+          <span class="logo-title">ESTOICAMENTE</span>
+          <span class="logo-sub">HABLANDO</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <a href="./index.html" class="btn btn-gold btn-sm">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div class="legal-content" style="max-width: 800px; margin: 0 auto; background: var(--bg-secondary); padding: 3rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-stone);">
+      <h1 class="section-title text-center" style="margin-bottom: 2rem;">Política de Cookies</h1>
+
+      <p style="margin-bottom: 1.5rem;">En Estoicamente Hablando utilizamos cookies propias y de terceros para garantizar el correcto funcionamiento del sitio, recordar tus preferencias de navegación y obtener estadísticas anónimas de visita.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">1. ¿Qué es una cookie?</h3>
+      <p style="margin-bottom: 1.5rem;">Una cookie es un pequeño archivo de texto que se almacena en tu navegador cuando visitas casi cualquier página web. Su utilidad es que la web sea capaz de recordar tu visita cuando vuelvas a navegar por esa página.</p>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">2. Cookies utilizadas en este sitio</h3>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Cookies Técnicas (Necesarias):</strong> Guardan tu preferencia de tema visual (modo claro u oscuro en <code>theme-preference</code>).</li>
+        <li><strong>Cookies Analíticas (Opcionales):</strong> Medición anónima de tráfico mediante Google Analytics y Microsoft Clarity. Se activan únicamente tras tu consentimiento.</li>
+      </ul>
+
+      <h3 style="color: var(--brand-gold); margin: 1.5rem 0 0.5rem 0;">3. Cómo desactivar las cookies</h3>
+      <p>Puedes restringir, bloquear o borrar las cookies de este sitio web en cualquier momento modificando la configuración de tu navegador (Chrome, Firefox, Safari, Edge).</p>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 4rem;">
+    <div class="container text-center" style="padding-bottom: 2rem;">
+      <p>© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

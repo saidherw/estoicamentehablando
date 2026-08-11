@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+  command = "# Sin comando de compilación requerido para sitio HTML estático puro"
+
+[build.environment]
+  NODE_VERSION = "20.x"
+
+# Redirección para asegurar que la ruta /admin sea atendida por /admin/index.html
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Redirección HTTPS y www a apex (o viceversa)
+[[redirects]]
+  from = "http://estoicamentehablando.com/*"
+  to = "https://estoicamentehablando.com/:splat"
+  status = 301
+  force = true

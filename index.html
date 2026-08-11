@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estoicamente Hablando | El Rayo Romano & La Legión</title>
+  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Sitio oficial del canal Estoicamente Hablando con El Rayo Romano.">
+
+  <!-- Script Anti-FOUC (Prevención de destello de tema) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme-preference');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hojas de Estilo CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Skip-to-content Link (Accesibilidad WCAG AA) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ==========================================
+       1. HEADER & NAVEGACIÓN
+       ========================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="./index.html" class="brand-logo" aria-label="Estoicamente Hablando - Inicio">
+        <span class="logo-symbol">🏛️</span>
+        <span class="logo-text">
+          <span class="logo-title">ESTOICAMENTE</span>
+          <span class="logo-sub">HABLANDO</span>
+        </span>
+      </a>
+
+      <!-- Navegación Principal -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link active">Inicio</a></li>
+          <li><a href="#articulos" class="nav-link">Artículos</a></li>
+          <li><a href="#videos" class="nav-link">Videos</a></li>
+          <li><a href="#recursos" class="nav-link">Diario Estoico</a></li>
+          <li><a href="#legion" class="nav-link">La Legión</a></li>
+          <li><a href="#tienda" class="nav-link">Tienda</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utilidades: Theme Toggle & CTA -->
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema visual (Claro/Oscuro)">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+
+        <a href="#reto" class="btn btn-gold btn-sm btn-header-cta">
+          <span>Unirme al Reto</span>
+        </a>
+
+        <!-- Botón Menú Móvil Hamburger -->
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú de navegación">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==========================================
+         2. HERO SECTION
+         ========================================== -->
+    <section class="hero-section" id="hero">
+      <!-- Partículas Doradas de Fondo -->
+      <div class="particles-container" id="particles-js" aria-hidden="true"></div>
+
+      <!-- Resplandor Dorado de Fondo -->
+      <div class="hero-bg-glow" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-icon">🏛️</span>
+            <span>EL RAYO ROMANO PRESENTA</span>
+          </div>
+
+          <h1 class="hero-title">
+            DOMINA TU MENTE.<br>
+            <span class="text-gold-gradient">FORJA TU CALMA.</span>
+          </h1>
+
+          <p class="hero-description">
+            Filosofía estoica práctica para afrontar la ansiedad, tomar el control de tus pensamientos y desarrollar una serenidad inquebrantable en el mundo moderno.
+          </p>
+
+          <!-- Cita Estoica Destacada -->
+          <blockquote class="hero-quote">
+            <p>"No tienes poder sobre los eventos externos, pero sí sobre tu mente. Aprende esto y encontrarás tu fortaleza."</p>
+            <cite>— Marco Aurelio, Meditaciones</cite>
+          </blockquote>
+
+          <!-- Formulario Captura Reto 7 Días -->
+          <div class="hero-optin-box" id="reto">
+            <h2 class="optin-title">⚡ Reto Estoico de 7 Días (100% Gratis)</h2>
+            <p class="optin-sub">Recibe cada mañana una lección práctica en tu correo para transformar tu mentalidad.</p>
+
+            <form class="optin-form" id="hero-lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="reto-7-dias-hero">
+              <p class="hidden-field" style="display:none;"><label>No llenar: <input name="bot-field"></label></p>
+
+              <div class="form-group-inline">
+                <input type="text" name="name" required placeholder="Tu nombre (ej. Marco)" class="form-input" aria-label="Tu nombre">
+                <input type="email" name="email" required placeholder="Tu correo electrónico" class="form-input" aria-label="Tu correo electrónico">
+                <button type="submit" class="btn btn-gold btn-hero-submit">
+                  <span>Comenzar Reto →</span>
+                </button>
+              </div>
+
+              <!-- Checkbox GDPR de Capa 1 -->
+              <div class="form-gdpr-check">
+                <label class="checkbox-container">
+                  <input type="checkbox" required name="gdpr_consent" id="gdpr-hero">
+                  <span class="checkmark"></span>
+                  <span class="gdpr-text">He leído y acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.</span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Arte Visual del Rayo Romano (Estatuas / Claroscuro) -->
+        <div class="hero-visual">
+          <div class="visual-frame">
+            <div class="statue-glow"></div>
+            <!-- Busto Estilo Mármol y Claroscuro -->
+            <div class="statue-card">
+              <div class="statue-header">
+                <span class="statue-tag">LA LEGIÓN</span>
+              </div>
+              <div class="statue-body">
+                <div class="statue-icon">🗿</div>
+                <h3 class="statue-title">El Rayo Romano</h3>
+                <p class="statue-desc">Tu guía en la contemplación nocturna y el arte de la autodisciplina.</p>
+              </div>
+              <div class="statue-footer">
+                <span class="statue-stat">⚡ 167 WPM Voces de Calma</span>
+                <span class="statue-stat">🛡️ Comunidad Firme</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. SECCIÓN: MAESTROS ESTOICOS (CARDS)
+         ========================================== -->
+    <section class="section section-philosophers" id="filosofos">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">SABIDURÍA DE LA ANTIGÜEDAD</span>
+          <h2 class="section-title">Los Tres Pilares de La Legión</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Card 1: Marco Aurelio -->
+          <div class="card card-philosopher">
+            <div class="card-badge">EMPERADOR & FILÓSOFO</div>
+            <div class="card-icon">👑</div>
+            <h3 class="card-title">Marco Aurelio</h3>
+            <p class="card-role">El Arte del Autocontrol</p>
+            <p class="card-excerpt">
+              Enseñó que la paz interior no depende del imperio que gobiernes, sino de la disciplina con la que gobiernes tus propios pensamientos.
+            </p>
+            <blockquote class="mini-quote">
+              "Rechaza tu sentido de perjuicio y el perjuicio mismo desaparece."
+            </blockquote>
+            <a href="#articulos" class="card-link">Ver Artículos de Marco Aurelio →</a>
+          </div>
+
+          <!-- Card 2: Séneca -->
+          <div class="card card-philosopher active-card">
+            <div class="card-badge gold-badge">DRAMATURGO & CONSEJERO</div>
+            <div class="card-icon">📜</div>
+            <h3 class="card-title">Séneca</h3>
+            <p class="card-role">La Brevedad de la Vida</p>
+            <p class="card-excerpt">
+              Nos advirtió que no tenemos poco tiempo, sino que perdemos mucho rumiando el pasado o temiendo al futuro.
+            </p>
+            <blockquote class="mini-quote">
+              "Sufrimos más a menudo en la imaginación que en la realidad."
+            </blockquote>
+            <a href="#articulos" class="card-link">Ver Artículos de Séneca →</a>
+          </div>
+
+          <!-- Card 3: Epicteto -->
+          <div class="card card-philosopher">
+            <div class="card-badge">ESCLAVO & MAESTRO</div>
+            <div class="card-icon">⛓️</div>
+            <h3 class="card-title">Epicteto</h3>
+            <p class="card-role">La Regla de las Dos Listas</p>
+            <p class="card-excerpt">
+              Creador de la Dicotomía del Control: aprende a distinguir con claridad absoluta lo que depende de ti de lo que no.
+            </p>
+            <blockquote class="mini-quote">
+              "No son las cosas que nos pasan las que nos perturban, sino nuestra opinión sobre ellas."
+            </blockquote>
+            <a href="#articulos" class="card-link">Ver Artículos de Epicteto →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. SECCIÓN: VIDEO DESTACADO & TRANSMISIÓN
+         ========================================== -->
+    <section class="section section-video" id="videos">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">CANAL OFICIAL DE YOUTUBE</span>
+          <h2 class="section-title">Última Reflexión de El Rayo Romano</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="video-container-wrapper">
+          <div class="video-embed-box">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/videoseries?list=UU&enablejsapi=1" 
+              title="Reproductor de Video Estoicamente Hablando"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <!-- Timestamps Interactivos del Video -->
+          <div class="video-timestamps-box">
+            <h3 class="timestamps-title">⏱️ Capítulos de la Reflexión</h3>
+            <ul class="timestamps-list">
+              <li class="timestamp-item">
+                <span class="timestamp-time">00:00</span>
+                <span class="timestamp-label">Introducción: El sobrepensamiento a la 1:00 AM</span>
+              </li>
+              <li class="timestamp-item">
+                <span class="timestamp-time">02:15</span>
+                <span class="timestamp-label">La Regla de las Dos Listas de Epicteto</span>
+              </li>
+              <li class="timestamp-item">
+                <span class="timestamp-time">05:40</span>
+                <span class="timestamp-label">Cómo soltar lo que no depende de ti</span>
+              </li>
+              <li class="timestamp-item">
+                <span class="timestamp-time">09:10</span>
+                <span class="timestamp-label">El Mantra Final de La Legión</span>
+              </li>
+            </ul>
+            <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-outline btn-full mt-4">
+              <span>🔔 Suscribirme en YouTube</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. SECCIÓN: PRUEBA SOCIAL & LA LEGIÓN
+         ========================================== -->
+    <section class="section section-legion" id="legion">
+      <div class="container text-center">
+        <div class="legion-box">
+          <span class="legion-icon">🛡️</span>
+          <h2 class="legion-title">Únete a La Legión</h2>
+          <p class="legion-desc">
+            Somos miles de mentes en todo el mundo hispanohablante comprometidas con caminar firmes y en calma frente a la adversidad.
+          </p>
+          <div class="legion-stats">
+            <div class="stat-item">
+              <span class="stat-number">+50,000</span>
+              <span class="stat-label">Legionarios</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Filosofía Práctica</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">432Hz</span>
+              <span class="stat-label">Paz & Serenidad</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. FOOTER COMPLETO & LEGALES
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col footer-brand">
+        <a href="./index.html" class="brand-logo">
+          <span class="logo-symbol">🏛️</span>
+          <span class="logo-text">
+            <span class="logo-title">ESTOICAMENTE</span>
+            <span class="logo-sub">HABLANDO</span>
+          </span>
+        </a>
+        <p class="footer-tagline">
+          Camina firme, camina en calma. El espacio de reflexión de El Rayo Romano para La Legión.
+        </p>
+
+        <!-- Redes Sociales -->
+        <div class="social-links">
+          <a href="https://www.youtube.com/@HablandoEstoicamente" target="_blank" rel="noopener" aria-label="YouTube">▶️ YouTube</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">📸 Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">🎵 TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="#articulos">Artículos del Blog</a></li>
+          <li><a href="#videos">Galería de Videos</a></li>
+          <li><a href="#recursos">Diario Estoico (PDF)</a></li>
+          <li><a href="#reto">Reto de 7 Días</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Legal & Privacidad</h4>
+        <ul class="footer-links">
+          <li><a href="./aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="./privacidad.html">Política de Privacidad</a></li>
+          <li><a href="./cookies.html">Política de Cookies</a></li>
+          <li><a href="./terminos.html">Términos de Venta</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cláusulas de Afiliación y Filosofía -->
+    <div class="footer-disclaimers">
+      <div class="container">
+        <p class="disclaimer-text">
+          <strong>🏛️ Estoicamente Hablando:</strong> Espacio de filosofía práctica, autodisciplina y crecimiento personal guiado por El Rayo Romano para La Legión.
+        </p>
+        <p class="disclaimer-text">
+          <strong>📖 Aviso de Afiliación:</strong> Como Afiliado de Amazon, podemos recibir ingresos por compras adscritas que cumplen los requisitos aplicables, sin ningún coste adicional para ti.
+        </p>
+        <div class="footer-bottom text-center">
+          <p>© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>
