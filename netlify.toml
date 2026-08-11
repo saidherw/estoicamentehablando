@@ -3,7 +3,7 @@
   command = "# Sin comando de compilación requerido para sitio HTML estático puro"
 
 [build.environment]
-  NODE_VERSION = "20.x"
+  NODE_VERSION = "20"
 
 # Redirección para asegurar que la ruta /admin sea atendida por /admin/index.html
 [[redirects]]
