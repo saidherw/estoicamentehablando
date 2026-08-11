@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT ESCULPIDO NEUMÓRFICO v8.0
+   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT EDITORIAL LUXURY v9.0
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormHandler();
 });
 
-/* 1. TOGGLE DE TEMA (v8-theme) */
+/* 1. TOGGLE DE TEMA (v9-theme) */
 function initThemeToggle() {
   const btn = document.getElementById('theme-btn');
   if (!btn) return;
@@ -19,11 +19,11 @@ function initThemeToggle() {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('v8-theme', next);
+    localStorage.setItem('v9-theme', next);
   });
 }
 
-/* 2. MENÚ MÓVIL ESCULPIDO */
+/* 2. MENÚ MÓVIL LUXURY */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const navList = document.getElementById('nav-list');
@@ -36,7 +36,7 @@ function initMobileMenu() {
     navList.classList.toggle('active');
   });
 
-  document.querySelectorAll('.sculpted-nav-link').forEach(link => {
+  document.querySelectorAll('.luxury-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       toggleBtn.setAttribute('aria-expanded', 'false');
       navList.classList.remove('active');
@@ -54,7 +54,7 @@ function initStoicOracle() {
 
   const quotes = [
     { text: "Sufrimos más a menudo en la imaginación que en la realidad.", author: "— SÉNECA, CARTAS A LUCILIO" },
-    { text: "No tienes poder sobre los eventos externos, pero sí sobre tu mente. Aprende esto y encontrarás tu fortaleza.", author: "— MARCO AURELIO, MEDITACIONES" },
+    { text: "No tienes poder sobre los eventos externos, pero sí sobre tu mente. Aprende esto y encontrarás fortaleza.", author: "— MARCO AURELIO, MEDITACIONES" },
     { text: "No son las cosas que nos pasan las que nos perturban, sino nuestra opinión sobre ellas.", author: "— EPICTETO, ENQUIRIDIÓN" },
     { text: "La felicidad de tu vida depende de la calidad de tus pensamientos.", author: "— MARCO AURELIO" },
     { text: "La riqueza no consiste en tener muchas posesiones, sino en tener pocas necesidades.", author: "— EPICTETO" },
@@ -66,7 +66,7 @@ function initStoicOracle() {
 
   btn.addEventListener('click', () => {
     textEl.style.opacity = '0';
-    textEl.style.transform = 'translateY(-4px)';
+    textEl.style.transform = 'translateY(-6px)';
 
     setTimeout(() => {
       index = (index + 1) % quotes.length;
@@ -75,14 +75,14 @@ function initStoicOracle() {
 
       textEl.style.opacity = '1';
       textEl.style.transform = 'translateY(0)';
-    }, 220);
+    }, 250);
   });
 }
 
-/* 4. CAPÍTULOS DE VIDEO */
+/* 4. CAPÍTULOS DE VIDEO INTERACTIVOS */
 function initVideoChapters() {
-  const btns = document.querySelectorAll('.chapter-btn-sculpted');
-  const iframe = document.querySelector('.video-sculpted-frame iframe');
+  const btns = document.querySelectorAll('.chapter-link-row');
+  const iframe = document.querySelector('.video-frame-luxury iframe');
 
   if (!btns.length || !iframe) return;
 

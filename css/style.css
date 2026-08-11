@@ -1,65 +1,74 @@
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — DISEÑO ESCULPIDO Y NEUMÓRFICO v8.0
-   Estilo: Tonos Piedra/Mármol, Sombras Esculpidas Tactiles, Bronce Imperial
+   🏛️ ESTOICAMENTE HABLANDO — REDISEÑO EDITORIAL LUXURY v9.0
+   Estilo: Elegancia Clásica, Crema Cálido & Ébano, Tipografía de Lujo
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES DE DISEÑO & PALETA ESCULPIDA DE PIEDRA Y MÁRMOL
+   1. PALETA DE COLOR LUXURY & TOKENS DE DISEÑO
    -------------------------------------------------------------------------- */
 :root {
-  /* Modo Oscuro (Obsidiana Esculpida & Piedra Volcánica) */
-  --bg-base: #181A1E;
-  --bg-surface: #1E2026;
-  --bg-sunken: #141519;
+  /* Modo Oscuro (Ébano Nocturno & Oro Champaña) */
+  --bg-main: #0D0E12;
+  --bg-card: #151720;
+  --bg-card-hover: #1C1F2B;
+  --bg-subtle: #12141A;
 
-  --text-main: #E6E8EC;
-  --text-sub: #9EAF63;
-  --text-subtler: #888E9E;
+  --text-main: #F4F2EC;        /* Marfil Cálido */
+  --text-sub: #A0A5B5;         /* Gris Seda */
+  --text-muted: #6B7082;
 
-  --color-bronze: #C49A45;
-  --color-bronze-dark: #8C6A2B;
-  --color-bronze-light: #E5B865;
+  --color-gold: #D4AF37;        /* Oro Champaña */
+  --color-gold-light: #E6C200;
+  --color-gold-bg: rgba(212, 175, 55, 0.08);
+  --border-rule: rgba(255, 255, 255, 0.1);
+  --border-gold-subtle: rgba(212, 175, 55, 0.3);
 
-  /* Sombras Neumórficas Esculpidas (Dark Mode) */
-  --shadow-sculpted: 10px 10px 24px #121316, -10px -10px 24px #242730;
-  --shadow-sculpted-hover: 14px 14px 30px #101114, -14px -14px 30px #262932;
-  --shadow-debossed: inset 4px 4px 8px #111215, inset -4px -4px 8px #252831;
-  --shadow-bronze-press: 4px 4px 12px #121316, -4px -4px 12px #242730;
-
-  /* Tipografía */
-  --font-roman: "Cinzel", Georgia, serif;
+  /* Tipografía de Lujo */
+  --font-display: "Cinzel", Georgia, serif;
   --font-body: "Inter", -apple-system, sans-serif;
-  --font-quote: "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
 
-  /* Geometría Tactil */
-  --radius-sculpted: 20px;
+  /* Espaciado y Sombras */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --radius-card: 16px;
   --radius-pill: 9999px;
 
-  --transition-tactile: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
+  --transition-luxury: 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Modo Claro (Mármol Suave & Pergamino Esculpido) */
+/* Modo Claro (Marfil Crema & Ébano Profundo) */
 [data-theme="light"] {
-  --bg-base: #EBE8E1;
-  --bg-surface: #F2EFE8;
-  --bg-sunken: #E0DDD5;
+  --bg-main: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F5F2EC;
+  --bg-subtle: #F2EFE9;
 
-  --text-main: #2A2D34;
-  --text-sub: #5C6270;
-  --text-subtler: #8C92A0;
+  --text-main: #121316;
+  --text-sub: #4A4D57;
+  --text-muted: #8A8E9B;
 
-  --color-bronze: #A3792C;
-  --color-bronze-light: #C49A45;
+  --color-gold: #B89228;
+  --color-gold-light: #D4AF37;
+  --color-gold-bg: rgba(184, 146, 40, 0.08);
+  --border-rule: rgba(0, 0, 0, 0.08);
+  --border-gold-subtle: rgba(184, 146, 40, 0.3);
 
-  /* Sombras Neumórficas Esculpidas (Light Mode) */
-  --shadow-sculpted: 8px 8px 20px rgba(0, 0, 0, 0.08), -8px -8px 20px rgba(255, 255, 255, 0.9);
-  --shadow-sculpted-hover: 12px 12px 26px rgba(0, 0, 0, 0.12), -12px -12px 26px rgba(255, 255, 255, 0.95);
-  --shadow-debossed: inset 3px 3px 6px rgba(0, 0, 0, 0.09), inset -3px -3px 6px rgba(255, 255, 255, 0.8);
-  --shadow-bronze-press: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.8);
+  --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.06);
+  --shadow-gold: 0 10px 30px rgba(184, 146, 40, 0.1);
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET & REGLAS BASE
+   2. REGLAS BASE & ACCESIBILIDAD
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -70,17 +79,16 @@
 html, body {
   width: 100%;
   overflow-x: clip;
-  background-color: var(--bg-base);
+  background-color: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  touch-action: manipulation;
 }
 
 *:focus-visible {
-  outline: 2px solid var(--color-bronze);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
 
@@ -88,35 +96,35 @@ html, body {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: var(--color-bronze);
-  color: #fff;
-  padding: 0.5rem 1rem;
+  background: var(--color-gold);
+  color: #000;
+  padding: 0.5rem 1.25rem;
   font-weight: 700;
   z-index: 9999;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  transition: top var(--transition-tactile);
+  transition: top var(--transition-luxury);
 }
 .skip-link:focus { top: 1rem; }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-roman);
+  font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.18;
+  line-height: 1.15;
   color: var(--text-main);
   overflow-wrap: anywhere;
 }
 
-h1 { font-size: clamp(2.25rem, 4.5vw, 3.75rem); letter-spacing: -0.01em; }
-h2 { font-size: clamp(1.6rem, 3.2vw, 2.5rem); }
-h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
 
-p { color: var(--text-subtler); }
+p { color: var(--text-sub); }
 
 a {
-  color: var(--color-bronze);
+  color: var(--color-gold);
   text-decoration: none;
-  transition: color var(--transition-tactile);
+  transition: color var(--transition-luxury);
 }
 a:hover { color: var(--text-main); }
 
@@ -130,7 +138,7 @@ a:hover { color: var(--text-main); }
 .icon-svg {
   width: 1.25em;
   height: 1.25em;
-  stroke-width: 2;
+  stroke-width: 1.75;
   stroke: currentColor;
   fill: none;
   stroke-linecap: round;
@@ -140,81 +148,85 @@ a:hover { color: var(--text-main); }
 }
 
 /* --------------------------------------------------------------------------
-   3. HEADER NAVEGACIÓN ESCULPIDA (NEUMORPHIC BAR)
+   3. HEADER ELEGANTE DE LUJO (STICKY GLASS)
    -------------------------------------------------------------------------- */
-.site-header-sculpted {
+.site-header-luxury {
   position: sticky;
-  top: 1.25rem;
+  top: 0;
   z-index: 100;
-  margin-bottom: 3rem;
+  background: rgba(13, 14, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-rule);
+  padding: 1rem 0;
+  transition: background var(--transition-luxury);
+}
+[data-theme="light"] .site-header-luxury {
+  background: rgba(250, 248, 245, 0.88);
 }
 
-.header-sculpted-bar {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-pill);
-  padding: 0.65rem 1.75rem;
+.header-luxury-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.sculpted-brand {
+.luxury-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
 }
-.sculpted-brand-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
+.brand-crest {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-gold-subtle);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-bronze);
+  color: var(--color-gold);
+  background: var(--color-gold-bg);
 }
-.sculpted-brand-text {
-  font-family: var(--font-roman);
-  font-weight: 800;
+.brand-title {
+  font-family: var(--font-display);
   font-size: 1.05rem;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   color: var(--text-main);
 }
 
-.sculpted-nav-list {
+.luxury-nav-list {
   display: flex;
   list-style: none;
-  gap: 1.75rem;
+  gap: 2rem;
 }
-.sculpted-nav-link {
+.luxury-nav-link {
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-subtler);
-  text-decoration: none;
-  transition: color var(--transition-tactile);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  transition: color var(--transition-luxury);
 }
-.sculpted-nav-link:hover, .sculpted-nav-link.active {
-  color: var(--color-bronze);
+.luxury-nav-link:hover, .luxury-nav-link.active {
+  color: var(--color-gold);
 }
 
-.sculpted-actions {
+.luxury-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-/* Botón Neumórfico Esculpido */
-.btn-sculpted-primary {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  color: var(--color-bronze);
-  font-family: var(--font-roman);
+.btn-luxury-gold {
+  background: var(--color-gold);
+  color: #000;
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-pill);
   border: none;
@@ -222,34 +234,29 @@ a:hover { color: var(--text-main); }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: transform var(--transition-tactile), box-shadow var(--transition-tactile), color var(--transition-tactile);
+  transition: transform var(--transition-luxury), box-shadow var(--transition-luxury);
+  box-shadow: var(--shadow-gold);
 }
-.btn-sculpted-primary:hover {
+.btn-luxury-gold:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sculpted-hover);
-  color: var(--color-bronze-light);
-}
-.btn-sculpted-primary:active {
-  box-shadow: var(--shadow-debossed);
-  transform: translateY(0);
+  background: var(--color-gold-light);
 }
 
-.btn-sculpted-icon {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border: none;
+.btn-theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-rule);
   color: var(--text-main);
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--transition-tactile);
+  transition: border-color var(--transition-luxury);
 }
-.btn-sculpted-icon:active {
-  box-shadow: var(--shadow-debossed);
+.btn-theme-toggle:hover {
+  border-color: var(--color-gold);
 }
 
 .mobile-menu-btn {
@@ -262,291 +269,307 @@ a:hover { color: var(--text-main); }
 }
 
 /* --------------------------------------------------------------------------
-   4. HERO SECTION (CARD ESCULPIDA MÁRMOL)
+   4. HERO SECTION (EDITORIAL ASYMMETRIC ELEGANCE)
    -------------------------------------------------------------------------- */
-.hero-section {
-  padding: 1.5rem 0 4.5rem 0;
+.hero-editorial-section {
+  padding: 4rem 0 6rem 0;
+  border-bottom: 1px solid var(--border-rule);
 }
 
-.hero-sculpted-grid {
+.hero-editorial-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
   align-items: center;
 }
 
-.sculpted-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  padding: 0.45rem 1.1rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--color-bronze);
+.editorial-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.editorial-headline {
   margin-bottom: 1.5rem;
+  line-height: 1.1;
 }
 
-.sculpted-lead-box {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
+.editorial-lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-sub);
+  margin-bottom: 2.5rem;
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1.25rem;
+}
+
+/* Formulario Luxury Card */
+.editorial-optin-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-card);
   padding: 2.25rem;
-  margin-top: 2rem;
+  box-shadow: var(--shadow-luxury);
 }
 
-.sculpted-form-row {
+.editorial-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   gap: 0.85rem;
   margin-top: 1.25rem;
 }
 
-.input-debossed {
-  background: var(--bg-sunken);
-  box-shadow: var(--shadow-debossed);
-  border: none;
+.input-luxury {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-rule);
   color: var(--text-main);
   padding: 0.85rem 1.2rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.95rem;
+  transition: border-color var(--transition-luxury);
 }
-.input-debossed:focus {
-  outline: 2px solid var(--color-bronze);
+.input-luxury:focus {
+  border-color: var(--color-gold);
+  outline: none;
 }
 
-/* Columna Derecha: Tarjeta de Escultura Clásica */
-.hero-card-sculpted {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
-  padding: 2.75rem 2rem;
+/* Columna Derecha: Grabado Editorial */
+.editorial-visual-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rule);
+  border-radius: var(--radius-card);
+  padding: 3rem 2.25rem;
   text-align: center;
   position: relative;
+  box-shadow: var(--shadow-luxury);
 }
 
-.sculpture-icon-wrapper {
-  width: 100px;
-  height: 100px;
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem auto;
-  color: var(--color-bronze);
-}
-
-/* --------------------------------------------------------------------------
-   5. SECCIÓN ORÁCULO DE REFLEXIONES (DEBOSSED BOX)
-   -------------------------------------------------------------------------- */
-.section-oracle {
-  padding: 4.5rem 0;
-}
-
-.oracle-sculpted-box {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
-  padding: 3.5rem 2.5rem;
-  text-align: center;
-  max-width: 880px;
-  margin: 0 auto;
-}
-
-.oracle-quote-display {
-  font-family: var(--font-quote);
+.visual-quote-serif {
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 1.5rem;
   line-height: 1.4;
   color: var(--text-main);
   margin: 1.5rem 0;
-  min-height: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN ORÁCULO DE REFLEXIONES (PULL-QUOTE ELEGANCE)
+   -------------------------------------------------------------------------- */
+.section-oracle {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-rule);
+  background: var(--bg-subtle);
+}
+
+.oracle-luxury-box {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.oracle-quote-display {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  line-height: 1.35;
+  color: var(--text-main);
+  margin: 2rem 0;
+  min-height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 250ms var(--transition-tactile), transform 250ms var(--transition-tactile);
+  transition: opacity 300ms var(--transition-luxury), transform 300ms var(--transition-luxury);
 }
 
 .oracle-author-display {
-  font-family: var(--font-roman);
+  font-family: var(--font-display);
   font-size: 0.88rem;
-  letter-spacing: 0.12em;
-  color: var(--color-bronze);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
   margin-bottom: 2rem;
 }
 
 /* --------------------------------------------------------------------------
-   6. SECCIÓN LAS 4 VIRTUDES (NEUMORPHIC TILES GRID)
+   6. SECCIÓN LAS 4 VIRTUDES (LUXURY GRID)
    -------------------------------------------------------------------------- */
 .section-virtues {
-  padding: 4.5rem 0;
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-rule);
 }
 
 .section-header-center {
   text-align: center;
   max-width: 650px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 4rem auto;
 }
 
-.virtues-sculpted-grid {
+.virtues-luxury-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.75rem;
 }
 
-.virtue-tile-sculpted {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
-  padding: 2.25rem 1.5rem;
+.virtue-card-luxury {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rule);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 1.75rem;
   text-align: center;
-  transition: transform var(--transition-tactile), box-shadow var(--transition-tactile);
+  transition: transform var(--transition-luxury), border-color var(--transition-luxury), box-shadow var(--transition-luxury);
 }
-.virtue-tile-sculpted:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-sculpted-hover);
+.virtue-card-luxury:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold-subtle);
+  box-shadow: var(--shadow-luxury);
 }
 
-.virtue-icon-sculpted {
-  width: 54px;
-  height: 54px;
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
+.virtue-crest-icon {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--border-gold-subtle);
+  background: var(--color-gold-bg);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem auto;
-  color: var(--color-bronze);
+  color: var(--color-gold);
 }
 
 /* --------------------------------------------------------------------------
-   7. SECCIÓN LOS TRES MAESTROS
+   7. SECCIÓN LOS TRES MAESTROS (PORTRAIT CARDS)
    -------------------------------------------------------------------------- */
 .section-masters {
-  padding: 4.5rem 0;
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-rule);
 }
 
-.masters-sculpted-grid {
+.masters-luxury-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
-.master-tile-sculpted {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
-  padding: 2.25rem;
+.master-card-luxury {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rule);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  transition: border-color var(--transition-luxury), transform var(--transition-luxury);
+}
+.master-card-luxury:hover {
+  border-color: var(--border-gold-subtle);
+  transform: translateY(-4px);
 }
 
-.master-quote-debossed {
-  background: var(--bg-sunken);
-  box-shadow: var(--shadow-debossed);
-  padding: 1.25rem;
-  border-radius: var(--radius-sculpted);
-  font-family: var(--font-quote);
+.master-quote-serif {
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1rem;
+  font-family: var(--font-serif);
   font-style: italic;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   color: var(--text-main);
+  font-size: 1.05rem;
 }
 
 /* --------------------------------------------------------------------------
    8. SECCIÓN VIDEO REFLEXIÓN
    -------------------------------------------------------------------------- */
 .section-video {
-  padding: 4.5rem 0;
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-rule);
+  background: var(--bg-subtle);
 }
 
-.video-sculpted-grid {
+.video-editorial-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: center;
 }
 
-.video-sculpted-frame {
+.video-frame-luxury {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
-  border-radius: var(--radius-sculpted);
+  border-radius: var(--radius-card);
   overflow: hidden;
-  box-shadow: var(--shadow-sculpted);
+  border: 1px solid var(--border-gold-subtle);
+  box-shadow: var(--shadow-luxury);
 }
-.video-sculpted-frame iframe {
+.video-frame-luxury iframe {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
-.chapters-sculpted-box {
-  background: var(--bg-surface);
-  box-shadow: var(--shadow-sculpted);
-  border-radius: var(--radius-sculpted);
-  padding: 1.75rem;
+.chapters-luxury-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-rule);
+  border-radius: var(--radius-card);
+  padding: 2rem;
 }
 
-.chapter-btn-sculpted {
+.chapter-link-row {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.85rem;
-  margin-bottom: 0.5rem;
-  border-radius: var(--radius-pill);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-rule);
   cursor: pointer;
-  transition: box-shadow var(--transition-tactile), background var(--transition-tactile);
+  transition: color var(--transition-luxury);
 }
-.chapter-btn-sculpted:hover {
-  box-shadow: var(--shadow-sculpted);
-  color: var(--color-bronze);
-}
+.chapter-link-row:last-child { border-bottom: none; }
+.chapter-link-row:hover { color: var(--color-gold); }
 
-.timestamp-pill {
-  font-family: var(--font-roman);
+.timestamp-badge {
+  font-family: var(--font-display);
   font-weight: 700;
-  color: var(--color-bronze);
-  background: var(--bg-sunken);
-  box-shadow: var(--shadow-debossed);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-pill);
+  color: var(--color-gold);
+  background: var(--color-gold-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
   font-size: 0.8rem;
 }
 
 /* --------------------------------------------------------------------------
-   9. FOOTER ESCULPIDO
+   9. FOOTER ELEGANTE MULTICOLUMNA
    -------------------------------------------------------------------------- */
-.site-footer-sculpted {
-  padding: 4.5rem 0 2rem 0;
-  border-top: 1px solid rgba(0,0,0,0.05);
+.site-footer-luxury {
+  padding: 6rem 0 3rem 0;
+  background: var(--bg-main);
 }
 
-.footer-sculpted-grid {
+.footer-luxury-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 3.5rem;
-  margin-bottom: 3.5rem;
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
 
 .footer-nav-list {
   list-style: none;
 }
-.footer-nav-list li { margin-bottom: 0.6rem; }
+.footer-nav-list li { margin-bottom: 0.65rem; }
 .footer-nav-list a {
-  color: var(--text-subtler);
+  color: var(--text-sub);
   font-size: 0.9rem;
   text-decoration: none;
+  transition: color var(--transition-luxury);
 }
-.footer-nav-list a:hover { color: var(--color-bronze); }
+.footer-nav-list a:hover { color: var(--color-gold); }
 
-.footer-legal-notice {
+.footer-disclaimer-legal {
+  border-top: 1px solid var(--border-rule);
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   text-align: center;
-  font-size: 0.78rem;
-  color: var(--text-subtler);
   line-height: 1.6;
 }
 
@@ -554,39 +577,37 @@ a:hover { color: var(--text-main); }
    10. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .hero-sculpted-grid, .video-sculpted-grid, .footer-sculpted-grid {
+  .hero-editorial-grid, .video-editorial-grid, .footer-luxury-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
   }
-  .virtues-sculpted-grid {
+  .virtues-luxury-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .masters-sculpted-grid {
+  .masters-luxury-grid {
     grid-template-columns: 1fr;
   }
-  .sculpted-form-row {
+  .editorial-form-row {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .sculpted-nav-list {
+  .luxury-nav-list {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--bg-surface);
-    box-shadow: var(--shadow-sculpted);
-    border-radius: var(--radius-sculpted);
+    background: var(--bg-card);
+    border: 1px solid var(--border-rule);
     flex-direction: column;
     padding: 1.5rem;
     gap: 1rem;
-    margin-top: 0.5rem;
   }
-  .sculpted-nav-list.active { display: flex; }
+  .luxury-nav-list.active { display: flex; }
   .mobile-menu-btn { display: block; }
-  .virtues-sculpted-grid { grid-template-columns: 1fr; }
+  .virtues-luxury-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

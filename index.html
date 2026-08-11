@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estoicamente Hablando | Escultura & Filosofía Práctica</title>
-  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Edición esculpida oficial de Estoicamente Hablando con El Rayo Romano.">
+  <title>Estoicamente Hablando | Filosofía Práctica & La Legión</title>
+  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Edición oficial de Estoicamente Hablando con El Rayo Romano.">
 
   <!-- Script Anti-FOUC de Tema -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('v8-theme');
+      const savedTheme = localStorage.getItem('v9-theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = savedTheme || (systemDark ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Hoja de Estilo v8.0 Neumórfico Esculpido -->
+  <!-- Hoja de Estilo v9.0 Editorial Luxury -->
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -30,17 +30,17 @@
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ==========================================
-       1. NAVIGATION (NEUMORPHIC SCULPTED BAR)
+       1. HEADER ELEGANTE DE LUJO
        ========================================== -->
-  <header class="site-header-sculpted">
+  <header class="site-header-luxury">
     <div class="container">
-      <div class="header-sculpted-bar">
+      <div class="header-luxury-container">
         
-        <a href="./index.html" class="sculpted-brand" aria-label="Estoicamente Hablando - Inicio">
-          <div class="sculpted-brand-icon">
+        <a href="./index.html" class="luxury-brand" aria-label="Estoicamente Hablando - Inicio">
+          <div class="brand-crest">
             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
           </div>
-          <span class="sculpted-brand-text">ESTOICAMENTE HABLANDO</span>
+          <span class="brand-title">ESTOICAMENTE HABLANDO</span>
         </a>
 
         <button type="button" class="mobile-menu-btn" id="mobile-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir navegación">
@@ -48,21 +48,21 @@
         </button>
 
         <nav aria-label="Navegación principal">
-          <ul class="sculpted-nav-list" id="nav-list">
-            <li><a href="./index.html" class="sculpted-nav-link active">Inicio</a></li>
-            <li><a href="#oraculo" class="sculpted-nav-link">Oráculo</a></li>
-            <li><a href="#virtudes" class="sculpted-nav-link">4 Virtudes</a></li>
-            <li><a href="#maestros" class="sculpted-nav-link">Maestros</a></li>
-            <li><a href="#video" class="sculpted-nav-link">Video</a></li>
+          <ul class="luxury-nav-list" id="nav-list">
+            <li><a href="./index.html" class="luxury-nav-link active">Inicio</a></li>
+            <li><a href="#oraculo" class="luxury-nav-link">Oráculo</a></li>
+            <li><a href="#virtudes" class="luxury-nav-link">4 Virtudes</a></li>
+            <li><a href="#maestros" class="luxury-nav-link">Maestros</a></li>
+            <li><a href="#video" class="luxury-nav-link">Video</a></li>
           </ul>
         </nav>
 
-        <div class="sculpted-actions">
-          <button type="button" class="btn-sculpted-icon" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
+        <div class="luxury-actions">
+          <button type="button" class="btn-theme-toggle" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </button>
 
-          <a href="#reto" class="btn-sculpted-primary">
+          <a href="#reto" class="btn-luxury-gold">
             <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             <span>Unirme al Reto</span>
           </a>
@@ -74,74 +74,76 @@
 
   <main id="main-content">
     <!-- ==========================================
-         2. HERO SECTION (SCULPTED STONE HERO)
+         2. HERO SECTION (EDITORIAL ELEGANCE)
          ========================================== -->
-    <section class="hero-section" id="hero">
+    <section class="hero-editorial-section" id="hero">
       <div class="container">
-        <div class="hero-sculpted-grid">
+        <div class="hero-editorial-grid">
           
-          <!-- Columna Izquierda: Manifiesto & Formulario Debossed -->
+          <!-- Columna Izquierda: Manifiesto & Formulario Luxury -->
           <div>
-            <div class="sculpted-badge">
-              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              <span>EL RAYO ROMANO PRESENTA // LA LEGIÓN</span>
-            </div>
+            <span class="editorial-eyebrow">La quietud de la mente frente al caos del mundo — El Rayo Romano</span>
 
-            <h1>
-              Domina tu Mente.<br>Forja tu Calma Interior.
+            <h1 class="editorial-headline">
+              El Arte de Gobernar tus Pensamientos
             </h1>
 
-            <p style="font-size: 1.15rem; margin-top: 1rem;">
-              Filosofía estoica práctica para afrontar la ansiedad, controlar tus pensamientos y desarrollar una serenidad inquebrantable en tu vida diaria.
+            <p class="editorial-lead">
+              Filosofía estoica práctica para cultivar una serenidad inquebrantable, dominar la autodisciplina y eliminar la ansiedad diaria.
             </p>
 
-            <div class="sculpted-lead-box" id="reto">
+            <div class="editorial-optin-card" id="reto">
               <h2 style="font-size: 1.25rem; margin-bottom: 0.4rem;">⚡ Reto Estoico de 7 Días (100% Gratis)</h2>
-              <p style="font-size: 0.9rem;">
+              <p style="font-size: 0.9rem; color: var(--text-sub);">
                 Recibe cada mañana una lección directa en tu correo para transformar tu mentalidad.
               </p>
 
               <form id="hero-lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="reto-7-dias-v8">
+                <input type="hidden" name="form-name" value="reto-7-dias-v9">
                 <p style="display:none;"><label>No llenar: <input name="bot-field"></label></p>
 
-                <div class="sculpted-form-row">
-                  <input type="text" name="name" required placeholder="Tu nombre" class="input-debossed" aria-label="Nombre">
-                  <input type="email" name="email" required placeholder="tu@correo.com" class="input-debossed" aria-label="Correo">
-                  <button type="submit" class="btn-sculpted-primary">
+                <div class="editorial-form-row">
+                  <input type="text" name="name" required placeholder="Tu nombre" class="input-luxury" aria-label="Nombre">
+                  <input type="email" name="email" required placeholder="tu@correo.com" class="input-luxury" aria-label="Correo">
+                  <button type="submit" class="btn-luxury-gold">
                     <span>Comenzar →</span>
                   </button>
                 </div>
 
-                <div style="margin-top: 1rem; font-size: 0.75rem;">
+                <div style="margin-top: 1rem; font-size: 0.78rem; color: var(--text-muted);">
                   <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
                     <input type="checkbox" required name="gdpr_consent">
-                    <span>Acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.</span>
+                    <span>Acepto la <a href="./privacidad.html" target="_blank" style="color: var(--color-gold);">Política de Privacidad</a> y deseo unirme a La Legión.</span>
                   </label>
                 </div>
               </form>
             </div>
           </div>
 
-          <!-- Columna Derecha: Tarjeta Esculpida Tactil -->
-          <div class="hero-card-sculpted">
-            <div class="sculpture-icon-wrapper">
-              <svg class="icon-svg" viewBox="0 0 24 24" style="width: 48px; height: 48px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <!-- Columna Derecha: Grabado Tipográfico Editorial -->
+          <div class="editorial-visual-card">
+            <div style="font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.15em; color: var(--color-gold); text-transform: uppercase;">
+              LA LEGIÓN // EDICIÓN 2026
             </div>
 
-            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">El Rayo Romano</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">
-              Tu guía en la contemplación nocturna y el arte de la autodisciplina.
-            </p>
+            <div class="visual-quote-serif">
+              "No tienes poder sobre los eventos externos, pero sí sobre tu mente. Aprende esto y encontrarás fortaleza."
+            </div>
 
-            <div style="display: flex; justify-content: space-around; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.25rem;">
+            <div style="font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sub);">
+              — MARCO AURELIO, MEDITACIONES
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-rule); margin: 2rem 0;">
+
+            <div style="display: flex; justify-content: space-around; text-align: center;">
               <div>
-                <div style="font-family: var(--font-roman); font-size: 1.3rem; font-weight: 800; color: var(--color-bronze);">100%</div>
-                <div style="font-size: 0.75rem;">FILOSOFÍA PRÁCTICA</div>
+                <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--color-gold);">100%</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">PRÁCTICO</div>
               </div>
               <div>
-                <div style="font-family: var(--font-roman); font-size: 1.3rem; font-weight: 800; color: var(--color-bronze);">432 Hz</div>
-                <div style="font-size: 0.75rem;">PAZ & CALMA</div>
+                <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--color-gold);">432 Hz</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">SERENIDAD</div>
               </div>
             </div>
           </div>
@@ -155,11 +157,9 @@
          ========================================== -->
     <section class="section-oracle" id="oraculo">
       <div class="container">
-        <div class="oracle-sculpted-box">
-          <div class="sculpted-badge" style="margin-bottom: 0.5rem;">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span>ORÁCULO DE REFLEXIONES</span>
-          </div>
+        <div class="oracle-luxury-box">
+          <span class="editorial-eyebrow">Reflexión Diaria</span>
+          <h2>El Oráculo Estoico</h2>
 
           <div class="oracle-quote-display" id="oracle-text">
             "Sufrimos más a menudo en la imaginación que en la realidad."
@@ -168,102 +168,102 @@
             — SÉNECA, CARTAS A LUCILIO
           </div>
 
-          <button type="button" class="btn-sculpted-primary" id="oracle-btn">
+          <button type="button" class="btn-luxury-gold" id="oracle-btn">
             <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-            <span>Generar Nueva Reflexión</span>
+            <span>Generar Reflexión</span>
           </button>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         4. SECCIÓN LAS 4 VIRTUDES (NEUMORPHIC TILES)
+         4. SECCIÓN LAS 4 VIRTUDES (LUXURY GRID)
          ========================================== -->
     <section class="section-virtues" id="virtudes">
       <div class="container">
         <div class="section-header-center">
-          <span class="sculpted-badge">EL CÓDIGO DE LA LEGIÓN</span>
-          <h2>Las 4 Virtudes Estoicas</h2>
-          <p style="margin-top: 0.5rem;">Los cuatro pilares para construir un carácter inquebrantable frente a la adversidad.</p>
+          <span class="editorial-eyebrow">El Código de La Legión</span>
+          <h2>Las 4 Virtudes Cardinales</h2>
+          <p style="margin-top: 0.5rem;">Los principios fundamentales de la filosofía estoica para forjar un carácter inquebrantable.</p>
         </div>
 
-        <div class="virtues-sculpted-grid">
+        <div class="virtues-luxury-grid">
           <!-- Sabiduría -->
-          <div class="virtue-tile-sculpted">
-            <div class="virtue-icon-sculpted">
+          <div class="virtue-card-luxury">
+            <div class="virtue-crest-icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Sabiduría</h3>
-            <p style="font-size: 0.85rem;">Distinguir con claridad lo que depende de ti de lo que está fuera de tu control.</p>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Sabiduría</h3>
+            <p style="font-size: 0.88rem;">Saber distinguir con claridad absoluta lo que depende de ti de lo que no.</p>
           </div>
 
           <!-- Coraje -->
-          <div class="virtue-tile-sculpted">
-            <div class="virtue-icon-sculpted">
+          <div class="virtue-card-luxury">
+            <div class="virtue-crest-icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Coraje</h3>
-            <p style="font-size: 0.85rem;">Enfrentar el miedo con serenidad y actuar con firmeza ante la adversidad.</p>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Coraje</h3>
+            <p style="font-size: 0.88rem;">Enfrentar el miedo con serenidad y defender la verdad en todo momento.</p>
           </div>
 
           <!-- Templanza -->
-          <div class="virtue-tile-sculpted">
-            <div class="virtue-icon-sculpted">
+          <div class="virtue-card-luxury">
+            <div class="virtue-crest-icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
             </div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Templanza</h3>
-            <p style="font-size: 0.85rem;">El dominio propio, la moderación y el control sobre tus impulsos.</p>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Templanza</h3>
+            <p style="font-size: 0.88rem;">El dominio propio, la moderación y el control sobre tus impulsos.</p>
           </div>
 
           <!-- Justicia -->
-          <div class="virtue-tile-sculpted">
-            <div class="virtue-icon-sculpted">
+          <div class="virtue-card-luxury">
+            <div class="virtue-crest-icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><path d="m12 3-9 4.5v3.5c0 5.25 3.75 10.15 9 11.5 5.25-1.35 9-6.25 9-11.5V7.5L12 3z"/></svg>
             </div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Justicia</h3>
-            <p style="font-size: 0.85rem;">Tratar a los demás con equidad, empatía y respeto fraternal.</p>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Justicia</h3>
+            <p style="font-size: 0.88rem;">Tratar a los demás con bien común, equidad y respeto fraternal.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         7. SECCIÓN LOS TRES MAESTROS
+         5. SECCIÓN LOS TRES MAESTROS
          ========================================== -->
     <section class="section-masters" id="maestros">
       <div class="container">
         <div class="section-header-center">
-          <span class="sculpted-badge">SABIDURÍA DE LA ANTIGÜEDAD</span>
+          <span class="editorial-eyebrow">Sabiduría Ancestral</span>
           <h2>Los Tres Maestros</h2>
         </div>
 
-        <div class="masters-sculpted-grid">
+        <div class="masters-luxury-grid">
           <!-- Marco Aurelio -->
-          <div class="master-tile-sculpted">
-            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-bronze); text-transform: uppercase;">EMPERADOR & FILÓSOFO</span>
+          <div class="master-card-luxury">
+            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-gold); text-transform: uppercase;">EMPERADOR & FILÓSOFO</span>
             <h3 style="margin-top: 0.25rem;">Marco Aurelio</h3>
-            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Gobernó el imperio romano manteniendo la autodisciplina en sus Meditaciones nocturnas.</p>
-            <div class="master-quote-debossed">
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Gobernó el imperio romano practicando la autodisciplina y la paz mental en sus Meditaciones nocturnas.</p>
+            <div class="master-quote-serif">
               "Rechaza tu sentido de perjuicio y el perjuicio mismo desaparece."
             </div>
           </div>
 
           <!-- Séneca -->
-          <div class="master-tile-sculpted">
-            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-bronze); text-transform: uppercase;">DRAMATURGO & CONSEJERO</span>
+          <div class="master-card-luxury">
+            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-gold); text-transform: uppercase;">DRAMATURGO & CONSEJERO</span>
             <h3 style="margin-top: 0.25rem;">Séneca</h3>
-            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Nos enseñó el valor del tiempo presente y cómo evitar rumiar el pasado o temer al futuro.</p>
-            <div class="master-quote-debossed">
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Nos advirtió que no tenemos poco tiempo, sino que perdemos mucho rumiando el pasado o temiendo al futuro.</p>
+            <div class="master-quote-serif">
               "No tenemos poco tiempo, sino que perdemos mucho."
             </div>
           </div>
 
           <!-- Epicteto -->
-          <div class="master-tile-sculpted">
-            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-bronze); text-transform: uppercase;">ESCLAVO & MAESTRO</span>
+          <div class="master-card-luxury">
+            <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-gold); text-transform: uppercase;">ESCLAVO & MAESTRO</span>
             <h3 style="margin-top: 0.25rem;">Epicteto</h3>
-            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Creador de la Dicotomía del Control: aprende a soltar con serenidad aquello que no depende de ti.</p>
-            <div class="master-quote-debossed">
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Creador de la Dicotomía del Control: aprende a soltar con serenidad todo lo que no depende de ti.</p>
+            <div class="master-quote-serif">
               "Sólo el hombre verdaderamente educado es libre."
             </div>
           </div>
@@ -272,17 +272,17 @@
     </section>
 
     <!-- ==========================================
-         8. SECCIÓN REFLEXIÓN EN VIDEO
+         6. SECCIÓN VIDEO REFLEXIÓN
          ========================================== -->
     <section class="section-video" id="video">
       <div class="container">
         <div class="section-header-center">
-          <span class="sculpted-badge">CANAL OFICIAL DE YOUTUBE</span>
+          <span class="editorial-eyebrow">Canal Oficial en Video</span>
           <h2>Reflexión de El Rayo Romano</h2>
         </div>
 
-        <div class="video-sculpted-grid">
-          <div class="video-sculpted-frame">
+        <div class="video-editorial-grid">
+          <div class="video-frame-luxury">
             <iframe 
               src="https://www.youtube-nocookie.com/embed/videoseries?list=UU&enablejsapi=1" 
               title="Reproductor de Video Estoicamente Hablando"
@@ -292,28 +292,28 @@
             </iframe>
           </div>
 
-          <div class="chapters-sculpted-box">
-            <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">⏱️ Capítulos del Video</h3>
+          <div class="chapters-luxury-box">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">⏱️ Capítulos de la Reflexión</h3>
             
-            <div class="chapter-btn-sculpted" data-time="0">
-              <span class="timestamp-pill">00:00</span>
+            <div class="chapter-link-row" data-time="0">
+              <span class="timestamp-badge">00:00</span>
               <span style="font-size: 0.9rem;">El sobrepensamiento a la 1:00 AM</span>
             </div>
-            <div class="chapter-btn-sculpted" data-time="135">
-              <span class="timestamp-pill">02:15</span>
+            <div class="chapter-link-row" data-time="135">
+              <span class="timestamp-badge">02:15</span>
               <span style="font-size: 0.9rem;">La Regla de las Dos Listas</span>
             </div>
-            <div class="chapter-btn-sculpted" data-time="340">
-              <span class="timestamp-pill">05:40</span>
+            <div class="chapter-link-row" data-time="340">
+              <span class="timestamp-badge">05:40</span>
               <span style="font-size: 0.9rem;">Cómo soltar lo que no depende de ti</span>
             </div>
-            <div class="chapter-btn-sculpted" data-time="550">
-              <span class="timestamp-pill">09:10</span>
+            <div class="chapter-link-row" data-time="550">
+              <span class="timestamp-badge">09:10</span>
               <span style="font-size: 0.9rem;">El Mantra Final de La Legión</span>
             </div>
 
             <div style="margin-top: 1.5rem;">
-              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-sculpted-primary" style="width: 100%; justify-content: center;">
+              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-luxury-gold" style="width: 100%; justify-content: center;">
                 <span>🔔 Suscribirme en YouTube</span>
               </a>
             </div>
@@ -325,18 +325,18 @@
   </main>
 
   <!-- ==========================================
-       9. FOOTER ESCULPIDO
+       7. FOOTER ELEGANTE MULTICOLUMNA
        ========================================== -->
-  <footer class="site-footer-sculpted">
+  <footer class="site-footer-luxury">
     <div class="container">
-      <div class="footer-sculpted-grid">
+      <div class="footer-luxury-grid">
         
         <div>
-          <div class="sculpted-brand" style="margin-bottom: 1rem;">
-            <div class="sculpted-brand-icon">
+          <div class="luxury-brand" style="margin-bottom: 1rem;">
+            <div class="brand-crest">
               <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
             </div>
-            <span class="sculpted-brand-text">ESTOICAMENTE HABLANDO</span>
+            <span class="brand-title">ESTOICAMENTE HABLANDO</span>
           </div>
           <p style="font-size: 0.9rem; margin-bottom: 1rem;">
             Espacio de reflexión y filosofía práctica guiado por El Rayo Romano para La Legión.
@@ -349,7 +349,7 @@
         </div>
 
         <div>
-          <h4 style="font-size: 0.95rem; font-family: var(--font-roman); margin-bottom: 1rem;">Navegación</h4>
+          <h4 style="font-size: 0.95rem; font-family: var(--font-display); margin-bottom: 1rem;">Navegación</h4>
           <ul class="footer-nav-list">
             <li><a href="./index.html">Inicio</a></li>
             <li><a href="#oraculo">Oráculo Estoico</a></li>
@@ -360,7 +360,7 @@
         </div>
 
         <div>
-          <h4 style="font-size: 0.95rem; font-family: var(--font-roman); margin-bottom: 1rem;">Legal & Privacidad</h4>
+          <h4 style="font-size: 0.95rem; font-family: var(--font-display); margin-bottom: 1rem;">Legal & Privacidad</h4>
           <ul class="footer-nav-list">
             <li><a href="./aviso-legal.html">Aviso Legal</a></li>
             <li><a href="./privacidad.html">Política de Privacidad</a></li>
@@ -371,14 +371,14 @@
 
       </div>
 
-      <div class="footer-legal-notice">
+      <div class="footer-disclaimer-legal">
         <p>📖 <strong>Aviso de Afiliación:</strong> Como Afiliado de Amazon, podemos recibir ingresos por compras adscritas que cumplen los requisitos aplicables, sin ningún coste adicional para ti.</p>
         <p style="margin-top: 0.5rem;">© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Core JavaScript v8.0 -->
+  <!-- Core JavaScript v9.0 -->
   <script src="./js/main.js"></script>
 </body>
 </html>
