@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Flujo Editorial: Permite guardar borradores antes de publicar en vivo
+publish_mode: editorial_workflow
+
+# Configuración de medios/imágenes
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Idioma de la interfaz del CMS
+locale: "es"
+
+# Definición de colecciones de contenido
+collections:
+  # ----------------------------------------------------
+  # Colección: Artículos del Blog
+  # ----------------------------------------------------
+  - name: "blog"
+    label: "Artículos del Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título del Artículo", name: "title", widget: "string" }
+      - { label: "Descripción SEO (Resumen de 150 caracteres)", name: "description", widget: "text" }
+      - { label: "Fecha de Publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Autor", name: "author", widget: "string", default: "El Rayo Romano" }
+      - label: "Categoría Estoica"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Filosofía Práctica", value: "filosofia-practica" }
+          - { label: "Autocontrol y Ansiedad", value: "autocontrol-y-ansiedad" }
+          - { label: "Disciplina y Hábitos", value: "disciplina-y-habitos" }
+          - { label: "Meditaciones y Reflexiones", value: "meditaciones-y-reflexiones" }
+      - label: "Filósofo de Referencia"
+        name: "philosopher"
+        widget: "select"
+        options:
+          - { label: "Marco Aurelio", value: "marco-aurelio" }
+          - { label: "Séneca", value: "seneca" }
+          - { label: "Epicteto", value: "epicteto" }
+          - { label: "Zenón de Citio", value: "zenon" }
+          - { label: "General / La Legión", value: "general" }
+      - { label: "Imagen Destacada", name: "heroImage", widget: "image" }
+      - { label: "Texto Alternativo de Imagen", name: "heroImageAlt", widget: "string" }
+      - { label: "ID de Video de YouTube (opcional)", name: "youtubeVideoId", widget: "string", required: false }
+      - { label: "Destacar en la Portada", name: "featured", widget: "boolean", default: false }
+      - { label: "Borrador (No visible)", name: "draft", widget: "boolean", default: false }
+      - { label: "Contenido del Artículo (Markdown)", name: "body", widget: "markdown" }
+
+  # ----------------------------------------------------
+  # Colección: Videos del Canal
+  # ----------------------------------------------------
+  - name: "videos"
+    label: "Galería de Videos"
+    folder: "src/content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título del Video", name: "title", widget: "string" }
+      - { label: "ID de YouTube (ej: dQw4w9WgXcQ)", name: "youtubeId", widget: "string" }
+      - { label: "Duración (ej: 15:30)", name: "duration", widget: "string" }
+      - { label: "Fecha de Publicación", name: "pubDate", widget: "datetime" }
+      - label: "Filósofo", name: "philosopher", widget: "select", options: ["marco-aurelio", "seneca", "epicteto", "general"] }
+      - { label: "Descripción Breve", name: "description", widget: "text" }
