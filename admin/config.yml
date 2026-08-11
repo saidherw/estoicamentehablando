@@ -64,5 +64,5 @@ collections:
       - { label: "ID de YouTube (ej: dQw4w9WgXcQ)", name: "youtubeId", widget: "string" }
       - { label: "Duración (ej: 15:30)", name: "duration", widget: "string" }
       - { label: "Fecha de Publicación", name: "pubDate", widget: "datetime" }
-      - label: "Filósofo", name: "philosopher", widget: "select", options: ["marco-aurelio", "seneca", "epicteto", "general"] }
+      - { label: "Filósofo", name: "philosopher", widget: "string", default: "marco-aurelio" }
       - { label: "Descripción Breve", name: "description", widget: "text" }

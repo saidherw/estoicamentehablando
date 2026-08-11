@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # O la rama principal de tu repositorio de GitHub
+  branch: main
 
 # Flujo Editorial: Permite guardar borradores antes de publicar en vivo
 publish_mode: editorial_workflow
@@ -64,19 +64,5 @@ collections:
       - { label: "ID de YouTube (ej: dQw4w9WgXcQ)", name: "youtubeId", widget: "string" }
       - { label: "Duración (ej: 15:30)", name: "duration", widget: "string" }
       - { label: "Fecha de Publicación", name: "pubDate", widget: "datetime" }
-      - label: "Filósofo", name: "philosopher", widget: "select", options: ["marco-aurelio", "seneca", "epicteto", "general"] }
+      - { label: "Filósofo", name: "philosopher", widget: "string", default: "marco-aurelio" }
       - { label: "Descripción Breve", name: "description", widget: "text" }
-
-  # ----------------------------------------------------
-  # Colección: Recursos y Descargables
-  # ----------------------------------------------------
-  - name: "recursos"
-    label: "Recursos y Descargables"
-    folder: "src/content/recursos"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nombre del Recurso", name: "title", widget: "string" }
-      - { label: "Descripción", name: "description", widget: "text" }
-      - { label: "Archivo PDF / Recurso", name: "file", widget: "file" }
-      - { label: "Requiere Email", name: "requiresEmail", widget: "boolean", default: true }
