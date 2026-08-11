@@ -405,7 +405,7 @@ function initInteractiveCharacter() {
     
     setTimeout(() => {
       quoteIndex = (quoteIndex + 1) % quotePool.length;
-      bubble.textContent = `"${quotePool[quoteIndex]}"`;
+      bubble.innerHTML = `<strong>EL RAYO ROMANO</strong>"${quotePool[quoteIndex]}"`;
       showBubble();
     }, 200);
   });
