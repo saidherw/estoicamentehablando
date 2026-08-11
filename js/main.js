@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStoicOracle();
   initVideoChapters();
   initFormHandler();
+  initCookieBanner();
 });
 
 /* 1. TOGGLE DE TEMA (v9-theme) */
@@ -109,4 +110,39 @@ function initFormHandler() {
       btn.innerHTML = '<span>¡Enviando a La Legión! ⚡</span>';
     }
   });
+}
+
+/* 6. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD) */
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+
+  if (!banner || !acceptBtn || !rejectBtn) return;
+
+  const consent = localStorage.getItem('cookie-consent');
+
+  if (!consent) {
+    setTimeout(() => {
+      banner.style.display = 'block';
+      setTimeout(() => banner.classList.add('show'), 50);
+    }, 600);
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    closeBanner();
+  });
+
+  rejectBtn.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'rejected');
+    closeBanner();
+  });
+
+  function closeBanner() {
+    banner.classList.remove('show');
+    setTimeout(() => {
+      banner.style.display = 'none';
+    }, 300);
+  }
 }

@@ -574,7 +574,31 @@ a:hover { color: var(--text-main); }
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE BREAKPOINTS
+   10. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD)
+   -------------------------------------------------------------------------- */
+.cookie-banner-luxury {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: calc(100% - 3rem);
+  max-width: 580px;
+  z-index: 9999;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-luxury);
+  opacity: 0;
+  transition: opacity 300ms var(--transition-luxury), transform 300ms var(--transition-luxury);
+}
+.cookie-banner-luxury.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .hero-editorial-grid, .video-editorial-grid, .footer-luxury-grid {
