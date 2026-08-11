@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estoicamente Hablando | Enlaces Oficiales</title>
+  <meta name="description" content="Enlaces oficiales del canal Estoicamente Hablando con El Rayo Romano. YouTube, Reto de 7 Días, Diario Estoico y Redes.">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('v9-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 2rem 0;">
+
+  <div class="container" style="max-width: 520px; text-align: center;">
+    
+    <!-- Profile Crest -->
+    <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-gold-bg); border: 2px solid var(--color-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; color: var(--color-gold); box-shadow: var(--shadow-gold);">
+      <svg class="icon-svg" viewBox="0 0 24 24" style="width: 44px; height: 44px;"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
+    </div>
+
+    <h1 style="font-size: 1.6rem; margin-bottom: 0.25rem;">ESTOICAMENTE HABLANDO</h1>
+    <p style="font-size: 0.95rem; color: var(--color-gold); margin-bottom: 2rem;">El Rayo Romano // La Legión</p>
+
+    <!-- Links List -->
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      
+      <a href="./reto.html" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none; border-color: var(--color-gold);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-gold);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>⚡ Reto Estoico de 7 Días (Gratis)</span>
+        </div>
+        <span style="color: var(--color-gold);">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: #FF0000;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          <span>▶️ Canal Oficial de YouTube</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="./quiz.html" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-gold);"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>🧠 Quiz: ¿Qué Filósofo Estoico Eres?</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="./diario.html" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-gold);"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>📓 Diario Estoico de 30 Días (PDF)</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="./tienda.html" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-gold);"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>🛒 Tienda & Libros Recomendados</span>
+        </div>
+        <span>→</span>
+      </a>
+
+      <a href="./index.html" class="virtue-card-luxury" style="display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); font-weight: 700;">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-gold);"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>🏛️ Sitio Web Oficial</span>
+        </div>
+        <span>→</span>
+      </a>
+
+    </div>
+
+    <p style="margin-top: 2.5rem; font-size: 0.8rem; color: var(--text-muted);">© 2026 Estoicamente Hablando</p>
+  </div>
+
+</body>
+</html>

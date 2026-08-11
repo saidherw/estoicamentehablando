@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Estoico | Reflexiones de El Rayo Romano</title>
+  <meta name="description" content="Artículos y ensayos breves sobre estoicismo práctico, autodisciplina y paz mental.">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('v9-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="site-header-luxury">
+    <div class="container">
+      <div class="header-luxury-container">
+        <a href="./index.html" class="luxury-brand">
+          <div class="brand-crest">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
+          </div>
+          <span class="brand-title">ESTOICAMENTE HABLANDO</span>
+        </a>
+        <a href="./index.html" class="btn-luxury-gold">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero-editorial-section">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="editorial-eyebrow">Publicaciones & Ensayos</span>
+          <h2>El Diario de La Legión</h2>
+          <p style="margin-top: 0.5rem;">Lecturas breves para fortalecer tu mentalidad cada mañana.</p>
+        </div>
+
+        <div class="virtues-luxury-grid" style="grid-template-columns: repeat(2, 1fr);">
+          
+          <!-- Artículo 1 -->
+          <article class="virtue-card-luxury" style="text-align: left;">
+            <span style="font-family: var(--font-display); font-size: 0.75rem; color: var(--color-gold); letter-spacing: 0.1em; text-transform: uppercase;">MARCO AURELIO // AUTODISCIPLINA</span>
+            <h3 style="margin: 0.5rem 0 0.75rem 0;">Las 5 Reglas de Marco Aurelio para Dominar tu Mente</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Cómo el emperador romano enfrentó la peste, la traición y la guerra manteniendo una paz mental absoluta.</p>
+            <a href="./blog-post.html" class="btn-luxury-gold" style="display: inline-flex;">
+              <span>Leer Artículo Completo →</span>
+            </a>
+          </article>
+
+          <!-- Artículo 2 -->
+          <article class="virtue-card-luxury" style="text-align: left;">
+            <span style="font-family: var(--font-display); font-size: 0.75rem; color: var(--color-gold); letter-spacing: 0.1em; text-transform: uppercase;">SÉNECA // ANSIEDAD</span>
+            <h3 style="margin: 0.5rem 0 0.75rem 0;">Cómo Detener el Sobrepensamiento a la 1:00 AM</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Las enseñanzas de Séneca en sus Cartas a Lucilio para calmar el ruido mental nocturno y conciliar el sueño.</p>
+            <a href="./blog-post.html" class="btn-luxury-gold" style="display: inline-flex;">
+              <span>Leer Artículo Completo →</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer-luxury">
+    <div class="container text-center">
+      <p style="font-size: 0.8rem; color: var(--text-muted);">© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

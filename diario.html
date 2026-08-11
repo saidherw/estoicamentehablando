@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario Estoico de 30 Días (PDF) | Estoicamente Hablando</title>
+  <meta name="description" content="Descarga gratis la guía en PDF del Diario Estoico de 30 Días con preguntas de reflexión nocturna y plantillas prácticas.">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('v9-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="site-header-luxury">
+    <div class="container">
+      <div class="header-luxury-container">
+        <a href="./index.html" class="luxury-brand">
+          <div class="brand-crest">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
+          </div>
+          <span class="brand-title">ESTOICAMENTE HABLANDO</span>
+        </a>
+        <a href="./index.html" class="btn-luxury-gold">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero-editorial-section">
+      <div class="container">
+        <div class="hero-editorial-grid">
+          
+          <div>
+            <span class="editorial-eyebrow">Recurso Gratuito en PDF // El Rayo Romano</span>
+            <h1 style="margin-bottom: 1.5rem;">Diario Estoico de 30 Días</h1>
+            <p class="editorial-lead">
+              Una guía imprimible de 30 páginas con ejercicios de examen de conciencia nocturno, preguntas diarias de Séneca y la plantilla de la Dicotomía del Control.
+            </p>
+
+            <div class="editorial-optin-card">
+              <h2 style="font-size: 1.25rem; margin-bottom: 0.4rem;">Descargar Guía Completa (PDF)</h2>
+              <p style="font-size: 0.9rem; color: var(--text-sub);">
+                Ingresa tu correo para recibir el archivo PDF listo para imprimir en 1 minuto:
+              </p>
+
+              <form id="diario-form" action="./gracias.html" method="GET">
+                <div class="editorial-form-row">
+                  <input type="text" name="name" required placeholder="Tu nombre" class="input-luxury" aria-label="Nombre">
+                  <input type="email" name="email" required placeholder="tu@correo.com" class="input-luxury" aria-label="Correo">
+                  <button type="submit" class="btn-luxury-gold">
+                    <span>Descargar PDF →</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="editorial-visual-card">
+            <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-gold-bg); border: 1px solid var(--border-gold-subtle); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--color-gold);">
+              <svg class="icon-svg" viewBox="0 0 24 24" style="width: 50px; height: 50px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Manual de Ejercicios</h3>
+            <p style="font-size: 0.9rem;">Imprime o llena digitalmente tus reflexiones cada noche a la 1:00 AM.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

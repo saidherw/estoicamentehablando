@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: ¿Qué Filósofo Estoico Eres? | Estoicamente Hablando</title>
+  <meta name="description" content="Descubre si tu personalidad estoica se alinea con Marco Aurelio, Séneca o Epicteto en este quiz interactivo de 4 preguntas.">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('v9-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="site-header-luxury">
+    <div class="container">
+      <div class="header-luxury-container">
+        <a href="./index.html" class="luxury-brand">
+          <div class="brand-crest">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
+          </div>
+          <span class="brand-title">ESTOICAMENTE HABLANDO</span>
+        </a>
+        <a href="./index.html" class="btn-luxury-gold">← Volver al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero-editorial-section">
+      <div class="container">
+        <div style="max-width: 750px; margin: 0 auto; text-align: center;">
+          
+          <span class="editorial-eyebrow">Evaluación de Filosofía Personal</span>
+          <h1 style="margin-bottom: 1.5rem;">¿Qué Filósofo Estoico Eres?</h1>
+          <p style="font-size: 1.1rem; color: var(--text-sub); margin-bottom: 3rem;">
+            Responde 3 preguntas cotidianas y descubre si tu mente razona como el emperador Marco Aurelio, el consejero Séneca o el sabio libre Epicteto.
+          </p>
+
+          <!-- Quiz Container -->
+          <div class="editorial-optin-card" id="quiz-box" style="text-align: left;">
+            <div id="quiz-step-1">
+              <span style="font-family: var(--font-display); font-size: 0.8rem; color: var(--color-gold);">PREGUNTA 1 DE 3</span>
+              <h3 style="font-size: 1.25rem; margin: 0.5rem 0 1.5rem 0;">1. Cuando alguien te critica injustamente en el trabajo o redes, tu primera reacción es:</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <button type="button" class="virtue-card-luxury quiz-opt-btn" data-philosopher="epicteto" style="text-align: left; padding: 1.1rem 1.4rem; cursor: pointer;">
+                  <strong>A.</strong> "Esa opinión no depende de mí. Su juicio habla de ellos, no de mi carácter."
+                </button>
+                <button type="button" class="virtue-card-luxury quiz-opt-btn" data-philosopher="marco" style="text-align: left; padding: 1.1rem 1.4rem; cursor: pointer;">
+                  <strong>B.</strong> "Debo revisar si tienen razón para mejorar; si no, cumplo mi deber sin enfadarme."
+                </button>
+                <button type="button" class="virtue-card-luxury quiz-opt-btn" data-philosopher="seneca" style="text-align: left; padding: 1.1rem 1.4rem; cursor: pointer;">
+                  <strong>C.</strong> "La ira perjudica más a quien la siente que el insulto mismo. Respiro y mantengo la calma."
+                </button>
+              </div>
+            </div>
+
+            <!-- Contenedor de Resultado (Oculto inicialmente) -->
+            <div id="quiz-result" style="display: none; text-align: center; padding: 1.5rem 0;">
+              <span class="editorial-eyebrow">TU RESULTADO ESTOICO</span>
+              <h2 id="result-name" style="font-size: 2.25rem; color: var(--color-gold); margin-bottom: 0.5rem;">Marco Aurelio</h2>
+              <p id="result-desc" style="font-size: 1.05rem; margin-bottom: 2rem;">
+                Tienes la mente de un líder centrado en el deber, el autocontrol y el servicio a los demás.
+              </p>
+              <a href="./reto.html" class="btn-luxury-gold" style="display: inline-block;">
+                Unirme al Reto Estoico de 7 Días →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Quiz logic
+    document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ph = btn.getAttribute('data-philosopher');
+        document.getElementById('quiz-step-1').style.display = 'none';
+        const resBox = document.getElementById('quiz-result');
+        resBox.style.display = 'block';
+
+        if (ph === 'epicteto') {
+          document.getElementById('result-name').textContent = 'Epicteto (El Sabio Libre)';
+          document.getElementById('result-desc').textContent = 'Tu fortaleza principal es la Dicotomía del Control. Sabes separar perfectamente lo que está bajo tu control de lo que no.';
+        } else if (ph === 'seneca') {
+          document.getElementById('result-name').textContent = 'Séneca (El Consejero Estratega)';
+          document.getElementById('result-desc').textContent = 'Valoras el tiempo presente, la serenidad mental y la reflexión escrita para evitar que la imaginación te perturbe.';
+        } else {
+          document.getElementById('result-name').textContent = 'Marco Aurelio (El Emperador)';
+          document.getElementById('result-desc').textContent = 'Tienes la mente de un líder orientado al deber, la autodisciplina impecable y el bien común sobre los impulsos egoístas.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
