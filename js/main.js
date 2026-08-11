@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormHandler();
   initCookieBanner();
   autoFetchYouTubeChapters();
+  initDynamicBlog();
+  initDynamicBlogPost();
 });
 
 /* 1. TOGGLE DE TEMA (v9-theme) */
@@ -124,7 +126,6 @@ async function autoFetchYouTubeChapters() {
     const videoId = latestEntry.querySelector('videoId')?.textContent;
     const description = latestEntry.querySelector('description')?.textContent || '';
 
-    // Extraer marcas de tiempo en la descripción (ej: 00:00 Título, 02:15 Título)
     const timeRegex = /(?:(\d{1,2}):)?(\d{1,2}):(\d{2})\s*[-–—]?\s*(.+)/g;
     const chapters = [];
     let match;
@@ -141,7 +142,6 @@ async function autoFetchYouTubeChapters() {
       chapters.push({ seconds: totalSeconds, formattedTime, title });
     }
 
-    // Si encontramos marcas de tiempo automáticas en la descripción del último video, actualizamos la interfaz
     if (chapters.length > 0) {
       let html = `<h3 style="font-size: 1.1rem; margin-bottom: 1rem;">⏱️ Capítulos del Video</h3>`;
       chapters.forEach(ch => {
@@ -164,11 +164,155 @@ async function autoFetchYouTubeChapters() {
       bindChapterButtons();
     }
   } catch (err) {
-    // Si falla la red o no hay capítulos en la descripción, mantiene los predeterminados
+    // Si falla, mantiene los estáticos
   }
 }
 
-/* 6. MANEJO DE FORMULARIO CON FEEDBACK */
+/* 6. DINÁMICA DEL BLOG (CARGA Y PARSEO CLIENT-SIDE DE MARKDOWN DESDE GITHUB) */
+async function initDynamicBlog() {
+  const grid = document.getElementById('blog-posts-grid');
+  if (!grid) return;
+
+  const repo = 'saidherw/estoicamentehablando';
+  const url = `https://api.github.com/repos/${repo}/contents/src/content/blog`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return;
+    const files = await res.ok ? await res.json() : [];
+    
+    // Filtrar solo archivos markdown
+    const mdFiles = files.filter(f => f.name.endsWith('.md') || f.name.endsWith('.markdown'));
+    if (mdFiles.length === 0) return;
+
+    let html = '';
+    
+    for (const file of mdFiles) {
+      const rawRes = await fetch(file.download_url);
+      if (!rawRes.ok) continue;
+      const text = await rawRes.text();
+      
+      const post = parseFrontmatter(text);
+      const slug = file.name.replace(/\.[^/.]+$/, ""); // quitar extensión
+
+      html += `
+        <article class="virtue-card-luxury" style="text-align: left;">
+          <span style="font-family: var(--font-display); font-size: 0.75rem; color: var(--color-gold); letter-spacing: 0.1em; text-transform: uppercase;">
+            ${post.philosopher || 'ESTOICISMO'} // ${post.category || 'REFLEXIÓN'}
+          </span>
+          <h3 style="margin: 0.5rem 0 0.75rem 0;">${post.title}</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">${post.description}</p>
+          <a href="./blog-post.html?post=${slug}" class="btn-luxury-gold" style="display: inline-flex;">
+            <span>Leer Artículo Completo →</span>
+          </a>
+        </article>
+      `;
+    }
+
+    if (html !== '') {
+      grid.innerHTML = html;
+    }
+  } catch (err) {
+    console.warn("Fallo al cargar posts dinámicos desde GitHub. Mostrando estáticos.");
+  }
+}
+
+async function initDynamicBlogPost() {
+  const wrapper = document.getElementById('blog-post-wrapper');
+  if (!wrapper) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const slug = urlParams.get('post');
+  if (!slug) return; // Si no hay query, muestra el post de prueba por defecto
+
+  const repo = 'saidherw/estoicamentehablando';
+  const rawUrl = `https://raw.githubusercontent.com/${repo}/main/src/content/blog/${slug}.md`;
+
+  try {
+    const res = await fetch(rawUrl);
+    if (!res.ok) return;
+    const text = await res.text();
+    
+    const post = parseFrontmatter(text);
+    const htmlContent = parseSimpleMarkdown(post.body);
+
+    wrapper.innerHTML = `
+      <div class="container" style="max-width: 780px;">
+        <span class="editorial-eyebrow">Publicado por ${post.author || 'El Rayo Romano'}</span>
+        <h1 style="margin-bottom: 1.5rem;">${post.title}</h1>
+        
+        <div style="border-left: 2px solid var(--color-gold); padding-left: 1.25rem; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-sub);">
+          "${post.description}"
+        </div>
+
+        <div style="line-height: 1.8; font-size: 1.05rem; color: var(--text-main);">
+          ${htmlContent}
+        </div>
+
+        <div class="editorial-optin-card" style="margin-top: 4rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">¿Quieres profundizar más?</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">Únete al Reto Estoico de 7 Días y recibe una lección práctica cada mañana en tu correo.</p>
+          <a href="./reto.html" class="btn-luxury-gold">Unirme al Reto Gratis →</a>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error("Error cargando el post dinámico:", err);
+  }
+}
+
+/* 7. UTILERÍAS DE PARSEO FRONTMATTER & MARKDOWN */
+function parseFrontmatter(text) {
+  const result = { body: '' };
+  const match = text.match(/^---\r?\n([\s\S]+?)\r?\n---/);
+  if (match) {
+    const yaml = match[1];
+    result.body = text.replace(match[0], '').trim();
+    
+    yaml.split('\n').forEach(line => {
+      const parts = line.split(':');
+      if (parts.length >= 2) {
+        const key = parts[0].trim();
+        const value = parts.slice(1).join(':').trim().replace(/^['"]|['"]$/g, '');
+        result[key] = value;
+      }
+    });
+  } else {
+    result.body = text;
+  }
+  return result;
+}
+
+function parseSimpleMarkdown(markdown) {
+  let html = markdown;
+
+  // Reemplazar saltos de línea y párrafos
+  html = html.replace(/\r?\n\r?\n/g, '</p><p>');
+  html = '<p>' + html + '</p>';
+
+  // Encabezados
+  html = html.replace(/### (.*?)(?=\n|<\/p>)/g, '<h3>$1</h3>');
+  html = html.replace(/## (.*?)(?=\n|<\/p>)/g, '<h2>$1</h2>');
+  html = html.replace(/# (.*?)(?=\n|<\/p>)/g, '<h1>$1</h1>');
+
+  // Negrita e itálica
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+
+  // Citas (blockquotes)
+  html = html.replace(/&gt;\s*(.*?)(?=\n|<\/p>)/g, '<blockquote>$1</blockquote>');
+  html = html.replace(/>\s*(.*?)(?=\n|<\/p>)/g, '<blockquote>$1</blockquote>');
+
+  // Limpiar etiquetas de párrafos vacías o redundantes
+  html = html.replace(/<p><h([1-6])>/g, '<h$1>');
+  html = html.replace(/<\/h([1-6])><\/p>/g, '</h$1>');
+  html = html.replace(/<p><\/p>/g, '');
+
+  return html;
+}
+
+/* 8. MANEJO DE FORMULARIO CON FEEDBACK */
 function initFormHandler() {
   const form = document.getElementById('hero-lead-form');
   if (!form) return;
@@ -182,7 +326,7 @@ function initFormHandler() {
   });
 }
 
-/* 7. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD) */
+/* 9. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD) */
 function initCookieBanner() {
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
