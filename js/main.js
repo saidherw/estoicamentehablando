@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT ULTRA-PREMIUM v7.0
+   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT ESCULPIDO NEUMÓRFICO v8.0
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormHandler();
 });
 
-/* 1. CONMUTADOR DE TEMA LIGHT/DARK (v7-theme) */
+/* 1. TOGGLE DE TEMA (v8-theme) */
 function initThemeToggle() {
   const btn = document.getElementById('theme-btn');
   if (!btn) return;
@@ -19,11 +19,11 @@ function initThemeToggle() {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('v7-theme', next);
+    localStorage.setItem('v8-theme', next);
   });
 }
 
-/* 2. MENÚ NAVEGACIÓN MÓVIL */
+/* 2. MENÚ MÓVIL ESCULPIDO */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const navList = document.getElementById('nav-list');
@@ -36,7 +36,7 @@ function initMobileMenu() {
     navList.classList.toggle('active');
   });
 
-  document.querySelectorAll('.header-nav-link').forEach(link => {
+  document.querySelectorAll('.sculpted-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       toggleBtn.setAttribute('aria-expanded', 'false');
       navList.classList.remove('active');
@@ -44,7 +44,7 @@ function initMobileMenu() {
   });
 }
 
-/* 3. ORÁCULO DE LA SERENIDAD (CITAS INTERACTIVAS) */
+/* 3. ORÁCULO DE REFLEXIONES */
 function initStoicOracle() {
   const textEl = document.getElementById('oracle-text');
   const authorEl = document.getElementById('oracle-author');
@@ -66,7 +66,7 @@ function initStoicOracle() {
 
   btn.addEventListener('click', () => {
     textEl.style.opacity = '0';
-    textEl.style.transform = 'scale(0.98)';
+    textEl.style.transform = 'translateY(-4px)';
 
     setTimeout(() => {
       index = (index + 1) % quotes.length;
@@ -74,15 +74,15 @@ function initStoicOracle() {
       authorEl.textContent = quotes[index].author;
 
       textEl.style.opacity = '1';
-      textEl.style.transform = 'scale(1)';
-    }, 250);
+      textEl.style.transform = 'translateY(0)';
+    }, 220);
   });
 }
 
-/* 4. CAPÍTULOS DE VIDEO INTERACTIVOS */
+/* 4. CAPÍTULOS DE VIDEO */
 function initVideoChapters() {
-  const btns = document.querySelectorAll('.chapter-item-btn');
-  const iframe = document.querySelector('.video-cinema-frame iframe');
+  const btns = document.querySelectorAll('.chapter-btn-sculpted');
+  const iframe = document.querySelector('.video-sculpted-frame iframe');
 
   if (!btns.length || !iframe) return;
 
@@ -97,7 +97,7 @@ function initVideoChapters() {
   });
 }
 
-/* 5. MANEJO DE FORMULARIO DE CAPTURA */
+/* 5. MANEJO DE FORMULARIO CON FEEDBACK */
 function initFormHandler() {
   const form = document.getElementById('hero-lead-form');
   if (!form) return;

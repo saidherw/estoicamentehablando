@@ -1,69 +1,61 @@
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — REDISEÑO TOTAL v7.0 (ULTRA-PREMIUM DYNAMIC UI)
-   Diseño: Glassmorphism Cósmico, Oro Radiante, Tarjetas 3D, Micro-animaciones
+   🏛️ ESTOICAMENTE HABLANDO — DISEÑO ESCULPIDO Y NEUMÓRFICO v8.0
+   Estilo: Tonos Piedra/Mármol, Sombras Esculpidas Tactiles, Bronce Imperial
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES DE DISEÑO & PALETA DE COLOR CURADA
+   1. VARIABLES DE DISEÑO & PALETA ESCULPIDA DE PIEDRA Y MÁRMOL
    -------------------------------------------------------------------------- */
 :root {
-  /* Paleta Cósmica & Oro Imperial */
-  --bg-main: #08090D;
-  --bg-surface-1: #0F1117;
-  --bg-surface-2: #161922;
-  --bg-glass: rgba(22, 25, 34, 0.7);
-  --bg-glass-hover: rgba(30, 35, 48, 0.85);
+  /* Modo Oscuro (Obsidiana Esculpida & Piedra Volcánica) */
+  --bg-base: #181A1E;
+  --bg-surface: #1E2026;
+  --bg-sunken: #141519;
 
-  --text-primary: #F4F5F7;
-  --text-secondary: #9A9FAE;
-  --text-muted: #646877;
+  --text-main: #E6E8EC;
+  --text-sub: #9EAF63;
+  --text-subtler: #888E9E;
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(212, 175, 55, 0.3);
-  --border-gold-glow: rgba(251, 191, 36, 0.6);
+  --color-bronze: #C49A45;
+  --color-bronze-dark: #8C6A2B;
+  --color-bronze-light: #E5B865;
 
-  --color-gold: #D4AF37;
-  --color-gold-bright: #FBBF24;
-  --color-gold-dark: #92400E;
-  --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #D4AF37 50%, #FBBF24 100%);
-  --gradient-hero-bg: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, rgba(8, 9, 13, 0) 70%);
+  /* Sombras Neumórficas Esculpidas (Dark Mode) */
+  --shadow-sculpted: 10px 10px 24px #121316, -10px -10px 24px #242730;
+  --shadow-sculpted-hover: 14px 14px 30px #101114, -14px -14px 30px #262932;
+  --shadow-debossed: inset 4px 4px 8px #111215, inset -4px -4px 8px #252831;
+  --shadow-bronze-press: 4px 4px 12px #121316, -4px -4px 12px #242730;
 
   /* Tipografía */
-  --font-title: "Cinzel", Georgia, serif;
-  --font-sans: "Inter", -apple-system, sans-serif;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-roman: "Cinzel", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-quote: "Cormorant Garamond", Georgia, serif;
 
-  /* Geometría y Sombras */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  /* Geometría Tactil */
+  --radius-sculpted: 20px;
   --radius-pill: 9999px;
 
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
-  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.25);
-
-  --transition-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-tactile: 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Modo Claro (Mármol Suave & Pergamino Esculpido) */
 [data-theme="light"] {
-  --bg-main: #F8F9FA;
-  --bg-surface-1: #FFFFFF;
-  --bg-surface-2: #F1F3F5;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --bg-glass-hover: rgba(255, 255, 255, 0.95);
+  --bg-base: #EBE8E1;
+  --bg-surface: #F2EFE8;
+  --bg-sunken: #E0DDD5;
 
-  --text-primary: #111827;
-  --text-secondary: #4B5563;
-  --text-muted: #9CA3AF;
+  --text-main: #2A2D34;
+  --text-sub: #5C6270;
+  --text-subtler: #8C92A0;
 
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-gold: rgba(180, 130, 20, 0.35);
+  --color-bronze: #A3792C;
+  --color-bronze-light: #C49A45;
 
-  --color-gold: #B48214;
-  --color-gold-bright: #D97706;
-  --shadow-gold: 0 0 25px rgba(180, 130, 20, 0.15);
+  /* Sombras Neumórficas Esculpidas (Light Mode) */
+  --shadow-sculpted: 8px 8px 20px rgba(0, 0, 0, 0.08), -8px -8px 20px rgba(255, 255, 255, 0.9);
+  --shadow-sculpted-hover: 12px 12px 26px rgba(0, 0, 0, 0.12), -12px -12px 26px rgba(255, 255, 255, 0.95);
+  --shadow-debossed: inset 3px 3px 6px rgba(0, 0, 0, 0.09), inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  --shadow-bronze-press: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.8);
 }
 
 /* --------------------------------------------------------------------------
@@ -78,23 +70,17 @@
 html, body {
   width: 100%;
   overflow-x: clip;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
 }
 
-/* Fondo Cósmico */
-body {
-  background-image: var(--gradient-hero-bg);
-  background-attachment: fixed;
-}
-
-/* Accessible Focus */
 *:focus-visible {
-  outline: 2px solid var(--color-gold-bright);
+  outline: 2px solid var(--color-bronze);
   outline-offset: 3px;
 }
 
@@ -102,49 +88,45 @@ body {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: var(--color-gold);
-  color: #000;
+  background: var(--color-bronze);
+  color: #fff;
   padding: 0.5rem 1rem;
   font-weight: 700;
   z-index: 9999;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  transition: top var(--transition-fast);
+  transition: top var(--transition-tactile);
 }
 .skip-link:focus { top: 1rem; }
 
-/* Tipografía */
 h1, h2, h3, h4 {
-  font-family: var(--font-title);
+  font-family: var(--font-roman);
   font-weight: 700;
-  line-height: 1.15;
-  color: var(--text-primary);
+  line-height: 1.18;
+  color: var(--text-main);
   overflow-wrap: anywhere;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+h1 { font-size: clamp(2.25rem, 4.5vw, 3.75rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 
-.text-gold-gradient {
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+p { color: var(--text-subtler); }
+
+a {
+  color: var(--color-bronze);
+  text-decoration: none;
+  transition: color var(--transition-tactile);
 }
-
-p { color: var(--text-secondary); }
+a:hover { color: var(--text-main); }
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
 }
 
-/* SVG Icon Helper */
 .icon-svg {
   width: 1.25em;
   height: 1.25em;
@@ -158,101 +140,105 @@ p { color: var(--text-secondary); }
 }
 
 /* --------------------------------------------------------------------------
-   3. HEADER GLASSMÓRFICO FLOTANTE
+   3. HEADER NAVEGACIÓN ESCULPIDA (NEUMORPHIC BAR)
    -------------------------------------------------------------------------- */
-.site-header {
+.site-header-sculpted {
   position: sticky;
-  top: 1rem;
+  top: 1.25rem;
   z-index: 100;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-.header-glass-bar {
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
+.header-sculpted-bar {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
   border-radius: var(--radius-pill);
-  padding: 0.6rem 1.5rem;
+  padding: 0.65rem 1.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow-sm);
 }
 
-.header-brand {
+.sculpted-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
 }
-.brand-icon-glow {
-  width: 38px;
-  height: 38px;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid var(--border-gold);
+.sculpted-brand-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-gold);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  color: var(--color-bronze);
 }
-.brand-title {
-  font-family: var(--font-title);
+.sculpted-brand-text {
+  font-family: var(--font-roman);
   font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
 }
 
-.header-nav-list {
+.sculpted-nav-list {
   display: flex;
   list-style: none;
   gap: 1.75rem;
 }
-.header-nav-link {
-  font-size: 0.9rem;
+.sculpted-nav-link {
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-subtler);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-tactile);
 }
-.header-nav-link:hover, .header-nav-link.active {
-  color: var(--color-gold-bright);
+.sculpted-nav-link:hover, .sculpted-nav-link.active {
+  color: var(--color-bronze);
 }
 
-.header-actions {
+.sculpted-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.btn-gold-glow {
-  background: var(--gradient-gold);
-  color: #000;
+/* Botón Neumórfico Esculpido */
+.btn-sculpted-primary {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  color: var(--color-bronze);
+  font-family: var(--font-roman);
   font-weight: 700;
   font-size: 0.85rem;
+  letter-spacing: 0.05em;
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-tactile), box-shadow var(--transition-tactile), color var(--transition-tactile);
 }
-.btn-gold-glow:hover {
+.btn-sculpted-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+  box-shadow: var(--shadow-sculpted-hover);
+  color: var(--color-bronze-light);
+}
+.btn-sculpted-primary:active {
+  box-shadow: var(--shadow-debossed);
+  transform: translateY(0);
 }
 
-.btn-icon-toggle {
-  background: var(--bg-surface-2);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+.btn-sculpted-icon {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border: none;
+  color: var(--text-main);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -260,207 +246,146 @@ p { color: var(--text-secondary); }
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: transform var(--transition-tactile);
 }
-.btn-icon-toggle:hover {
-  background: var(--bg-glass-hover);
+.btn-sculpted-icon:active {
+  box-shadow: var(--shadow-debossed);
 }
 
 .mobile-menu-btn {
   display: none;
   background: transparent;
   border: none;
-  color: var(--text-primary);
+  color: var(--text-main);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
 /* --------------------------------------------------------------------------
-   4. HERO SECTION (SPLIT SCREEN IMMERSIVE)
+   4. HERO SECTION (CARD ESCULPIDA MÁRMOL)
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 2rem 0 5rem 0;
+  padding: 1.5rem 0 4.5rem 0;
 }
 
-.hero-split-grid {
+.hero-sculpted-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 3.5rem;
   align-items: center;
 }
 
-.hero-badge-pill {
+.sculpted-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid var(--border-gold);
-  padding: 0.4rem 1rem;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  padding: 0.45rem 1.1rem;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--color-gold-bright);
-  margin-bottom: 1.25rem;
+  color: var(--color-bronze);
+  margin-bottom: 1.5rem;
 }
 
-.hero-main-title {
-  margin-bottom: 1.25rem;
-  line-height: 1.08;
+.sculpted-lead-box {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
+  padding: 2.25rem;
+  margin-top: 2rem;
 }
 
-.hero-description-lead {
-  font-size: 1.2rem;
-  line-height: 1.55;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-}
-
-/* Lead Form Glass Card */
-.lead-form-glass-card {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-gold);
-}
-
-.lead-card-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.4rem;
-}
-
-.lead-form-inline {
+.sculpted-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-top: 1.25rem;
 }
 
-.input-glass {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+.input-debossed {
+  background: var(--bg-sunken);
+  box-shadow: var(--shadow-debossed);
+  border: none;
+  color: var(--text-main);
   padding: 0.85rem 1.2rem;
   border-radius: var(--radius-pill);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  transition: border-color var(--transition-fast);
 }
-.input-glass:focus {
-  border-color: var(--color-gold-bright);
-  outline: none;
+.input-debossed:focus {
+  outline: 2px solid var(--color-bronze);
 }
 
-/* Columna Derecha Hero: Showcase 3D & Live Badge */
-.hero-visual-wrapper {
-  position: relative;
-}
-
-.hero-card-showcase {
-  background: var(--bg-surface-2);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
-  transition: transform var(--transition-smooth);
-}
-.hero-card-showcase:hover {
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-}
-
-.statue-illustration-box {
+/* Columna Derecha: Tarjeta de Escultura Clásica */
+.hero-card-sculpted {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
+  padding: 2.75rem 2rem;
   text-align: center;
-  margin: 1rem 0;
-}
-.statue-svg-icon {
-  width: 120px;
-  height: 120px;
-  color: var(--color-gold);
-  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+  position: relative;
 }
 
-.floating-live-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-pill);
-  color: #10B981;
-  font-size: 0.75rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #10B981;
+.sculpture-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
   border-radius: 50%;
-  box-shadow: 0 0 10px #10B981;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-/* --------------------------------------------------------------------------
-   5. SECCIÓN ORÁCULO DE LA SERENIDAD (CITAS CON ONDAS AUDIO)
-   -------------------------------------------------------------------------- */
-.section-oracle {
-  padding: 5rem 0;
-  position: relative;
-}
-
-.oracle-glass-box {
-  background: var(--bg-surface-1);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  padding: 3.5rem 2.5rem;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: var(--shadow-lg);
-}
-
-.oracle-quote-text {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
-  line-height: 1.35;
-  color: var(--text-primary);
-  margin: 1.5rem 0;
-  min-height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 300ms var(--transition-fast), transform 300ms var(--transition-fast);
+  margin: 0 auto 1.5rem auto;
+  color: var(--color-bronze);
 }
 
-.oracle-quote-author {
-  font-family: var(--font-title);
-  font-size: 0.9rem;
+/* --------------------------------------------------------------------------
+   5. SECCIÓN ORÁCULO DE REFLEXIONES (DEBOSSED BOX)
+   -------------------------------------------------------------------------- */
+.section-oracle {
+  padding: 4.5rem 0;
+}
+
+.oracle-sculpted-box {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.oracle-quote-display {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.4;
+  color: var(--text-main);
+  margin: 1.5rem 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 250ms var(--transition-tactile), transform 250ms var(--transition-tactile);
+}
+
+.oracle-author-display {
+  font-family: var(--font-roman);
+  font-size: 0.88rem;
   letter-spacing: 0.12em;
-  color: var(--color-gold-bright);
+  color: var(--color-bronze);
   margin-bottom: 2rem;
 }
 
 /* --------------------------------------------------------------------------
-   6. SECCIÓN LAS 4 VIRTUDES (CARDS GLASSMORPHIC EN GRID)
+   6. SECCIÓN LAS 4 VIRTUDES (NEUMORPHIC TILES GRID)
    -------------------------------------------------------------------------- */
 .section-virtues {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
 }
 
 .section-header-center {
@@ -469,152 +394,138 @@ p { color: var(--text-secondary); }
   margin: 0 auto 3.5rem auto;
 }
 
-.virtues-cards-grid {
+.virtues-sculpted-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-.virtue-card-item {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
+.virtue-tile-sculpted {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
+  padding: 2.25rem 1.5rem;
   text-align: center;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-tactile), box-shadow var(--transition-tactile);
 }
-.virtue-card-item:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-gold);
-  box-shadow: var(--shadow-gold);
+.virtue-tile-sculpted:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sculpted-hover);
 }
 
-.virtue-icon-halo {
-  width: 56px;
-  height: 56px;
-  background: rgba(212, 175, 55, 0.12);
+.virtue-icon-sculpted {
+  width: 54px;
+  height: 54px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem auto;
-  color: var(--color-gold-bright);
+  color: var(--color-bronze);
 }
 
 /* --------------------------------------------------------------------------
-   7. SECCIÓN LOS TRES MAESTROS (SHOWCASE 3D)
+   7. SECCIÓN LOS TRES MAESTROS
    -------------------------------------------------------------------------- */
 .section-masters {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
 }
 
-.masters-cards-grid {
+.masters-sculpted-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
-.master-card-3d {
-  background: var(--bg-surface-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+.master-tile-sculpted {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
   padding: 2.25rem;
-  position: relative;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
-}
-.master-card-3d:hover {
-  border-color: var(--border-gold);
-  transform: translateY(-4px);
 }
 
-.master-role-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.master-quote-box {
-  background: var(--bg-surface-2);
-  border-left: 3px solid var(--color-gold);
-  padding: 1rem;
-  font-family: var(--font-serif);
+.master-quote-debossed {
+  background: var(--bg-sunken);
+  box-shadow: var(--shadow-debossed);
+  padding: 1.25rem;
+  border-radius: var(--radius-sculpted);
+  font-family: var(--font-quote);
   font-style: italic;
   margin-top: 1.25rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-main);
 }
 
 /* --------------------------------------------------------------------------
    8. SECCIÓN VIDEO REFLEXIÓN
    -------------------------------------------------------------------------- */
 .section-video {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
 }
 
-.video-cinema-grid {
+.video-sculpted-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 2.5rem;
   align-items: center;
 }
 
-.video-cinema-frame {
+.video-sculpted-frame {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sculpted);
   overflow: hidden;
-  border: 1px solid var(--border-gold);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sculpted);
 }
-.video-cinema-frame iframe {
+.video-sculpted-frame iframe {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
-.chapters-list-container {
-  background: var(--bg-surface-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+.chapters-sculpted-box {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sculpted);
+  border-radius: var(--radius-sculpted);
   padding: 1.75rem;
 }
 
-.chapter-item-btn {
+.chapter-btn-sculpted {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.75rem;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background var(--transition-fast);
-  border-radius: var(--radius-sm);
+  transition: box-shadow var(--transition-tactile), background var(--transition-tactile);
 }
-.chapter-item-btn:last-child { border-bottom: none; }
-.chapter-item-btn:hover { background: var(--bg-surface-2); color: var(--color-gold-bright); }
+.chapter-btn-sculpted:hover {
+  box-shadow: var(--shadow-sculpted);
+  color: var(--color-bronze);
+}
 
-.chapter-timestamp {
-  font-family: var(--font-title);
+.timestamp-pill {
+  font-family: var(--font-roman);
   font-weight: 700;
-  color: var(--color-gold);
-  background: rgba(212, 175, 55, 0.1);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  color: var(--color-bronze);
+  background: var(--bg-sunken);
+  box-shadow: var(--shadow-debossed);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
 }
 
 /* --------------------------------------------------------------------------
-   9. FOOTER MULTICOLUMNA GLASSMÓRFICO
+   9. FOOTER ESCULPIDO
    -------------------------------------------------------------------------- */
-.site-footer {
-  padding: 5rem 0 2rem 0;
-  background: var(--bg-surface-1);
-  border-top: 1px solid var(--border-subtle);
+.site-footer-sculpted {
+  padding: 4.5rem 0 2rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-.footer-columns-grid {
+.footer-sculpted-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 3.5rem;
@@ -626,59 +537,56 @@ p { color: var(--text-secondary); }
 }
 .footer-nav-list li { margin-bottom: 0.6rem; }
 .footer-nav-list a {
-  color: var(--text-secondary);
+  color: var(--text-subtler);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: color var(--transition-fast);
 }
-.footer-nav-list a:hover { color: var(--color-gold-bright); }
+.footer-nav-list a:hover { color: var(--color-bronze); }
 
-.footer-disclaimer-box {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 2rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.footer-legal-notice {
   text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-subtler);
   line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE MEDIA QUERIES
+   10. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .hero-split-grid, .video-cinema-grid, .footer-columns-grid {
+  .hero-sculpted-grid, .video-sculpted-grid, .footer-sculpted-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  .virtues-cards-grid {
+  .virtues-sculpted-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .masters-cards-grid {
+  .masters-sculpted-grid {
     grid-template-columns: 1fr;
   }
-  .lead-form-inline {
+  .sculpted-form-row {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .header-nav-list {
+  .sculpted-nav-list {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--bg-surface-1);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-sculpted);
+    border-radius: var(--radius-sculpted);
     flex-direction: column;
     padding: 1.5rem;
     gap: 1rem;
     margin-top: 0.5rem;
   }
-  .header-nav-list.active { display: flex; }
+  .sculpted-nav-list.active { display: flex; }
   .mobile-menu-btn { display: block; }
-  .virtues-cards-grid { grid-template-columns: 1fr; }
+  .virtues-sculpted-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
