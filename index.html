@@ -30,7 +30,7 @@
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ==========================================
-       1. HEADER & NAVEGACIÓN
+       1. HEADER & NAVEGACIÓN STICKY
        ========================================== -->
   <header class="site-header" id="site-header">
     <div class="container header-container">
@@ -46,11 +46,11 @@
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
         <ul class="nav-list">
           <li><a href="./index.html" class="nav-link active">Inicio</a></li>
-          <li><a href="#articulos" class="nav-link">Artículos</a></li>
+          <li><a href="#oraculo" class="nav-link">Reflexión Diaria</a></li>
+          <li><a href="#virtudes" class="nav-link">4 Virtudes</a></li>
+          <li><a href="#filosofos" class="nav-link">Maestros</a></li>
           <li><a href="#videos" class="nav-link">Videos</a></li>
-          <li><a href="#recursos" class="nav-link">Diario Estoico</a></li>
           <li><a href="#legion" class="nav-link">La Legión</a></li>
-          <li><a href="#tienda" class="nav-link">Tienda</a></li>
         </ul>
       </nav>
 
@@ -77,17 +77,17 @@
 
   <main id="main-content">
     <!-- ==========================================
-         2. HERO SECTION
+         2. HERO SECTION CON EFECTOS PARALLAX Y PARTICULAS
          ========================================== -->
     <section class="hero-section" id="hero">
-      <!-- Partículas Doradas de Fondo -->
+      <!-- Canvas de Partículas Doradas Interactivas -->
       <div class="particles-container" id="particles-js" aria-hidden="true"></div>
 
-      <!-- Resplandor Dorado de Fondo -->
+      <!-- Resplandor Dorado Dinámico de Fondo -->
       <div class="hero-bg-glow" aria-hidden="true"></div>
 
       <div class="container hero-container">
-        <div class="hero-content">
+        <div class="hero-content reveal">
           <div class="hero-badge">
             <span class="badge-icon">🏛️</span>
             <span>EL RAYO ROMANO PRESENTA</span>
@@ -137,11 +137,10 @@
           </div>
         </div>
 
-        <!-- Arte Visual del Rayo Romano (Estatuas / Claroscuro) -->
-        <div class="hero-visual">
-          <div class="visual-frame">
+        <!-- Arte Visual del Rayo Romano con Efecto 3D Tilt -->
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="visual-frame" id="tilt-card">
             <div class="statue-glow"></div>
-            <!-- Busto Estilo Mármol y Claroscuro -->
             <div class="statue-card">
               <div class="statue-header">
                 <span class="statue-tag">LA LEGIÓN</span>
@@ -162,11 +161,77 @@
     </section>
 
     <!-- ==========================================
-         3. SECCIÓN: MAESTROS ESTOICOS (CARDS)
+         3. WIDGET INTERACTIVO: ORÁCULO DE REFLEXIONES
+         ========================================== -->
+    <section class="section section-oracle" id="oraculo">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-subtitle">REFLEXIÓN EN TIEMPO REAL</span>
+          <h2 class="section-title">El Oráculo Estoico</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="oracle-box reveal reveal-delay-1">
+          <div class="oracle-quote-text" id="oracle-text">
+            "Sufrimos más a menudo en la imaginación que en la realidad."
+          </div>
+          <div class="oracle-author" id="oracle-author">
+            — Séneca, Cartas a Lucilio
+          </div>
+          <button type="button" class="btn btn-outline" id="oracle-btn">
+            <span>✨ Generar Nueva Reflexión</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. WIDGET INTERACTIVO: LAS 4 VIRTUDES ESTOICAS
+         ========================================== -->
+    <section class="section section-virtues" id="virtudes">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-subtitle">EL CÓDIGO DE LA LEGIÓN</span>
+          <h2 class="section-title">Las 4 Virtudes Cardinales</h2>
+          <p style="max-width: 60ch; margin: 0.5rem auto 0 auto;">Haz clic en cada virtud para explorar la disciplina de los antiguos maestros.</p>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="virtues-grid reveal reveal-delay-1">
+          <!-- Virtud 1 -->
+          <div class="virtue-card active" data-virtue="sabiduria">
+            <div class="virtue-icon">🧠</div>
+            <h3 class="virtue-title">Sabiduría</h3>
+            <p class="virtue-desc">Saber distinguir entre lo que está bajo tu control y lo que no.</p>
+          </div>
+          <!-- Virtud 2 -->
+          <div class="virtue-card" data-virtue="coraje">
+            <div class="virtue-icon">🛡️</div>
+            <h3 class="virtue-title">Coraje</h3>
+            <p class="virtue-desc">Actuar con firmeza frente al miedo y defender la verdad.</p>
+          </div>
+          <!-- Virtud 3 -->
+          <div class="virtue-card" data-virtue="templanza">
+            <div class="virtue-icon">⚖️</div>
+            <h3 class="virtue-title">Templanza</h3>
+            <p class="virtue-desc">El dominio propio y la moderación frente a los impulsos.</p>
+          </div>
+          <!-- Virtud 4 -->
+          <div class="virtue-card" data-virtue="justicia">
+            <div class="virtue-icon">🏛️</div>
+            <h3 class="virtue-title">Justicia</h3>
+            <p class="virtue-desc">Tratar a los demás con bien común, equidad y respeto fraternal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. SECCIÓN: MAESTROS ESTOICOS (CARDS GLASSMORPHISM)
          ========================================== -->
     <section class="section section-philosophers" id="filosofos">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal">
           <span class="section-subtitle">SABIDURÍA DE LA ANTIGÜEDAD</span>
           <h2 class="section-title">Los Tres Pilares de La Legión</h2>
           <div class="gold-divider"></div>
@@ -174,7 +239,7 @@
 
         <div class="grid grid-3">
           <!-- Card 1: Marco Aurelio -->
-          <div class="card card-philosopher">
+          <div class="card card-philosopher reveal reveal-delay-1">
             <div class="card-badge">EMPERADOR & FILÓSOFO</div>
             <div class="card-icon">👑</div>
             <h3 class="card-title">Marco Aurelio</h3>
@@ -185,11 +250,11 @@
             <blockquote class="mini-quote">
               "Rechaza tu sentido de perjuicio y el perjuicio mismo desaparece."
             </blockquote>
-            <a href="#articulos" class="card-link">Ver Artículos de Marco Aurelio →</a>
+            <a href="#reto" class="card-link">Explorar Enseñanzas →</a>
           </div>
 
           <!-- Card 2: Séneca -->
-          <div class="card card-philosopher active-card">
+          <div class="card card-philosopher active-card reveal reveal-delay-2">
             <div class="card-badge gold-badge">DRAMATURGO & CONSEJERO</div>
             <div class="card-icon">📜</div>
             <h3 class="card-title">Séneca</h3>
@@ -200,11 +265,11 @@
             <blockquote class="mini-quote">
               "Sufrimos más a menudo en la imaginación que en la realidad."
             </blockquote>
-            <a href="#articulos" class="card-link">Ver Artículos de Séneca →</a>
+            <a href="#reto" class="card-link">Explorar Enseñanzas →</a>
           </div>
 
           <!-- Card 3: Epicteto -->
-          <div class="card card-philosopher">
+          <div class="card card-philosopher reveal reveal-delay-3">
             <div class="card-badge">ESCLAVO & MAESTRO</div>
             <div class="card-icon">⛓️</div>
             <h3 class="card-title">Epicteto</h3>
@@ -215,24 +280,24 @@
             <blockquote class="mini-quote">
               "No son las cosas que nos pasan las que nos perturban, sino nuestra opinión sobre ellas."
             </blockquote>
-            <a href="#articulos" class="card-link">Ver Artículos de Epicteto →</a>
+            <a href="#reto" class="card-link">Explorar Enseñanzas →</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         4. SECCIÓN: VIDEO DESTACADO & TRANSMISIÓN
+         6. SECCIÓN: VIDEO DESTACADO & TIMESTAMPS
          ========================================== -->
     <section class="section section-video" id="videos">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal">
           <span class="section-subtitle">CANAL OFICIAL DE YOUTUBE</span>
           <h2 class="section-title">Última Reflexión de El Rayo Romano</h2>
           <div class="gold-divider"></div>
         </div>
 
-        <div class="video-container-wrapper">
+        <div class="video-container-wrapper reveal reveal-delay-1">
           <div class="video-embed-box">
             <iframe 
               src="https://www.youtube-nocookie.com/embed/videoseries?list=UU&enablejsapi=1" 
@@ -273,11 +338,11 @@
     </section>
 
     <!-- ==========================================
-         5. SECCIÓN: PRUEBA SOCIAL & LA LEGIÓN
+         7. SECCIÓN: PRUEBA SOCIAL & LA LEGIÓN
          ========================================== -->
     <section class="section section-legion" id="legion">
       <div class="container text-center">
-        <div class="legion-box">
+        <div class="legion-box reveal">
           <span class="legion-icon">🛡️</span>
           <h2 class="legion-title">Únete a La Legión</h2>
           <p class="legion-desc">
@@ -285,7 +350,7 @@
           </p>
           <div class="legion-stats">
             <div class="stat-item">
-              <span class="stat-number">+50,000</span>
+              <span class="stat-number" data-target="50000">+50,000</span>
               <span class="stat-label">Legionarios</span>
             </div>
             <div class="stat-item">
@@ -302,8 +367,15 @@
     </section>
   </main>
 
+  <!-- Botón Flotante Móvil CTA -->
+  <div class="mobile-floating-cta">
+    <a href="#reto" class="mobile-floating-btn">
+      <span>⚡ Reto 7 Días</span>
+    </a>
+  </div>
+
   <!-- ==========================================
-       6. FOOTER COMPLETO & LEGALES
+       8. FOOTER COMPLETO & LEGALES
        ========================================== -->
   <footer class="site-footer">
     <div class="container footer-container">
@@ -331,9 +403,9 @@
         <h4 class="footer-heading">Navegación</h4>
         <ul class="footer-links">
           <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#articulos">Artículos del Blog</a></li>
+          <li><a href="#oraculo">Oráculo Estoico</a></li>
+          <li><a href="#virtudes">Las 4 Virtudes</a></li>
           <li><a href="#videos">Galería de Videos</a></li>
-          <li><a href="#recursos">Diario Estoico (PDF)</a></li>
           <li><a href="#reto">Reto de 7 Días</a></li>
         </ul>
       </div>
