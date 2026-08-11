@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página No Encontrada (404) | Estoicamente Hablando</title>
+  <meta name="description" content="Página no encontrada. Regresa al camino estoico.">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('v9-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <header class="site-header-luxury">
+    <div class="container">
+      <div class="header-luxury-container">
+        <a href="./index.html" class="luxury-brand">
+          <div class="brand-crest">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/></svg>
+          </div>
+          <span class="brand-title">ESTOICAMENTE HABLANDO</span>
+        </a>
+        <a href="./index.html" class="btn-luxury-gold">← Regresar al Inicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero-editorial-section" style="border: none;">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; text-align: center;">
+          
+          <span class="editorial-eyebrow">Error 404 // Extravío en el Camino</span>
+          <h1 style="margin-bottom: 1rem;">La página que buscas no existe en el presente.</h1>
+          
+          <div class="visual-quote-serif" style="margin: 2rem 0;">
+            "Lo que no se puede evitar, hay que soportarlo con serenidad." — Séneca
+          </div>
+
+          <p style="font-size: 1.05rem; color: var(--text-sub); margin-bottom: 2.5rem;">
+            No te preocupes por lo que ya no está. Regresa a la fortaleza estoica para continuar tu lectura.
+          </p>
+
+          <a href="./index.html" class="btn-luxury-gold" style="display: inline-block;">
+            Volver a la Página Principal →
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer-luxury">
+    <div class="container text-center">
+      <p style="font-size: 0.8rem; color: var(--text-muted);">© 2026 Estoicamente Hablando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
