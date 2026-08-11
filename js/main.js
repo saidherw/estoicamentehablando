@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoChapters();
   initFormHandler();
   initCookieBanner();
+  autoFetchYouTubeChapters();
 });
 
 /* 1. TOGGLE DE TEMA (v9-theme) */
@@ -82,6 +83,10 @@ function initStoicOracle() {
 
 /* 4. CAPÍTULOS DE VIDEO INTERACTIVOS */
 function initVideoChapters() {
+  bindChapterButtons();
+}
+
+function bindChapterButtons() {
   const btns = document.querySelectorAll('.chapter-link-row');
   const iframe = document.querySelector('.video-frame-luxury iframe');
 
@@ -98,7 +103,72 @@ function initVideoChapters() {
   });
 }
 
-/* 5. MANEJO DE FORMULARIO CON FEEDBACK */
+/* 5. PARSER AUTOMÁTICO DE CAPÍTULOS / MARCAS DE TIEMPO DE YOUTUBE */
+async function autoFetchYouTubeChapters() {
+  const channelId = 'UCs15qyAONmD3gwkpDAOhSYQ';
+  const container = document.querySelector('.chapters-luxury-box');
+  if (!container) return;
+
+  const rssUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`)}`;
+
+  try {
+    const res = await fetch(rssUrl);
+    if (!res.ok) return;
+    const xmlText = await res.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+    
+    const latestEntry = xmlDoc.querySelector('entry');
+    if (!latestEntry) return;
+
+    const videoId = latestEntry.querySelector('videoId')?.textContent;
+    const description = latestEntry.querySelector('description')?.textContent || '';
+
+    // Extraer marcas de tiempo en la descripción (ej: 00:00 Título, 02:15 Título)
+    const timeRegex = /(?:(\d{1,2}):)?(\d{1,2}):(\d{2})\s*[-–—]?\s*(.+)/g;
+    const chapters = [];
+    let match;
+
+    while ((match = timeRegex.exec(description)) !== null) {
+      const hours = match[1] ? parseInt(match[1], 10) : 0;
+      const minutes = parseInt(match[2], 10);
+      const seconds = parseInt(match[3], 10);
+      const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+      
+      const formattedTime = `${match[1] ? match[1] + ':' : ''}${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      const title = match[4].trim();
+
+      chapters.push({ seconds: totalSeconds, formattedTime, title });
+    }
+
+    // Si encontramos marcas de tiempo automáticas en la descripción del último video, actualizamos la interfaz
+    if (chapters.length > 0) {
+      let html = `<h3 style="font-size: 1.1rem; margin-bottom: 1rem;">⏱️ Capítulos del Video</h3>`;
+      chapters.forEach(ch => {
+        html += `
+          <div class="chapter-link-row" data-time="${ch.seconds}">
+            <span class="timestamp-badge">${ch.formattedTime}</span>
+            <span style="font-size: 0.9rem;">${ch.title}</span>
+          </div>
+        `;
+      });
+      html += `
+        <div style="margin-top: 1.5rem;">
+          <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-luxury-gold" style="width: 100%; justify-content: center;">
+            <span>🔔 Suscribirme en YouTube</span>
+          </a>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      bindChapterButtons();
+    }
+  } catch (err) {
+    // Si falla la red o no hay capítulos en la descripción, mantiene los predeterminados
+  }
+}
+
+/* 6. MANEJO DE FORMULARIO CON FEEDBACK */
 function initFormHandler() {
   const form = document.getElementById('hero-lead-form');
   if (!form) return;
@@ -112,7 +182,7 @@ function initFormHandler() {
   });
 }
 
-/* 6. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD) */
+/* 7. BANNER DE CONSENTIMIENTO DE COOKIES (GDPR / AEPD) */
 function initCookieBanner() {
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
