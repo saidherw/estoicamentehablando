@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT HALLMARK ATMOSPHERIC BENTO v5.0
+   🏛️ ESTOICAMENTE HABLANDO — JAVASCRIPT UI/UX PRO MAX INTELLIGENCE v6.0
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormHandler();
 });
 
-/* 1. TOGGLE DE TEMA OKLCH */
+/* 1. TOGGLE DE TEMA CON ALMACENAMIENTO SEGURO */
 function initThemeToggle() {
   const btn = document.getElementById('theme-btn');
   if (!btn) return;
@@ -18,11 +18,11 @@ function initThemeToggle() {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('hallmark-theme', next);
+    localStorage.setItem('ui-ux-theme', next);
   });
 }
 
-/* 2. MENÚ MÓVIL FLOATING PILL */
+/* 2. MENÚ MÓVIL CON ATRIBUTOS ARIA ACCESIBLES */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const navList = document.getElementById('nav-list');
@@ -30,17 +30,20 @@ function initMobileMenu() {
   if (!toggleBtn || !navList) return;
 
   toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', !isExpanded);
     navList.classList.toggle('active');
   });
 
   document.querySelectorAll('.pill-nav-link').forEach(link => {
     link.addEventListener('click', () => {
+      toggleBtn.setAttribute('aria-expanded', 'false');
       navList.classList.remove('active');
     });
   });
 }
 
-/* 3. ORÁCULO ESTOICO DE REFLEXIONES */
+/* 3. ORÁCULO ESTOICO INTERACTIVO */
 function initStoicOracle() {
   const textEl = document.getElementById('oracle-text');
   const authorEl = document.getElementById('oracle-author');
@@ -75,7 +78,7 @@ function initStoicOracle() {
   });
 }
 
-/* 4. FORMULARIO BENTO */
+/* 4. FORMULARIO CON ESTADOS DE CARGA Y FEEDBACK UX (PRIORITY 8) */
 function initFormHandler() {
   const form = document.getElementById('hero-lead-form');
   if (!form) return;
@@ -84,7 +87,7 @@ function initFormHandler() {
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
       btn.disabled = true;
-      btn.textContent = '¡ENVIANDO! ⚡';
+      btn.innerHTML = '<span>¡Enviando...! ⚡</span>';
     }
   });
 }

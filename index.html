@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estoicamente Hablando | La Legión Nocturna</title>
-  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Edición oficial con El Rayo Romano.">
+  <title>Estoicamente Hablando | El Rayo Romano & La Legión</title>
+  <meta name="description" content="Filosofía estoica práctica para dominar la mente, la disciplina y superar la ansiedad. Sitio oficial de Estoicamente Hablando con El Rayo Romano.">
 
   <!-- Script Anti-FOUC de Tema -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('hallmark-theme');
+      const savedTheme = localStorage.getItem('ui-ux-theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = savedTheme || (systemDark ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
@@ -21,27 +21,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Hoja de Estilo (Hallmark Atmospheric Bento Grid v5.0) -->
+  <!-- Hoja de Estilo (UI/UX Pro Max Intelligence v6.0) -->
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-  <!-- Accesibilidad Skip Link -->
+  <!-- Accesibilidad Skip Link (Priority 1 Rule) -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ==========================================
-       1. NAVIGATION (N5 FLOATING PILL ARCHETYPE)
+       1. NAVIGATION (FLOATING PILL + ACCESSIBLE SVG ICONS)
        ========================================== -->
   <header class="site-header-pill">
     <div class="container">
       <div class="nav-pill-wrapper">
-        <a href="./index.html" class="pill-brand">
-          <span class="pill-logo-icon">🏛️</span>
+        <a href="./index.html" class="pill-brand" aria-label="Estoicamente Hablando - Inicio">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="color: var(--color-accent); font-size: 1.4rem;">
+            <path d="M3 21h18M3 7h18M5 7v14M19 7v14M9 7v14M15 7v14M4 3h16l-2 4H6L4 3z"/>
+          </svg>
           <span class="pill-logo-text">ESTOICAMENTE HABLANDO</span>
         </a>
 
-        <button type="button" class="mobile-pill-toggle" id="mobile-toggle" aria-label="Abrir navegación">
-          ☰
+        <button type="button" class="mobile-pill-toggle" id="mobile-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir navegación">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
 
         <nav aria-label="Navegación principal">
@@ -55,11 +61,17 @@
         </nav>
 
         <div class="pill-actions">
-          <button type="button" class="btn-pill-theme" id="theme-btn" aria-label="Cambiar tema claro/oscuro">
-            🌓 TEMA
+          <button type="button" class="btn-secondary-pill" id="theme-btn" aria-label="Cambiar tema visual (Claro/Oscuro)">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+            <span>Tema</span>
           </button>
-          <a href="#reto" class="btn-pill-action">
-            ⚡ Reto 7 Días
+          <a href="#reto" class="btn-primary">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span>Reto 7 Días</span>
           </a>
         </div>
       </div>
@@ -69,30 +81,37 @@
   <main id="main-content">
     <div class="container">
       
-      <!-- Titular Superior de la Grilla Bento -->
+      <!-- Titular Superior UI/UX Pro Max -->
       <div class="bento-hero-header">
-        <span class="bento-eyebrow">EL RAYO ROMANO PRESENTA // LA LEGIÓN NOCTURNA</span>
+        <span class="bento-eyebrow">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          EL RAYO ROMANO PRESENTA // LA LEGIÓN
+        </span>
         <h1>Domina tu mente.<br>Forja tu calma interior.</h1>
         <p style="font-size: 1.15rem; margin-top: var(--space-xs);">
-          Filosofía estoica práctica para afrontar la ansiedad, controlar tus pensamientos y desarrollar una serenidad inquebrantable a la 1:00 AM.
+          Filosofía estoica práctica para afrontar la ansiedad, tomar el control de tus pensamientos y desarrollar una serenidad inquebrantable en tu vida diaria.
         </p>
       </div>
 
       <!-- ==========================================
-           2. MACROSTRUCTURE: 01 · BENTO GRID LAYOUT
+           2. MACROSTRUCTURE: BENTO GRID WITH ACCESSIBLE FORM UX
            ========================================== -->
       <div class="bento-grid-container">
 
-        <!-- TILE 1: MANIFIESTO HERO & RETO 7 DÍAS (SPAN 2X2) -->
+        <!-- TILE 1: MANIFIESTO HERO & FORMULARIO CON LABELS FORMALES (SPAN 2X2) -->
         <article class="bento-tile tile-hero span-2x2" id="reto">
           <div>
-            <span class="bento-eyebrow">01 // MANIFIESTO Y ACCIÓN</span>
+            <span class="bento-eyebrow">
+              <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              01 // MANIFIESTO Y ACCIÓN
+            </span>
             <h2 class="tile-hero-title">No tienes control sobre los eventos externos, pero sí sobre tu respuesta.</h2>
             <p class="tile-hero-desc">
-              La calma no es la ausencia de problemas, sino la presencia de autodisciplina. Únete a miles de legionarios en todo el mundo.
+              La calma no es la ausencia de problemas, sino la presencia de autodisciplina. Únete a miles de legionarios en todo el mundo hispanohablante.
             </p>
           </div>
 
+          <!-- Formulario con Etiquetas Visibles (Regla UI/UX Pro Max Priority 8) -->
           <div class="bento-optin-box">
             <h3 style="font-size: 1.1rem; margin-bottom: var(--space-3xs);">⚡ Reto Estoico de 7 Días (100% Gratis)</h3>
             <p style="font-size: 0.85rem; color: var(--color-ink-2);">
@@ -100,21 +119,32 @@
             </p>
 
             <form id="hero-lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="reto-7-dias-bento">
+              <input type="hidden" name="form-name" value="reto-7-dias-pro-max">
               <p style="display:none;"><label>No llenar: <input name="bot-field"></label></p>
 
               <div class="bento-optin-form">
-                <input type="text" name="name" required placeholder="Tu nombre" class="bento-input" aria-label="Nombre">
-                <input type="email" name="email" required placeholder="Tu correo electrónico" class="bento-input" aria-label="Correo">
-                <button type="submit" class="btn-pill-action" style="padding: var(--space-xs) var(--space-md); font-size: 0.85rem;">
-                  Comenzar →
-                </button>
+                <div class="form-group">
+                  <label for="lead-name" class="form-label">Nombre</label>
+                  <input type="text" id="lead-name" name="name" required placeholder="ej. Marco" class="bento-input">
+                </div>
+
+                <div class="form-group">
+                  <label for="lead-email" class="form-label">Correo electrónico</label>
+                  <input type="email" id="lead-email" name="email" required placeholder="tu@correo.com" class="bento-input">
+                </div>
+
+                <div class="form-group">
+                  <span class="form-label">&nbsp;</span>
+                  <button type="submit" class="btn-primary" style="width: 100%;">
+                    <span>Comenzar →</span>
+                  </button>
+                </div>
               </div>
 
               <div style="margin-top: var(--space-xs); font-size: 0.75rem;">
-                <label style="cursor: pointer;">
-                  <input type="checkbox" required name="gdpr_consent">
-                  Acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.
+                <label style="cursor: pointer; display: flex; align-items: center; gap: var(--space-2xs);">
+                  <input type="checkbox" required name="gdpr_consent" id="gdpr-check">
+                  <span>Acepto la <a href="./privacidad.html" target="_blank">Política de Privacidad</a> y deseo unirme a La Legión.</span>
                 </label>
               </div>
             </form>
@@ -123,7 +153,10 @@
 
         <!-- TILE 2: ORÁCULO INTERACTIVO DE CITAS (SPAN 1X2) -->
         <article class="bento-tile tile-oracle span-1x2" id="oraculo">
-          <span class="bento-eyebrow">02 // ORÁCULO ESTOICO</span>
+          <span class="bento-eyebrow">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            02 // ORÁCULO ESTOICO
+          </span>
           
           <div class="oracle-bento-quote" id="oracle-text">
             "Sufrimos más a menudo en la imaginación que en la realidad."
@@ -132,12 +165,13 @@
             — SÉNECA, CARTAS A LUCILIO
           </div>
 
-          <button type="button" class="btn-pill-action" id="oracle-btn" style="margin-top: var(--space-md); background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">
-            ✨ Generar Reflexión
+          <button type="button" class="btn-secondary-pill" id="oracle-btn" style="margin-top: var(--space-md); border-color: var(--color-accent); color: var(--color-accent);">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Generar Reflexión</span>
           </button>
         </article>
 
-        <!-- TILE 3: LAS 4 VIRTUDES CARDINALES (SPAN 2X1) -->
+        <!-- TILE 3: LAS 4 VIRTUDES CARDINALES CON ICONOS SVG (SPAN 2X1) -->
         <article class="bento-tile span-2x1" id="virtudes">
           <div>
             <span class="bento-eyebrow">03 // EL CÓDIGO DE LA LEGIÓN</span>
@@ -145,20 +179,35 @@
           </div>
 
           <div class="virtues-bento-list">
+            <!-- Sabiduría -->
             <div class="virtue-bento-item">
-              <div class="virtue-bento-icon">🧠</div>
+              <div class="virtue-icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
               <div class="virtue-bento-title">Sabiduría</div>
             </div>
+
+            <!-- Coraje -->
             <div class="virtue-bento-item">
-              <div class="virtue-bento-icon">🛡️</div>
+              <div class="virtue-icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
               <div class="virtue-bento-title">Coraje</div>
             </div>
+
+            <!-- Templanza -->
             <div class="virtue-bento-item">
-              <div class="virtue-bento-icon">⚖️</div>
+              <div class="virtue-icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+              </div>
               <div class="virtue-bento-title">Templanza</div>
             </div>
+
+            <!-- Justicia -->
             <div class="virtue-bento-item">
-              <div class="virtue-bento-icon">🏛️</div>
+              <div class="virtue-icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="m12 3-9 4.5v3.5c0 5.25 3.75 10.15 9 11.5 5.25-1.35 9-6.25 9-11.5V7.5L12 3z"/></svg>
+              </div>
               <div class="virtue-bento-title">Justicia</div>
             </div>
           </div>
@@ -181,10 +230,11 @@
               <span class="bento-eyebrow">04 // CANAL OFICIAL</span>
               <h3 style="margin-bottom: var(--space-2xs);">Última Reflexión</h3>
               <p style="font-size: 0.85rem; margin-bottom: var(--space-sm);">
-                Escucha a El Rayo Romano explorar el sobrepensamiento y la serenidad.
+                Escucha a El Rayo Romano explorar el sobrepensamiento y la autodisciplina.
               </p>
-              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-pill-action" style="display: inline-block;">
-                🔔 Suscribirme en YouTube
+              <a href="https://www.youtube.com/@HablandoEstoicamente?sub_confirmation=1" target="_blank" rel="noopener" class="btn-primary">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                <span>Suscribirme</span>
               </a>
             </div>
           </div>
@@ -222,7 +272,7 @@
   </main>
 
   <!-- ==========================================
-       5. FOOTER (ARCHETYPE FT5 STATEMENT)
+       5. FOOTER (STATEMENT ARCHETYPE)
        ========================================== -->
   <footer class="site-footer-statement">
     <div class="container">
@@ -242,7 +292,7 @@
 
       <div class="footer-legal-copy">
         <p>📖 <strong>Aviso de Afiliación:</strong> Como Afiliado de Amazon, podemos recibir ingresos por compras adscritas que cumplen los requisitos aplicables, sin ningún coste adicional para ti.</p>
-        <p style="margin-top: var(--space-2xs);">© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
+        <p style="margin-top: var(--space-2xs);" class="tabular-nums">© 2026 Estoicamente Hablando (@HablandoEstoicamente). Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>

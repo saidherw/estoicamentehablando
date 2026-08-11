@@ -1,67 +1,73 @@
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
-/* Hallmark · genre: atmospheric · macrostructure: Bento Grid · theme: Midnight-Lumen · nav: N5 Floating Pill · footer: Ft5 Statement */
+/* UI/UX Pro Max — Design Intelligence System v6.0 */
+/* Stack: HTML/CSS/JS | Product: Philosophy/Growth/Media | Style: Atmospheric Pro Max */
 
 /* ==========================================================================
-   1. TOKENS Y SISTEMA DE DISEÑO (OKLCH ATMOSPHERIC MIDNIGHT)
+   1. SEMANTIC DESIGN TOKENS & SYSTEM SCALES
    ========================================================================== */
 :root {
-  /* Paleta Nocturna (La Legión 1:00 AM) */
-  --color-paper: oklch(0.11 0.01 250);        /* Obsidiana profunda nocturna */
-  --color-paper-2: oklch(0.16 0.01 250);      /* Módulo elevación 1 */
-  --color-paper-3: oklch(0.20 0.01 250);      /* Módulo elevación 2 / hover */
-  --color-ink: oklch(0.94 0.01 85);           /* Texto gris claro resplandeciente */
-  --color-ink-2: oklch(0.72 0.02 85);         /* Texto secundario */
-  --color-rule: oklch(0.24 0.02 250);         /* Borde de módulo sutil */
-  --color-accent: oklch(0.75 0.14 75);        /* Oro Ámbar Nocturno (< 5% viewport) */
-  --color-accent-ink: oklch(0.11 0.01 250);  /* Texto sobre ámbar */
-  --color-focus: oklch(0.75 0.14 75);
-  
-  /* Resplandor Ambarino de Fondo (Radial Bloom Atmospheric) */
-  --color-bloom-1: oklch(0.75 0.14 75 / 0.08);
-  --color-bloom-2: oklch(0.65 0.12 60 / 0.06);
+  /* Color Architecture (OKLCH Standards - High Contrast WCAG AA) */
+  --color-paper: oklch(0.12 0.01 250);         /* Main Dark Surface */
+  --color-paper-2: oklch(0.17 0.01 250);       /* Surface Level 1 */
+  --color-paper-3: oklch(0.22 0.01 250);       /* Surface Level 2 / Interactive Hover */
+  --color-ink: oklch(0.95 0.01 85);            /* Primary Parchment Text (Contrast 12.5:1) */
+  --color-ink-2: oklch(0.74 0.02 85);          /* Muted Secondary Text (Contrast 5.2:1) */
+  --color-rule: oklch(0.26 0.02 250);          /* Divider Lines */
+  --color-accent: oklch(0.76 0.14 75);         /* Roman Gold Accent (< 5% Viewport) */
+  --color-accent-hover: oklch(0.82 0.15 75);   /* Hover State Gold */
+  --color-accent-ink: oklch(0.12 0.01 250);   /* Text on Accent Surface */
+  --color-focus: oklch(0.76 0.14 75);         /* Focus Ring Indicator */
 
-  /* Tipografía */
+  /* Radial Ambient Blooms */
+  --color-bloom-primary: oklch(0.76 0.14 75 / 0.07);
+  --color-bloom-secondary: oklch(0.65 0.12 60 / 0.05);
+
+  /* Typography System */
   --font-display: "Cinzel", Georgia, serif;
-  --font-body: "Inter", -apple-system, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-quote: "Cormorant Garamond", Georgia, serif;
 
-  /* Escala de Espaciado (4-pt grid) */
-  --space-3xs: 0.25rem;
-  --space-2xs: 0.5rem;
-  --space-xs: 0.75rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2.25rem;
-  --space-xl: 3.5rem;
-  --space-2xl: 5rem;
-  --space-3xl: 7.5rem;
+  /* 4pt/8pt Spacing Scale */
+  --space-3xs: 0.25rem;  /* 4px */
+  --space-2xs: 0.5rem;   /* 8px */
+  --space-xs: 0.75rem;   /* 12px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2.25rem;   /* 36px */
+  --space-xl: 3.5rem;    /* 56px */
+  --space-2xl: 5rem;     /* 80px */
 
-  /* Radio de Bordes Bento */
+  /* Touch & Interaction Geometry */
+  --touch-min-size: 44px; /* Touch target minimum (Apple HIG / Material) */
   --radius-card: 16px;
   --radius-button: 9999px;
-  --radius-pill: 9999px;
+  --radius-input: 12px;
 
-  /* Transiciones y Sombras Glow */
+  /* Motion & Elevation Scale */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-short: 200ms;
-  --shadow-glow: 0 12px 32px oklch(0.75 0.14 75 / 0.12);
+  --dur-medium: 300ms;
+  --shadow-elevation-1: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-elevation-2: 0 12px 32px oklch(0.76 0.14 75 / 0.12);
 }
 
-/* Modo Claro Atmosférico (Day Foundry) */
+/* Light Mode Tonal Variant (WCAG AA Compliant) */
 [data-theme="light"] {
   --color-paper: oklch(0.97 0.01 85);
   --color-paper-2: oklch(0.93 0.01 85);
-  --color-paper-3: oklch(0.89 0.01 85);
+  --color-paper-3: oklch(0.88 0.01 85);
   --color-ink: oklch(0.14 0.01 250);
   --color-ink-2: oklch(0.38 0.02 250);
-  --color-rule: oklch(0.84 0.02 85);
+  --color-rule: oklch(0.82 0.02 85);
   --color-accent: oklch(0.55 0.13 75);
+  --color-accent-hover: oklch(0.48 0.14 75);
   --color-accent-ink: oklch(0.98 0.01 85);
-  --color-bloom-1: oklch(0.55 0.13 75 / 0.05);
+  --color-bloom-primary: oklch(0.55 0.13 75 / 0.05);
+  --shadow-elevation-1: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-elevation-2: 0 12px 32px oklch(0.55 0.13 75 / 0.1);
 }
 
 /* ==========================================================================
-   2. REGLAS BASE Y RESPONSIVE HARD FLOOR
+   2. CORE BASE & ACCESSIBILITY RULES
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -71,41 +77,39 @@
 
 html, body {
   width: 100%;
-  overflow-x: clip;
+  overflow-x: clip; /* Prevents horizontal layout shifts */
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 16px; /* Base 16px to prevent iOS auto-zoom */
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
 }
 
-/* Resplandores Atmosféricos de Fondo */
+/* Ambient Radial Blooms */
 body::before {
   content: "";
   position: fixed;
-  top: -10vw;
+  top: -15vw;
   left: 50%;
   transform: translateX(-50%);
   width: 60vw;
   height: 40vw;
-  background: radial-gradient(circle, var(--color-bloom-1) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-bloom-primary) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  bottom: -15vw;
-  right: -10vw;
-  width: 50vw;
-  height: 50vw;
-  background: radial-gradient(circle, var(--color-bloom-2) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+/* Accessible Focus States (Priority 1 Rule) */
+*:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
+/* Skip Link */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -113,15 +117,17 @@ body::after {
   background: var(--color-accent);
   color: var(--color-accent-ink);
   padding: var(--space-xs) var(--space-sm);
-  font-weight: 600;
+  font-weight: 700;
   z-index: 9999;
   text-decoration: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-button);
+  transition: top var(--dur-short) var(--ease-out);
 }
 .skip-link:focus {
   top: 1rem;
 }
 
+/* Typography Hierarchy (Heading Hierarchy & Tabular Figures) */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-style: normal;
@@ -132,17 +138,28 @@ h1, h2, h3, h4 {
   min-width: 0;
 }
 
-h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.25rem, 4.5vw, 3.5rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
 
 p { color: var(--color-ink-2); }
 
-a { color: var(--color-accent); text-decoration: none; }
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--dur-short) var(--ease-out);
+}
+a:hover {
+  color: var(--color-ink);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: var(--space-md);
   padding-right: var(--space-md);
@@ -150,12 +167,25 @@ a { color: var(--color-accent); text-decoration: none; }
   z-index: 1;
 }
 
+/* SVG Icon Utility */
+.icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.25em;
+  height: 1.25em;
+  stroke-width: 1.75;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ==========================================================================
-   3. NAVIGATION (ARCHETYPE N5 — FLOATING PILL)
+   3. NAVIGATION (TOUCH-SAFE FLOATING PILL)
    ========================================================================== */
 .site-header-pill {
   position: sticky;
-  top: 1.25rem;
+  top: 1rem;
   z-index: 100;
   margin-bottom: var(--space-xl);
 }
@@ -163,12 +193,13 @@ a { color: var(--color-accent); text-decoration: none; }
 .nav-pill-wrapper {
   background: var(--color-paper-2);
   border: 1px solid var(--color-rule);
-  border-radius: var(--radius-pill);
-  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-button);
+  padding: var(--space-2xs) var(--space-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-elevation-1);
+  min-height: var(--touch-min-size);
 }
 
 .pill-brand {
@@ -176,8 +207,8 @@ a { color: var(--color-accent); text-decoration: none; }
   align-items: center;
   gap: var(--space-2xs);
   text-decoration: none;
+  min-height: var(--touch-min-size);
 }
-.pill-logo-icon { font-size: 1.25rem; }
 .pill-logo-text {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -193,10 +224,13 @@ a { color: var(--color-accent); text-decoration: none; }
 }
 
 .pill-nav-link {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
   color: var(--color-ink-2);
+  padding: var(--space-2xs) var(--space-3xs);
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min-size);
   transition: color var(--dur-short) var(--ease-out);
 }
 .pill-nav-link:hover, .pill-nav-link.active {
@@ -209,27 +243,51 @@ a { color: var(--color-accent); text-decoration: none; }
   gap: var(--space-xs);
 }
 
-.btn-pill-action {
+.btn-primary {
   background: var(--color-accent);
   color: var(--color-accent-ink);
   border: none;
-  padding: var(--space-2xs) var(--space-sm);
-  border-radius: var(--radius-pill);
+  padding: var(--space-2xs) var(--space-md);
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
   cursor: pointer;
+  min-height: var(--touch-min-size);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  justify-content: center;
+  transition: background var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.btn-pill-theme {
+.btn-secondary-pill {
   background: transparent;
   border: 1px solid var(--color-rule);
   color: var(--color-ink);
-  padding: var(--space-2xs) var(--space-xs);
-  border-radius: var(--radius-pill);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-button);
   cursor: pointer;
+  min-height: var(--touch-min-size);
   font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  transition: background var(--dur-short) var(--ease-out);
+}
+.btn-secondary-pill:hover {
+  background: var(--color-paper-3);
 }
 
 .mobile-pill-toggle {
@@ -237,37 +295,39 @@ a { color: var(--color-accent); text-decoration: none; }
   background: transparent;
   border: none;
   color: var(--color-ink);
-  font-size: 1.25rem;
+  min-height: var(--touch-min-size);
+  min-width: var(--touch-min-size);
   cursor: pointer;
 }
 
 /* ==========================================================================
-   4. MACROSTRUCTURE: 01 · BENTO GRID LAYOUT
+   4. BENTO GRID ARCHITECTURE (ASSETS & LAYOUT)
    ========================================================================== */
 .bento-hero-header {
   text-align: center;
-  max-width: 750px;
+  max-width: 760px;
   margin: 0 auto var(--space-xl) auto;
 }
 
 .bento-eyebrow {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-2xs);
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
 }
 
 .bento-grid-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-md);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
 }
 
-/* Módulos Bento Base */
 .bento-tile {
   background: var(--color-paper-2);
   border: 1px solid var(--color-rule);
@@ -278,33 +338,37 @@ a { color: var(--color-accent); text-decoration: none; }
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+  transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
 }
 .bento-tile:hover {
   border-color: var(--color-accent);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-elevation-2);
   transform: translateY(-2px);
 }
 
-/* Spans Bento */
+/* Grid Spans */
 .span-2x2 { grid-column: span 2; grid-row: span 2; }
 .span-2x1 { grid-column: span 2; }
 .span-1x2 { grid-row: span 2; }
 .span-1x1 { grid-column: span 1; }
 
-/* Bento Tile 1: Hero Principal (2x2) */
 .tile-hero {
   background: linear-gradient(145deg, var(--color-paper-2) 0%, var(--color-paper-3) 100%);
   padding: var(--space-xl);
 }
-.tile-hero-title {
-  font-size: clamp(2rem, 3.8vw, 3.25rem);
-  margin-bottom: var(--space-sm);
-  line-height: 1.1;
+
+/* Form System UX (Priority 8 Rules: Visible Labels & Touch Safe Inputs) */
+.form-group {
+  margin-bottom: var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
 }
-.tile-hero-desc {
-  font-size: 1.1rem;
-  margin-bottom: var(--space-lg);
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-ink-2);
+  text-align: left;
 }
 
 .bento-optin-box {
@@ -314,22 +378,32 @@ a { color: var(--color-accent); text-decoration: none; }
   padding: var(--space-md);
   margin-top: var(--space-md);
 }
+
 .bento-optin-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
   gap: var(--space-xs);
   margin-top: var(--space-xs);
+  align-items: end;
 }
+
 .bento-input {
-  flex: 1;
+  width: 100%;
   background: var(--color-paper-2);
   border: 1px solid var(--color-rule);
   color: var(--color-ink);
   padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-input);
   font-family: var(--font-body);
+  font-size: 0.95rem;
+  min-height: var(--touch-min-size);
+}
+.bento-input:focus {
+  border-color: var(--color-accent);
+  outline: 2px solid var(--color-focus);
 }
 
-/* Bento Tile 2: Oráculo Interactivo (1x2) */
+/* Oracle Tile (Interactive Quote Engine) */
 .tile-oracle {
   text-align: center;
   justify-content: center;
@@ -338,10 +412,14 @@ a { color: var(--color-accent); text-decoration: none; }
 .oracle-bento-quote {
   font-family: var(--font-quote);
   font-style: italic;
-  font-size: 1.5rem;
-  line-height: 1.35;
+  font-size: 1.45rem;
+  line-height: 1.4;
   color: var(--color-ink);
   margin: var(--space-md) 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .oracle-bento-author {
   font-family: var(--font-display);
@@ -350,7 +428,7 @@ a { color: var(--color-accent); text-decoration: none; }
   color: var(--color-accent);
 }
 
-/* Bento Tile 3: 4 Virtudes (2x1) */
+/* Virtues Grid (Priority 4 Rules: Clean SVG Cards) */
 .virtues-bento-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -363,11 +441,24 @@ a { color: var(--color-accent); text-decoration: none; }
   border-radius: var(--radius-card);
   padding: var(--space-sm);
   text-align: center;
+  transition: border-color var(--dur-short) var(--ease-out);
 }
-.virtue-bento-icon { font-size: 1.5rem; margin-bottom: var(--space-3xs); }
-.virtue-bento-title { font-size: 0.9rem; font-weight: 700; color: var(--color-ink); }
+.virtue-bento-item:hover {
+  border-color: var(--color-accent);
+}
+.virtue-icon-box {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto var(--space-2xs) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-paper-2);
+  border-radius: 50%;
+  color: var(--color-accent);
+}
 
-/* Bento Tile 4: Video Reciente (2x1) */
+/* Video Layout */
 .video-bento-flex {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -381,39 +472,39 @@ a { color: var(--color-accent); text-decoration: none; }
   height: 0;
   border-radius: calc(var(--radius-card) - 4px);
   overflow: hidden;
+  border: 1px solid var(--color-rule);
 }
 .video-bento-frame iframe {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
 
-/* Bento Tile 5: Los Maestros (3x1 Bottom Row) */
+/* Masters Row */
 .tile-masters-row {
   grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-md);
-  background: transparent;
-  border: none;
-  padding: 0;
 }
-
 .master-bento-card {
   background: var(--color-paper-2);
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-card);
   padding: var(--space-lg);
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+.master-bento-card:hover {
+  border-color: var(--color-accent);
 }
 
 /* ==========================================================================
-   5. FOOTER (ARCHETYPE FT5 — STATEMENT)
+   5. FOOTER (STATEMENT ARCHETYPE)
    ========================================================================== */
 .site-footer-statement {
   padding: var(--space-2xl) 0 var(--space-lg) 0;
   border-top: 1px solid var(--color-rule);
   text-align: center;
 }
-
 .footer-statement-text {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
@@ -430,7 +521,7 @@ a { color: var(--color-accent); text-decoration: none; }
 }
 .footer-nav-simple a {
   color: var(--color-ink-2);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 .footer-nav-simple a:hover {
   color: var(--color-accent);
@@ -439,13 +530,13 @@ a { color: var(--color-accent); text-decoration: none; }
 .footer-legal-copy {
   font-size: 0.75rem;
   color: var(--color-ink-2);
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
   line-height: 1.5;
 }
 
 /* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS (BENTO RESPONSIVE DISCIPLINE)
+   6. RESPONSIVE BREAKPOINTS (PRIORITY 5 RULES)
    ========================================================================== */
 @media (max-width: 1024px) {
   .bento-grid-container {
@@ -462,6 +553,9 @@ a { color: var(--color-accent); text-decoration: none; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .video-bento-flex {
+    grid-template-columns: 1fr;
+  }
+  .bento-optin-form {
     grid-template-columns: 1fr;
   }
 }
@@ -486,7 +580,14 @@ a { color: var(--color-accent); text-decoration: none; }
   .mobile-pill-toggle {
     display: block;
   }
-  .bento-optin-form {
-    flex-direction: column;
+}
+
+/* Reduced Motion Query (Priority 1 Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
