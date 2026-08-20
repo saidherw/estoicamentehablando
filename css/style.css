@@ -598,25 +598,61 @@ a:hover { color: var(--text-main); }
 }
 
 /* --------------------------------------------------------------------------
-   11. RESPONSIVE BREAKPOINTS
+   11. SISTEMA RESPONSIVO TOTAL (TODOS LOS DISPOSITIVOS)
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-editorial-grid, .video-editorial-grid, .footer-luxury-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .virtues-luxury-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .masters-luxury-grid {
-    grid-template-columns: 1fr;
-  }
-  .editorial-form-row {
-    grid-template-columns: 1fr;
+
+/* Laptops y Pantallas Grandes (hasta 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
   }
 }
 
+/* Tablets & Laptops Pequeñas (hasta 1024px) */
+@media (max-width: 1024px) {
+  .hero-editorial-grid, 
+  .video-editorial-grid, 
+  .footer-luxury-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .virtues-luxury-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .masters-luxury-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .editorial-form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hero-editorial-section {
+    padding: 4rem 0;
+  }
+}
+
+/* Tablets Retrato & Teléfonos Grandes (hasta 768px) */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .site-header-luxury {
+    padding: 0.85rem 0;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
   .luxury-nav-list {
     display: none;
     position: absolute;
@@ -624,14 +660,135 @@ a:hover { color: var(--text-main); }
     left: 0;
     width: 100%;
     background: var(--bg-card);
-    border: 1px solid var(--border-rule);
+    border-bottom: 1px solid var(--border-rule);
     flex-direction: column;
     padding: 1.5rem;
-    gap: 1rem;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-luxury);
   }
-  .luxury-nav-list.active { display: flex; }
-  .mobile-menu-btn { display: block; }
-  .virtues-luxury-grid { grid-template-columns: 1fr; }
+
+  .luxury-nav-list.active {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .virtues-luxury-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-headline {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .editorial-lead {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .editorial-optin-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .editorial-visual-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .oracle-luxury-box {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .oracle-quote-display {
+    font-size: 1.25rem;
+    min-height: 140px;
+  }
+
+  .chapters-luxury-box {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .chapter-link-row {
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Cookie banner adaptativo */
+  .cookie-banner-luxury {
+    width: calc(100% - 2rem);
+    left: 1rem;
+    bottom: 1rem;
+    transform: translateY(20px);
+    padding: 1.25rem;
+  }
+
+  .cookie-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cookie-actions-row .btn-luxury-gold,
+  .cookie-actions-row .btn-luxury-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Teléfonos Inteligentes (hasta 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .brand-crest {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .editorial-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .btn-luxury-gold, 
+  .btn-luxury-ghost {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .header-luxury-container .btn-luxury-gold {
+    width: auto;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  .oracle-quote-display {
+    font-size: 1.1rem;
+  }
+
+  .cookie-banner-luxury {
+    width: calc(100% - 1.25rem);
+    left: 0.625rem;
+    bottom: 0.625rem;
+    padding: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -639,115 +796,5 @@ a:hover { color: var(--text-main); }
     animation: none !important;
     transition: none !important;
   }
-}
-
-/* --------------------------------------------------------------------------
-   12. ESTILOS INTERACTIVOS — SILUETA DE EL RAYO ROMANO
-   -------------------------------------------------------------------------- */
-.character-interactive-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 480px;
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-  border-radius: var(--radius-card);
-  border: 1px dashed var(--border-rule);
-  padding: 2rem;
-  overflow: hidden;
-  transition: border-color 0.5s ease;
-}
-.character-interactive-container:hover {
-  border-color: var(--border-gold-subtle);
-}
-
-.character-silhouette-img {
-  max-height: 450px;
-  width: auto;
-  object-fit: contain;
-  z-index: 2;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-  transform-origin: bottom center;
-  cursor: pointer;
-}
-.character-interactive-container:hover .character-silhouette-img {
-  transform: scale(1.03) translateY(-4px);
-  filter: drop-shadow(0 15px 30px rgba(212, 175, 55, 0.25));
-}
-
-.character-interactive-container::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 130px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 50%;
-  filter: blur(8px);
-  z-index: 1;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-.character-interactive-container:hover::before {
-  transform: scaleX(1.15);
-  opacity: 0.5;
-}
-
-/* Burbuja de Diálogo Interactiva Editorial Luxury */
-.character-speech-bubble {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(12px) scale(0.96);
-  background: rgba(13, 14, 18, 0.92);
-  border: 1px solid var(--border-gold-subtle);
-  border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  max-width: 90%;
-  width: max-content;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
-  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: var(--text-main);
-  letter-spacing: 0.01em;
-}
-
-.character-speech-bubble strong {
-  display: block;
-  font-family: var(--font-display);
-  font-style: normal;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: 0.35rem;
-}
-
-.character-speech-bubble.active {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.character-speech-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -7px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 13px;
-  height: 13px;
-  background: rgba(13, 14, 18, 0.92);
-  border-right: 1px solid var(--border-gold-subtle);
-  border-bottom: 1px solid var(--border-gold-subtle);
 }
 

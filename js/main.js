@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   autoFetchYouTubeChapters();
   initDynamicBlog();
   initDynamicBlogPost();
-  initInteractiveCharacter();
 });
 
 /* 1. TOGGLE DE TEMA (v9-theme) */
@@ -359,66 +358,6 @@ function initCookieBanner() {
     setTimeout(() => {
       banner.style.display = 'none';
     }, 300);
-  }
-}
-
-/* 10. SILUETA INTERACTIVA DE EL RAYO ROMANO */
-function initInteractiveCharacter() {
-  const container = document.getElementById('character-container');
-  const img = document.getElementById('character-img');
-  const bubble = document.getElementById('speech-bubble');
-
-  if (!container || !img || !bubble) return;
-
-  const quotePool = [
-    "El caos externo es inevitable; tu quietud interna es una elección.",
-    "No sufras por el futuro. Cuando llegue, lo enfrentarás con la misma razón que hoy te guía.",
-    "La mejor venganza contra tus enemigos es no parecerte a ellos.",
-    "El valor de tu vida se mide por la nobleza de tus intenciones.",
-    "Pregúntate a cada instante: ¿Es esto necesario?",
-    "Tienes poder en este preciso momento. Úsalo con justicia.",
-    "El obstáculo en tu camino es una oportunidad para practicar la virtud."
-  ];
-
-  let quoteIndex = 0;
-  let bubbleTimeout = null;
-
-  // Mostrar burbuja al pasar el cursor (hover)
-  container.addEventListener('mouseenter', () => {
-    showBubble();
-  });
-
-  container.addEventListener('mouseleave', () => {
-    hideBubble();
-  });
-
-  // Cambiar cita al hacer clic en el personaje
-  img.addEventListener('click', () => {
-    // Micro-animación de rebote al hacer clic
-    img.style.transform = 'scale(0.96) translateY(4px)';
-    setTimeout(() => {
-      img.style.transform = '';
-    }, 150);
-
-    // Cambiar la cita con un efecto de transición rápida
-    bubble.classList.remove('active');
-    
-    setTimeout(() => {
-      quoteIndex = (quoteIndex + 1) % quotePool.length;
-      bubble.innerHTML = `<strong>EL RAYO ROMANO</strong>"${quotePool[quoteIndex]}"`;
-      showBubble();
-    }, 200);
-  });
-
-  function showBubble() {
-    if (bubbleTimeout) clearTimeout(bubbleTimeout);
-    bubble.classList.add('active');
-  }
-
-  function hideBubble() {
-    bubbleTimeout = setTimeout(() => {
-      bubble.classList.remove('active');
-    }, 800);
   }
 }
 
